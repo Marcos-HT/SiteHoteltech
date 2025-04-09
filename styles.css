@@ -1,69 +1,91 @@
+/* ============================== */
+/* == ESTILOS GERAIS E VARIÁVEIS == */
+/* ============================== */
+
 :root {
     --color-primary: #081924;      /* Cor principal (azul escuro) */
     --color-secondary: #081924;     /* Cor secundária (atualmente igual primária) */
-    --color-tertiary: #081924;      /* Cor terciária (fundo da página - cinza claro) */
-    --color-text-primary: #333;      /* Cor do texto principal */
-    --color-bg-block: #fff;          /* Cor de fundo dos blocos */
-    --color-border-block: #ddd;      /* Cor da borda dos blocos */
-    --color-shadow: rgba(0, 0, 0, 0.1); /* Cor da sombra */
-    --color-border-button: #22d4fd;   /* Cor da borda dos botões (azul claro) */
-    --color-hover-button: #1f4964;   /* Cor de hover dos botões (azul mais escuro/acinzentado) */
-    --font-button: 0.8em;            /* Tamanho da fonte dos botões */
-    --font-family-button: sans-serif; /* Fonte dos botões */
+    --color-text-primary-on-light: #333; /* Texto escuro para fundo claro (blocos) */
+    --color-text-primary-on-dark: #f0f0f0; /* Texto claro para fundo escuro (body) */
+    --color-headings-on-dark: #ffffff;   /* Títulos em fundo escuro */
+    --color-link: var(--color-border-button); /* Cor padrão para links */
+    --color-bg-block: #fff;          /* Fundo branco dos blocos */
+    --color-border-block: #ddd;      /* Borda cinza claro dos blocos */
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-border-button: #22d4fd;   /* Azul claro borda/link */
+    --color-hover-button: #1f4964;   /* Azul acinzentado hover */
+    --font-button: 0.8em;
+    --font-family-button: sans-serif;
 }
 
 body {
     font-family: sans-serif;
-    margin: 0; /* Removido margin grande, usar padding no container se necessário */
-    padding: 20px; /* Adicionado padding geral */
-    background-color: var(--color-tertiary);
+    margin: 0;
+    padding: 0;
+    background-color: #081924;
+    color: var(--color-text-primary-on-dark);
+    line-height: 1.6;
+}
+
+/* ================================= */
+/* == ESTILOS PÁGINA PRINCIPAL (INDEX) == */
+/* ================================= */
+
+.main-page-content {
+    padding: 20px;
 }
 
 .search-container {
-    margin: 20px auto; /* Margem acima/abaixo e centralizado horizontalmente */
+    margin: 0 auto 20px auto;
     text-align: center;
-    max-width: 600px; /* Limita largura da barra de busca */
-    padding: 0 20px; /* Adiciona padding lateral para não colar nas bordas em telas menores */
-    box-sizing: border-box; /* Inclui padding na largura total */
+    max-width: 600px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#searchInput::placeholder {
+    color: #aaa;
 }
 
 #searchInput {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #445;
     border-radius: 5px;
-    width: 100%; /* Ocupa toda a largura do search-container */
+    width: 100%;
     font-size: 1em;
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+    box-sizing: border-box;
+    background-color: #1a2b38;
+    color: var(--color-text-primary-on-dark);
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colunas por padrão */
-    grid-gap: 20px; /* Espaçamento entre os blocos */
-    justify-items: center; /* Centraliza horizontalmente os blocos na célula */
-    /* align-items: start; foi REMOVIDO para usar o padrão 'stretch' */
-    max-width: 1600px; /* Limita a largura máxima do container */
-    margin: 20px auto; /* Centraliza o container na página */
-    padding: 0 10px; /* Pequeno padding lateral no container */
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+    max-width: 1600px;
+    margin: 20px auto;
+    padding: 0 10px;
 }
 
 .hotel-block {
     background-color: var(--color-bg-block);
     border: 1px solid var(--color-border-block);
     border-radius: 8px;
-    padding: 20px; /* Espaçamento interno do bloco */
+    padding: 20px;
     text-align: center;
     box-shadow: 0 2px 4px var(--color-shadow);
-    width: 100%; /* Ocupa toda a largura da célula da grid */
-    box-sizing: border-box; /* Garante que padding/border estejam incluídos na largura */
-    display: grid; /* Usa grid interno para alinhar logo/nome/botões */
-    grid-template-rows: auto 1fr auto; /* Logo | Nome (flexível) | Botões */
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    color: var(--color-text-primary-on-light);
 }
 
 .hotel-logo {
     width: 150px;
     height: 150px;
-    margin: 0 auto 15px; /* Margem abaixo do logo */
+    margin: 0 auto 15px;
     overflow: hidden;
     border-radius: 8px;
     grid-row: 1;
@@ -77,13 +99,14 @@ body {
 
 .hotel-name {
     font-size: 0.9em;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary-on-light);
     grid-row: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 40px;
     padding-bottom: 10px;
+    font-weight: bold;
 }
 
 .hotel-buttons {
@@ -97,9 +120,7 @@ body {
 .button {
     background-color: var(--color-primary);
     color: #fff;
-    /* --- CORREÇÃO APLICADA AQUI --- */
-    border: 1px solid var(--color-border-button); /* Usa a variável correta #22d4fd */
-    /* ----------------------------- */
+    border: 1px solid var(--color-border-button);
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
@@ -109,58 +130,264 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease;
     text-align: center;
     line-height: 1.2;
+    box-sizing: border-box;
 }
 
 .button:hover {
     background-color: var(--color-hover-button);
-    border-color: var(--color-hover-button); /* Mantém a mudança da borda no hover */
+    border-color: var(--color-hover-button);
 }
 
-.acesso-ovpn {
-    /* Estilos específicos podem ser adicionados aqui se necessário */
-}
+.acesso-ovpn { /* Estilos específicos se necessário */ }
 
 .dados-hotel {
     background-color: var(--color-secondary);
-    /* border-color: var(--color-secondary); */ /* Linha removida - herda a borda de .button */
 }
 
 .dados-hotel:hover {
     background-color: var(--color-hover-button);
-    border-color: var(--color-hover-button); /* Mantém a mudança da borda no hover */
+    border-color: var(--color-hover-button);
 }
 
-/* --- Media Queries para Responsividade --- */
+/* --- Media Queries (INDEX) --- */
 
 @media (max-width: 1200px) {
-    .container {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    .container { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 992px) {
-    .container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .hotel-logo {
-      width: 120px;
-      height: 120px;
-    }
+    .container { grid-template-columns: repeat(3, 1fr); }
+    .hotel-logo { width: 120px; height: 120px; }
 }
 
-
 @media (max-width: 768px) {
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .container { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 576px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-     .hotel-logo {
-      width: 150px;
-      height: 150px;
-    }
+    .main-page-content { padding: 10px; }
+    .container { grid-template-columns: 1fr; gap: 15px; }
+    .hotel-logo { width: 130px; height: 130px; }
+    .hotel-block { padding: 15px; }
+}
+
+
+/* ======================================= */
+/* == ESTILOS PÁGINA DE DETALHES (HOTEL) == */
+/* ======================================= */
+
+.hotel-detail-section {
+    display: none;
+}
+
+.detalhes-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px 30px 30px 30px;
+    background-color: var(--color-bg-block);
+    color: var(--color-text-primary-on-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.detalhes-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.detalhes-header h1 {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 1.8em;
+}
+
+.detalhes-header .header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.detalhes-header .button {
+    min-width: 130px; /* Largura mínima para botões do header */
+}
+
+.backup-button { /* Estilo específico */ }
+
+.voltar-button { /* Classe específica para botão Voltar (substitui .link-voltar) */
+     white-space: nowrap;
+}
+.voltar-button:hover {
+     background-color: var(--color-hover-button);
+}
+/* .link-voltar pode ser removido se não for mais usado */
+/* .link-voltar:hover { background-color: var(--color-hover-button); } */
+
+
+.detalhes-corpo-flex {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.detalhes-coluna-esquerda {
+    flex: 0 0 250px;
+}
+
+.detalhes-coluna-esquerda #hotel-imagens,
+.detalhes-coluna-esquerda .hotel-section-imagens {
+    margin-bottom: 0;
+}
+
+.detalhes-coluna-esquerda img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    border: 1px solid #eee;
+    margin-bottom: 0;
+}
+
+.detalhes-coluna-direita {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+#hotel-descricao,
+.hotel-section-descricao {
+    margin-bottom: 0.8em;
+    line-height: 1.6;
+    color: #555;
+}
+
+#hotel-descricao h3,
+.hotel-section-descricao h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.2em;
+}
+
+#hotel-descricao p,
+.hotel-section-descricao p {
+    white-space: normal !important; overflow: visible !important; text-overflow: clip !important;
+    height: auto !important; max-height: none !important; -webkit-line-clamp: unset !important; display: block !important;
+}
+
+.contato-info { /* Wrapper */ }
+
+.contato-item {
+    margin-bottom: 2px;
+    font-size: 0.95em;
+    line-height: 1.2;
+    color: #555;
+}
+
+.contato-item strong {
+    display: inline-block;
+    min-width: 80px;
+    color: var(--color-text-primary-on-light);
+}
+
+.contato-info a, .contato-item a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+.contato-info a:hover, .contato-item a:hover {
+    text-decoration: underline;
+}
+
+.info-blocks-container-static {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.info-block-detalhes {
+    background-color: #fdfdfd;
+    border: 1px solid var(--color-border-block);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px var(--color-shadow);
+    text-align: left;
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--color-text-primary-on-light);
+}
+
+.info-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-block-detalhes h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.info-block-header .button {
+    padding: 4px 8px;
+    font-size: 0.7em;
+    flex-shrink: 0;
+    /* Herda min-width do header-buttons .button */
+}
+
+.info-block-detalhes p {
+    margin-bottom: 1px;
+    line-height: 1;
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.info-block-detalhes p strong {
+    display: inline-block;
+    min-width: 100px;
+    color: var(--color-text-primary-on-light);
+    margin-right: 5px;
+}
+
+.mikrotik-logo-detalhes {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 120px;
+    height: auto;
+}
+
+/* --- Media Queries (DETALHES) --- */
+
+@media (max-width: 768px) {
+    .detalhes-corpo-flex { flex-direction: column; gap: 20px; }
+    .detalhes-coluna-esquerda { flex-basis: auto; width: 150px; margin: 0 auto; }
+    .detalhes-coluna-direita { flex-basis: auto; }
+}
+
+@media (max-width: 576px) {
+    body { padding: 10px; }
+    .detalhes-container { margin: 0 auto; padding: 15px; }
+    .detalhes-header h1 { font-size: 1.5em; }
+    .detalhes-header { margin-bottom: 15px; padding-bottom: 10px; }
+    #hotel-descricao h3, .hotel-section-descricao h3, .contato-item, .info-block-detalhes h3, .info-block-header h3 { font-size: 1.1em; margin-bottom: 10px; }
+    .info-block-detalhes p { font-size: 0.9em;}
+    .contato-item { line-height: 1.4; margin-bottom: 5px;}
+    .detalhes-corpo-flex { margin-bottom: 20px; gap: 15px;}
+    .info-blocks-container-static { gap: 15px; margin-top: 20px; }
 }
