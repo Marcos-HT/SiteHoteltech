@@ -138,7 +138,7 @@
 
             <div class="hotel-block">
                 <div class="hotel-logo">
-                    <img src="assets/logo-hotel/Bristol-Santo-André_logo.jpg" alt="Bristol Santo André">
+                    <img src="assets/logo-hotel/Bristol-Santo-Andre_logo.jpg" alt="Bristol Santo André">
                 </div>
                 <h2 class="hotel-name">Bristol Santo André</h2>
                 <div class="hotel-buttons">
@@ -796,7 +796,7 @@
                 </div>
             </div>
 
-            </div> </div> <script>
+        </div> </div> <script>
         const searchInput = document.getElementById('searchInput');
         const hotelBlocks = document.querySelectorAll('.hotel-block');
 
@@ -808,16 +808,31 @@
                 if (hotelNameElement) {
                     const hotelName = hotelNameElement.textContent.toLowerCase();
                     if (hotelName.includes(searchTerm)) {
-                        // Mostrar bloco (usando o display original do CSS: grid)
                         block.style.display = 'grid';
                     } else {
-                        // Esconder bloco
                         block.style.display = 'none';
                     }
                 }
             });
         });
     </script>
-</body>
 
+<footer class="main-footer">
+    <img src="assets/arquivos-png/hoteltech-azul.png" alt="Logo Hoteltech Rodapé" class="footer-logo-main">
+    
+    <div class="footer-links">
+        <a href="https://hoteltechbr.com/" target="_blank" class="footer-link">
+            <img src="assets/arquivos-png/site.png"Website" class="footer-icon"> <span>Website</span>
+        </a>
+        <a href="https://www.instagram.com/hoteltechbr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link">
+            <img src="assets/arquivos-png/instagram.png" alt="Instagram" class="footer-icon"> <span>Instagram</span>
+        </a>
+        <a href="https://linktr.ee/hoteltechbr?fbclid=PAZXh0bgNhZW0CMTEAAafA18AkjQIq8Aie0cJLg2B7Zsovwa2G9qcP_Xar2sqXgaL-te5A4iuAsop_hg_aem_rz2grfIcSKv62_8QEqrvegF" target="_blank" class="footer-link">
+            <img src="assets/arquivos-png/whatsapp.png" alt="WhatsApp" class="footer-icon"> <span>WhatsApp</span>
+        </a>
+    </div>
+   
+</footer>
+
+    </body>
 </html>

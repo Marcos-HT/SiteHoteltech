@@ -16,7 +16,7 @@
     --color-link: var(--color-border-button);
     /* Cor padrão para links */
     --color-bg-block: #fff;
-    /* Fundo branco dos blocos */
+    /* Fundo branco dos blocos (E RODAPÉ PRINCIPAL) */
     --color-border-block: #ddd;
     /* Borda cinza claro dos blocos */
     --color-shadow: rgba(0, 0, 0, 0.8);
@@ -58,7 +58,7 @@ body {
 }
 
 .header-logo {
-    height: 45px;
+    height: 42px;
     width: auto;
     flex-shrink: 0; /* Impede que o logo encolha */
 }
@@ -153,13 +153,27 @@ body {
 }
 .hotel-buttons { display: flex; flex-direction: column; gap: 5px; grid-row: 3; margin-top: auto; }
 
+/* <<< REGRA .button ATUALIZADA com Flexbox >>> */
 .button {
     background-color: var(--color-primary); color: #fff; border: 3px solid var(--color-border-button);
     padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: var(--font-button);
     font-family: var(--font-family-button); text-decoration: none;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     text-align: center; line-height: 1.2; box-sizing: border-box;
+
+    /* Adicionado Flexbox para alinhar ícone e texto */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Espaço entre ícone e texto */
 }
+
+/* <<< NOVA REGRA: Ícones dentro dos botões >>> */
+.button-icon {
+    height: 1em;  /* Altura relativa ao font-size do botão */
+    width: auto;
+}
+
 .button:hover { background-color: var(--color-hover-button); }
 .acesso-ovpn { }
 .dados-hotel { background-color: var(--color-secondary); }
@@ -184,7 +198,13 @@ body {
 }
 .detalhes-header h1 { margin: 0; color: var(--color-primary); font-size: 1.8em; }
 .detalhes-header .header-buttons { display: flex; gap: 10px; }
-.detalhes-header .button { min-width: 130px; border-width: 3px; }
+
+/* <<< ATUALIZADO: Botões no header de detalhes >>> */
+.detalhes-header .button {
+    min-width: auto;    /* Largura automática */
+    padding: 8px 15px;  /* Padding ajustado */
+    border-width: 3px;
+}
 .backup-button { }
 .voltar-button { white-space: nowrap; }
 
@@ -210,7 +230,12 @@ body {
 
 .contato-info { }
 .contato-item { margin-bottom: 2px; font-size: 0.95em; line-height: 1.2; color: #555; }
-.contato-item strong { display: inline-block; min-width: 80px; color: var(--color-text-primary-on-light); }
+.contato-item strong {
+    display: inline-block;
+    /* min-width: 80px; */ /* REMOVIDO */
+    color: var(--color-text-primary-on-light);
+    margin-right: 5px; /* Espaço pequeno depois do rótulo */
+}
 .contato-info a, .contato-item a { color: var(--color-link); text-decoration: none; }
 .contato-info a:hover, .contato-item a:hover { text-decoration: underline; }
 
@@ -228,36 +253,89 @@ body {
     color: var(--color-primary); margin: 0; border-bottom: none; padding-bottom: 0;
     font-size: 1.2em; margin-right: 10px;
 }
-/* <<< ATUALIZADO: Estilo dos botões pequenos no header dos info-blocks >>> */
-.info-block-header .button {
-    padding: 6px 12px;  /* Aumentado */
-    font-size: 0.8em;  /* Aumentado */
+.info-block-header .button { /* Botões pequenos (Acesso Web) nos info blocks */
+    padding: 6px 12px;
+    font-size: 0.8em;
     flex-shrink: 0;
+    /* Herda display:inline-flex, align-items, justify-content, gap da regra .button geral */
 }
 .info-block-detalhes p { margin-bottom: 1px; line-height: 1; font-size: 0.95em; word-wrap: break-word; }
 .info-block-detalhes p strong { display: inline-block; min-width: 100px; color: var(--color-text-primary-on-light); margin-right: 5px; }
 .mikrotik-logo-detalhes { display: block; margin: 20px auto 0 auto; max-width: 120px; height: auto; }
 
 
-/* <<< ATUALIZADO: Estilos para Rodapé (agora separado) >>> */
+/* Estilos para Rodapé da Seção de Detalhes (Separado) */
 .details-footer {
-    padding: 20px;         /* Espaçamento interno */
-    margin-top: 30px;      /* Espaço acima do rodapé */
-    display: flex;         /* Centralizar logo */
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 900px;      /* Largura máxima igual ao container */
-    margin-left: auto;     /* Centraliza o bloco do rodapé */
+    max-width: 900px;
+    margin-left: auto;
     margin-right: auto;
-    /* Removemos background, shadow, border-radius */
 }
 
-.footer-logo {
+.footer-logo { /* Logo do rodapé da página de detalhes */
     height: 40px;
     width: auto;
 }
-/* <<< FIM: Estilos para Rodapé >>> */
+/* FIM: Estilos para Rodapé Detalhes */
 
+
+/* =========================== */
+/* == RODAPÉ PÁGINA PRINCIPAL == */
+/* =========================== */
+
+.main-footer {
+    min-height: 20px;
+    background-color: var(--color-bg-block); /* Fundo branco */
+    margin: 40px 20px 20px 20px;      /* Margens externas */
+    border-radius: 5px;               /* Bordas arredondadas */
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Coluna flexível | Coluna do Logo | Coluna flexível */
+    align-items: center;            /* Alinha verticalmente */
+    padding: 10px 20px;             /* Padding interno */
+    gap: 20px;                      /* Espaço entre as colunas do grid */
+}
+
+.footer-links {
+    grid-column: 3 / 4;     /* Posiciona na terceira coluna do grid */
+    justify-self: end;      /* Alinha o container todo à direita da sua coluna */
+    display: flex;
+    align-items: center;
+    gap: 20px;             /* Espaço entre os links */
+    flex-wrap: wrap;       /* Permite que os links quebrem linha */
+}
+
+.footer-link {
+    display: inline-flex;  /* Para alinhar ícone e texto na mesma linha */
+    align-items: center;
+    text-decoration: none; /* Sem sublinhado */
+    color: var(--color-text-primary-on-light); /* Cor #333 */
+    font-weight: bold;     /* Negrito */
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover span {
+    color: var(--color-border-button); /* Cor #22d4fd no hover */
+}
+
+.footer-icon {
+    height: 16px;     /* Tamanho do ícone */
+    width: auto;
+    margin-right: 6px; /* Espaço entre ícone e texto */
+    vertical-align: middle; /* Ajuda no alinhamento vertical */
+}
+
+.footer-logo-main {
+    grid-column: 2 / 3;     /* Posiciona na segunda (centro) coluna do grid */
+    justify-self: center;   /* Centraliza o logo dentro da sua coluna */
+    height: 25px;
+    width: auto;
+    display: block;
+}
 
 /* ======================== */
 /* == MEDIA QUERIES ======== */
@@ -287,23 +365,47 @@ body {
     .nav-link { font-size: 0.9em; }
 }
 
-@media (max-width: 576px) {
-    body { padding: 10px; }
-    /* Index: Conteúdo e Grid */
-    .main-page-content { padding: 0 10px 10px 10px; }
-    .container { grid-template-columns: 1fr; gap: 15px; }
-    .hotel-logo { width: 130px; height: 130px; }
-    .hotel-block { padding: 15px; }
-    /* Detalhes: Container e Fontes */
-    .detalhes-container { margin: 10px auto; padding: 15px; }
-    .detalhes-header h1 { font-size: 1.5em; }
-    .detalhes-header { margin-bottom: 15px; padding-bottom: 10px; }
-    #hotel-descricao h3, .hotel-section-descricao h3, .contato-item,
-    .info-block-detalhes h3, .info-block-header h3 { font-size: 1.1em; margin-bottom: 10px; }
-    .info-block-detalhes p { font-size: 0.9em; }
-    .contato-item { line-height: 1.4; margin-bottom: 5px; }
-    .detalhes-corpo-flex { margin-bottom: 20px; gap: 15px; }
-    .info-blocks-container-static { gap: 15px; margin-top: 20px; }
+@media (max-width: 600px) { /* COMBINADO Breakpoint 600px */
+     body { padding: 10px; }
+     /* Index: Conteúdo e Grid */
+     .main-page-content { padding: 0 10px 10px 10px; }
+     .container { grid-template-columns: 1fr; gap: 15px; }
+     .hotel-logo { width: 130px; height: 130px; }
+     .hotel-block { padding: 15px; }
+     /* Detalhes: Container e Fontes */
+     .detalhes-container { margin: 10px auto; padding: 15px; }
+     .detalhes-header h1 { font-size: 1.5em; }
+     .detalhes-header { margin-bottom: 15px; padding-bottom: 10px; }
+     #hotel-descricao h3, .hotel-section-descricao h3, .contato-item,
+     .info-block-detalhes h3, .info-block-header h3 { font-size: 1.1em; margin-bottom: 10px; }
+     .info-block-detalhes p { font-size: 0.9em; }
+     .contato-item { line-height: 1.4; margin-bottom: 5px; }
+     .detalhes-corpo-flex { margin-bottom: 20px; gap: 15px; }
+     .info-blocks-container-static { gap: 15px; margin-top: 20px; }
+
+    /* Responsividade Rodapé Principal com Grid */
+    .main-footer {
+        grid-template-columns: 1fr; /* Muda para coluna única */
+        justify-items: center;      /* Centraliza itens na coluna */
+        gap: 15px;                  /* Espaço entre logo e links */
+        padding: 15px;
+        margin-top: 30px; /* Reduz margem superior */
+    }
+
+    .footer-logo-main {
+        grid-column: 1; /* Reseta coluna */
+        grid-row: 1;    /* Logo primeiro */
+        height: 22px;
+    }
+
+    .footer-links {
+        grid-column: 1; /* Reseta coluna */
+        grid-row: 2;    /* Links depois */
+        justify-self: center; /* Centraliza container de links */
+        justify-content: center; /* Centraliza links dentro do container */
+        width: 100%;
+        gap: 15px 20px;
+    }
 }
 
 /* Ajuste Adicional para Header em Telas Muito Pequenas */
