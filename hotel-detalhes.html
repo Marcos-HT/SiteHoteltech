@@ -6,17 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Hotel</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo adicional para garantir que blocos opcionais fiquem ocultos inicialmente */
+        .info-block-opcional {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="hotel-detail-section" id="bourbon-curitiba" style="display: none;">
+    <div id="hotel-details-content" style="display: none;">
         <div class="detalhes-container">
 
             <div class="detalhes-header">
-                <h1 id="hotel-nome-detalhe-bourbon-curitiba"></h1>
+                <h1 id="detalhe-nome">Carregando nome...</h1>
                 <div class="header-buttons">
-                    <a href="https://0.0.0.0" target="_blank" class="button backup-button">
+                    <a id="detalhe-backup-link" href="#" target="_blank" class="button backup-button" style="display: none;">
                         <img src="assets/arquivos-png/backup.png" alt="" class="button-icon"> <span>Backup</span>
                     </a>
                     <a href="index.html" class="button voltar-button">
@@ -27,16 +33,16 @@
 
             <div class="detalhes-corpo-flex">
                 <div class="detalhes-coluna-esquerda">
-                    <div id="hotel-imagens-bourbon-curitiba">
+                    <div id="detalhe-imagens">
                         <p>Carregando imagem...</p>
                     </div>
                 </div>
                 <div class="detalhes-coluna-direita">
-                    <div class="hotel-section-descricao" id="hotel-descricao-bourbon-curitiba">
+                    <div class="hotel-section-descricao">
                         <h3>Descrição</h3>
-                        <p>Carregando descrição...</p>
+                        <p id="detalhe-descricao">Carregando descrição...</p>
                     </div>
-                    <div class="contato-info" id="hotel-contato-info-bourbon-curitiba">
+                    <div class="contato-info" id="detalhe-contato">
                         <p>Carregando contato...</p>
                     </div>
                 </div>
@@ -44,196 +50,257 @@
 
             <div class="info-blocks-container-static">
 
-                <div class="info-block-detalhes">
-                    <div class="info-block-header">
-                        <h3>ACESSO RB</h3>
-                    </div>
-                    <p><strong>OVPN HT:</strong> 10.31.0.61:3055</p>
-                    <p><strong>IP Local RB:</strong> 10.17.4.167</p>
-                    <p><strong>User:</strong> hoteltech</p>
-                    <p><strong>Senha:</strong> @ht2020*!</p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_mikrotik.png"
-                        alt="MikroTik Logo">
+                <div id="bloco-acesso-rb" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header"> <h3>ACESSO RB</h3> </div>
+                    <p><strong>OVPN HT:</strong> <span id="detalhe-rb-ovpn">N/D</span></p>
+                    <p><strong>IP Local RB:</strong> <span id="detalhe-rb-ip">N/D</span></p>
+                    <p><strong>User:</strong> <span id="detalhe-rb-user">N/D</span></p>
+                    <p><strong>Senha:</strong> <span id="detalhe-rb-senha">N/D</span></p>
+                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_mikrotik.png" alt="MikroTik Logo">
                 </div>
 
-                <div class="info-block-detalhes">
+                <div id="bloco-acesso-flussonic" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSO FLUSSONIC</h3>
-                        <a href="http://10.31.0.26:8080" target="_blank" class="button acesso-web-button">Acesso Web</a>
+                         <a id="detalhe-flussonic-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
                     </div>
-                    <p><strong>Ovpn HT:</strong> 10.31.0.26</p>
-                    <p><strong>Ip da rede:</strong> 192.168.88.41</p>
-                    <p><strong>Porta SSH:</strong> 22</p>
-                    <p><strong>Porta Web:</strong> 8080</p>
-                    <p><strong>User SSH:</strong> hoteltech</p>
-                    <p><strong>Senha:</strong> @ht2020*</p>
-                    <p><strong>User Web:</strong> admin</p>
-                    <p><strong>Senha:</strong> @ht2020*</p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_flussonic.png"
-                        alt="Flussonic Logo">
+                    <p><strong>Ovpn HT:</strong> <span id="detalhe-flussonic-ovpn">N/D</span></p>
+                    <p><strong>Ip da rede:</strong> <span id="detalhe-flussonic-ip-rede">N/D</span></p>
+                    <p><strong>Porta SSH:</strong> <span id="detalhe-flussonic-porta-ssh">N/D</span></p>
+                    <p><strong>Porta Web:</strong> <span id="detalhe-flussonic-porta-web">N/D</span></p>
+                    <p><strong>User SSH:</strong> <span id="detalhe-flussonic-user-ssh">N/D</span></p>
+                    <p><strong>Senha SSH:</strong> <span id="detalhe-flussonic-senha-ssh">N/D</span></p>
+                    <p><strong>User Web:</strong> <span id="detalhe-flussonic-user-web">N/D</span></p>
+                    <p><strong>Senha Web:</strong> <span id="detalhe-flussonic-senha-web">N/D</span></p>
+                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_flussonic.png" alt="Flussonic Logo">
                 </div>
 
-                <div class="info-block-detalhes">
+                <div id="bloco-acesso-ird" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSOS IRD</h3>
-                        <a href="http://10.31.0.61:8583/" target="_blank" class="button acesso-web-button">Acesso Web</a>
+                        <a id="detalhe-ird-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
                     </div>
-                    <p><strong>Ovpn HT:</strong> 10.31.0.61:8583</p>
-                    <p><strong>Ip rede:</strong> 192.168.88.136</p>
-                    <p><strong>User:</strong> admin</p>
-                    <p><strong>Senha:</strong> admin</p>
+                    <p><strong>Ovpn HT:</strong> <span id="detalhe-ird-ovpn">N/D</span></p>
+                    <p><strong>Ip rede:</strong> <span id="detalhe-ird-ip-rede">N/D</span></p>
+                    <p><strong>User:</strong> <span id="detalhe-ird-user">N/D</span></p>
+                    <p><strong>Senha:</strong> <span id="detalhe-ird-senha">N/D</span></p>
                     <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_Isdb-t.png" alt="ISDB-T Logo">
                 </div>
 
-                <div class="info-block-detalhes">
-                    <div class="info-block-header">
-                        <h3>ACESSOS REMOTO</h3>
-                    </div>
-                    <p><strong>Canal Institucional</strong></p>
-                    <p><strong>AnyDesk:</strong> 1492046315</p>
-                    <p><strong>Senha:</strong> @ht2020*</p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
-                        alt="AnyDesk Logo">
+                <div id="bloco-acesso-remoto" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header"> <h3>ACESSOS REMOTO</h3> </div>
+                    <p><strong id="detalhe-remoto-tipo">N/D</strong></p>
+                    <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-anydesk">N/D</span></p>
+                    <p><strong>Senha:</strong> <span id="detalhe-remoto-senha">N/D</span></p>
+                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png" alt="AnyDesk Logo">
                 </div>
 
-            </div>
-        </div>
-    </div>
-    <div class="hotel-detail-section" id="bourbon-ponta-grossa" style="display: none;">
-        <div class="detalhes-container">
-            <div class="detalhes-header">
-                <h1 id="hotel-nome-detalhe-bourbon-ponta-grossa"></h1>
-                <div class="header-buttons">
-                    <a href="https://0.0.0.0" target="_blank" class="button backup-button">Backup Hotel</a>
-                    <a href="index.html" class="button voltar-button">Voltar para Lista</a>
+                <div id="bloco-info-adm" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header"> <h3>INFORMAÇÕES ADM</h3> </div>
+                    <p><strong>Contato Adm:</strong> <span id="detalhe-adm-contato">N/D</span></p>
                 </div>
-            </div>
 
-            <div class="detalhes-corpo-flex">
-                <div class="detalhes-coluna-esquerda">
-                    <div id="hotel-imagens-bourbon-ponta-grossa">
-                        <p>Carregando imagem...</p>
-                    </div>
-                </div>
-                <div class="detalhes-coluna-direita">
-                    <div class="hotel-section-descricao" id="hotel-descricao-bourbon-ponta-grossa">
-                        <h3>Descrição</h3>
-                        <p>Carregando descrição...</p>
-                    </div>
-                    <div class="contato-info" id="hotel-contato-info-bourbon-ponta-grossa">
-                        <p>Carregando contato...</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-blocks-container-static">
-                <div class="info-block-detalhes">
-                    <div class="info-block-header">
-                        <h3>INFORMAÇÕES ADM</h3>
-                    </div>
-                    <p><strong>Contato Adm:</strong> adm@pg.com</p>
-                </div>
             </div>
         </div>
     </div>
     <div id="error-message" style="display: none; padding: 40px; text-align: center; color: white;">
         <h1>Hotel Não Encontrado</h1>
-        <p>O hotel solicitado não foi encontrado...</p>
-        <a href="index.html" class="link-voltar" style="margin-top: 20px;">Voltar para Lista</a>
+        <p>O hotel solicitado não foi encontrado na base de dados.</p>
+        <a href="index.html" class="button voltar-button" style="margin-top: 20px; display: inline-flex;">Voltar para Lista</a>
     </div>
-
+    <script src="database.js"></script>
 
     <script>
-        // --- Banco de Dados (Apenas dados dinâmicos) ---
-        const hotelDatabase = {
-            "bourbon-curitiba": {
-                nome: "Bourbon Curitiba",
-                imagens: ["assets/logo-hotel/bourbon_logo.jpg"],
-                descricao: "O Bourbon Curitiba Convention Hotel está localizado no centro de Curitiba, próximo aos principais pontos turísticos e centros empresariais. Oferece apartamentos e suítes modernas, além de uma completa estrutura para eventos e lazer.",
-                infoAdicional: [
-                    { titulo: "Endereço", valor: "R. Cândido Lopes, 102 - Centro, Curitiba - PR, 80020-060" },
-                    { titulo: "Telefone", valor: "(41) 3221-4600" },
-                    { titulo: "Website", valor: "<a href='https://www.bourbon.com.br' target='_blank'>bourbon.com.br</a>" }
-                ]
-            },
-            "bourbon-ponta-grossa": {
-                nome: "Bourbon Ponta Grossa",
-                imagens: ["assets/logo-hotel/bourbon_logo.jpg"],
-                descricao: "Localizado em Ponta Grossa, este hotel offers comfort and convenience para viajantes a negócios ou lazer na região dos Campos Gerais.",
-                infoAdicional: [
-                    { titulo: "Endereço", valor: "Rua Jacob Holzmann, 219 - Olarias, Ponta Grossa - PR, 84035-290" },
-                    { titulo: "Telefone", valor: "(42) 3220-3700" },
-                    { titulo: "Website", valor: "<a href='https://www.bourbon.com.br' target='_blank'>bourbon.com.br</a>" }
-                ]
-            }
-            // Adicione entradas para TODOS os outros hotéis aqui...
-        };
-
-        // --- Função para mostrar seção e preencher dados dinâmicos ---
-        function displayHotelSection(hotelId) {
-            let found = false;
-            const allSections = document.querySelectorAll('.hotel-detail-section');
-            allSections.forEach(section => { section.style.display = 'none'; });
-
-            const targetSection = document.getElementById(hotelId);
-
-            if (targetSection) {
-                targetSection.style.display = 'block';
-                found = true;
-                const hotelData = hotelDatabase[hotelId];
-
-                if (hotelData) {
-                    const nomeElement = targetSection.querySelector(`h1`);
-                    if (nomeElement) nomeElement.textContent = hotelData.nome || hotelId;
-                    document.title = `Detalhes - ${hotelData.nome || hotelId}`;
-
-                    const imagensContainer = targetSection.querySelector(`#hotel-imagens-${hotelId}`);
-                    if (imagensContainer) {
-                        imagensContainer.innerHTML = '';
-                        if (hotelData.imagens && hotelData.imagens.length > 0) {
-                            hotelData.imagens.forEach(imgPath => {
-                                const img = document.createElement('img');
-                                img.src = imgPath; img.alt = `Logo ${hotelData.nome}`;
-                                imagensContainer.appendChild(img);
-                            });
-                        } else { imagensContainer.innerHTML = '<p>Sem imagem.</p>'; }
-                    }
-
-                    const descricaoP = targetSection.querySelector(`#hotel-descricao-${hotelId} p`);
-                    if (descricaoP) descricaoP.textContent = hotelData.descricao || 'Descrição não disponível.';
-
-                    const contatoContainer = targetSection.querySelector(`#hotel-contato-info-${hotelId}`);
-                    if (contatoContainer) {
-                        contatoContainer.innerHTML = '';
-                        if (hotelData.infoAdicional && hotelData.infoAdicional.length > 0) {
-                            hotelData.infoAdicional.forEach(info => {
-                                const p = document.createElement('p');
-                                p.classList.add('contato-item');
-                                p.innerHTML = `<strong>${info.titulo}:</strong> ${info.valor || ''}`;
-                                contatoContainer.appendChild(p);
-                            });
-                        } else { contatoContainer.innerHTML = '<p>Informações de contato não disponíveis.</p>'; }
-                    }
-                } else {
-                    const nomeElement = targetSection.querySelector(`h1`);
-                    if (nomeElement) nomeElement.textContent = hotelId;
-                    document.title = `Detalhes - ${hotelId}`;
-                }
+        // --- Função para preencher o template HTML ---
+        function renderHotelDetails(hotelId) {
+            // Verifica se hotelDatabase foi carregado
+            if (typeof hotelDatabase === 'undefined') {
+                 console.error("Erro: hotelDatabase não foi carregado. Verifique a inclusão de database.js");
+                 displayError("Erro ao carregar dados."); // Função auxiliar para erro
+                 return;
             }
 
+            const hotelData = hotelDatabase[hotelId];
+            const contentDiv = document.getElementById('hotel-details-content');
             const errorDiv = document.getElementById('error-message');
-            if (!found && errorDiv) { errorDiv.style.display = 'block'; document.title = "Erro - Hotel Não Encontrado"; }
-            else if (errorDiv) { errorDiv.style.display = 'none'; }
+
+            // Esconde conteúdo e erro inicialmente
+            contentDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+
+            // Esconde todos os blocos opcionais por padrão
+            document.querySelectorAll('.info-block-opcional').forEach(block => block.style.display = 'none');
+
+            if (hotelData) {
+                // --- Preenche Dados Principais ---
+                document.title = `Detalhes - ${hotelData.nome || hotelId}`;
+                setTextContent('detalhe-nome', hotelData.nome || hotelId);
+                setTextContent('detalhe-descricao', hotelData.descricao || 'Descrição não disponível.');
+
+                // --- Preenche Imagens ---
+                const imagensContainer = document.getElementById('detalhe-imagens');
+                if(imagensContainer) {
+                    imagensContainer.innerHTML = ''; // Limpa container
+                    if (hotelData.imagens && hotelData.imagens.length > 0) {
+                        hotelData.imagens.forEach(imgPath => {
+                            const img = document.createElement('img');
+                            img.src = imgPath;
+                            img.alt = `Logo ${hotelData.nome || hotelId}`;
+                            // Adicionar tratamento de erro para imagens, se necessário
+                            img.onerror = () => { img.style.display = 'none'; /* ou mostra placeholder */ };
+                            imagensContainer.appendChild(img);
+                        });
+                    } else {
+                        imagensContainer.innerHTML = '<p>Sem imagem.</p>';
+                    }
+                }
+
+                // --- Preenche Informações de Contato ---
+                const contatoContainer = document.getElementById('detalhe-contato');
+                if (contatoContainer) {
+                    contatoContainer.innerHTML = ''; // Limpa container
+                    if (hotelData.infoAdicional && hotelData.infoAdicional.length > 0) {
+                         hotelData.infoAdicional.forEach(info => {
+                             const p = document.createElement('p');
+                             p.classList.add('contato-item');
+                             p.innerHTML = `<strong>${info.titulo}:</strong> ${info.valor || 'N/D'}`;
+                             contatoContainer.appendChild(p);
+                         });
+                    } else {
+                         contatoContainer.innerHTML = '<p>Informações de contato não disponíveis.</p>';
+                    }
+                }
+
+                // --- Preenche Link de Backup (se existir) ---
+                const backupLinkElement = document.getElementById('detalhe-backup-link');
+                if (backupLinkElement) {
+                    if (hotelData.backupLink) {
+                        backupLinkElement.href = hotelData.backupLink;
+                        backupLinkElement.style.display = 'inline-flex';
+                    } else {
+                        backupLinkElement.style.display = 'none';
+                    }
+                }
+
+                // --- Preenche Blocos Opcionais ---
+                // Bloco RB
+                if (hotelData.acessoRB) {
+                    setTextContent('detalhe-rb-ovpn', hotelData.acessoRB.ovpn);
+                    setTextContent('detalhe-rb-ip', hotelData.acessoRB.ipLocal);
+                    setTextContent('detalhe-rb-user', hotelData.acessoRB.user);
+                    setTextContent('detalhe-rb-senha', hotelData.acessoRB.senha);
+                    showBlock('bloco-acesso-rb');
+                }
+
+                // Bloco Flussonic
+                if (hotelData.acessoFlussonic) {
+                    setTextContent('detalhe-flussonic-ovpn', hotelData.acessoFlussonic.ovpn);
+                    setTextContent('detalhe-flussonic-ip-rede', hotelData.acessoFlussonic.ipRede);
+                    setTextContent('detalhe-flussonic-porta-ssh', hotelData.acessoFlussonic.portaSSH);
+                    setTextContent('detalhe-flussonic-porta-web', hotelData.acessoFlussonic.portaWeb);
+                    setTextContent('detalhe-flussonic-user-ssh', hotelData.acessoFlussonic.userSSH);
+                    setTextContent('detalhe-flussonic-senha-ssh', hotelData.acessoFlussonic.senhaSSH);
+                    setTextContent('detalhe-flussonic-user-web', hotelData.acessoFlussonic.userWeb);
+                    setTextContent('detalhe-flussonic-senha-web', hotelData.acessoFlussonic.senhaWeb);
+                    setLinkHrefAndVisibility('detalhe-flussonic-link-web', hotelData.acessoFlussonic.linkWeb);
+                    showBlock('bloco-acesso-flussonic');
+                }
+
+                 // Bloco IRD
+                if (hotelData.acessoIRD) {
+                    setTextContent('detalhe-ird-ovpn', hotelData.acessoIRD.ovpn);
+                    setTextContent('detalhe-ird-ip-rede', hotelData.acessoIRD.ipRede);
+                    setTextContent('detalhe-ird-user', hotelData.acessoIRD.user);
+                    setTextContent('detalhe-ird-senha', hotelData.acessoIRD.senha);
+                    setLinkHrefAndVisibility('detalhe-ird-link-web', hotelData.acessoIRD.linkWeb);
+                    showBlock('bloco-acesso-ird');
+                }
+
+                 // Bloco Remoto
+                if (hotelData.acessoRemoto) {
+                    setTextContent('detalhe-remoto-tipo', hotelData.acessoRemoto.tipo);
+                    setTextContent('detalhe-remoto-anydesk', hotelData.acessoRemoto.anydesk);
+                    setTextContent('detalhe-remoto-senha', hotelData.acessoRemoto.senha);
+                    showBlock('bloco-acesso-remoto');
+                }
+
+                // Bloco ADM
+                 if (hotelData.infoAdm) {
+                    setTextContent('detalhe-adm-contato', hotelData.infoAdm.contato);
+                    // Preencher outros campos ADM se houver
+                    showBlock('bloco-info-adm');
+                }
+
+                // Mostra o container principal
+                contentDiv.style.display = 'block';
+
+            } else {
+                // Hotel não encontrado
+                displayError(`Hotel com ID "${hotelId}" não encontrado.`);
+            }
         }
 
-        // --- Lógica Principal ---
-        window.onload = () => {
+        // --- Funções Auxiliares ---
+        function setTextContent(id, text) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = text || 'N/D'; // Usa 'N/D' se texto for null/undefined/vazio
+            } else {
+                // console.warn(`Elemento com ID "${id}" não encontrado no template.`);
+            }
+        }
+
+        function setLinkHrefAndVisibility(id, href) {
+            const element = document.getElementById(id);
+            if (element) {
+                if (href) {
+                    element.href = href;
+                    element.style.display = 'inline-flex'; // Ou 'inline-block' dependendo do estilo do botão
+                } else {
+                    element.style.display = 'none';
+                }
+            } else {
+                 // console.warn(`Elemento link com ID "${id}" não encontrado.`);
+            }
+        }
+
+        function showBlock(id) {
+             const element = document.getElementById(id);
+             if (element) {
+                 element.style.display = 'block'; // Ou 'flex' se o container for flex
+             } else {
+                 // console.warn(`Bloco com ID "${id}" não encontrado.`);
+             }
+        }
+
+         function displayError(message) {
+            const errorDiv = document.getElementById('error-message');
+            if (errorDiv) {
+                const p = errorDiv.querySelector('p');
+                if (p) {
+                    p.textContent = message || "Ocorreu um erro.";
+                }
+                errorDiv.style.display = 'block';
+            }
+            document.title = "Erro - Hotel Não Encontrado";
+            // Esconde o conteúdo principal caso já esteja visível
+            const contentDiv = document.getElementById('hotel-details-content');
+            if(contentDiv) contentDiv.style.display = 'none';
+         }
+
+        // --- Lógica Principal ao Carregar a Página ---
+        window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const hotelId = urlParams.get('hotel');
-            if (!hotelId) { displayHotelSection(null); } else { displayHotelSection(hotelId); }
-        };
+
+            if (!hotelId) {
+                displayError("ID do hotel não especificado na URL.");
+                console.error("ID do hotel não encontrado na URL (parâmetro 'hotel').");
+            } else {
+                renderHotelDetails(hotelId);
+            }
+        });
     </script>
 
 </body>
-
 </html>
