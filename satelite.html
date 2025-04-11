@@ -12,8 +12,8 @@
 
     <header class="page-header">
         <img src="assets/arquivos-png/hoteltech-azul.png" alt="Logo Principal" class="header-logo">
-        <a href="index.html" class="button voltar-button">
-            <img src="assets/arquivos-png/voltar.png" alt="" class="button-icon"> <span>Voltar</span>
+        <a href="index.html" class="button voltar-button icon-button" title="Voltar">
+            <img src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon">
         </a>
     </header>
 
@@ -155,52 +155,8 @@
     <script src="database.js"></script>
 
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const hotelBlocks = document.querySelectorAll('.hotel-block');
-
-            hotelBlocks.forEach(block => {
-                const hotelId = block.dataset.hotelId;
-                if (!hotelId || !hotelDatabase || !hotelDatabase[hotelId]) {
-                    // console.warn(`Dados não encontrados para o hotel ID: ${hotelId}`);
-                    return; // Pula se não encontrar o ID ou o database
-                }
-
-                const hotelData = hotelDatabase[hotelId];
-                const ovpnButton = block.querySelector('.acesso-ovpn'); // Procura botão nesta página
-
-                 // *** ATENÇÃO: Verifique se o botão 'acesso-ovpn' existe nesta página. ***
-                 // Se ele foi removido/comentado, este código não fará nada ou dará erro se não tratado.
-                 // Se o botão foi removido intencionalmente, remova este script de 'satelite.html'.
-
-                if (ovpnButton) {
-                    // Lógica para definir o link: Prioriza Flussonic, depois IRD
-                    let targetLink = null;
-                    if (hotelData.acessoFlussonic && hotelData.acessoFlussonic.linkWeb) {
-                        targetLink = hotelData.acessoFlussonic.linkWeb;
-                    } else if (hotelData.acessoIRD && hotelData.acessoIRD.linkWeb) {
-                        targetLink = hotelData.acessoIRD.linkWeb;
-                    }
-
-                    if (targetLink) {
-                        ovpnButton.href = targetLink;
-                        ovpnButton.target = "_blank";
-                    } else {
-                        ovpnButton.href = "#";
-                        // Opcional: Desabilitar visualmente
-                        // ovpnButton.style.opacity = "0.5";
-                        // ovpnButton.style.cursor = "not-allowed";
-                        // ovpnButton.onclick = (e) => e.preventDefault();
-                    }
-                } else {
-                     // console.warn(`Botão .acesso-ovpn não encontrado no bloco para ${hotelId} em satelite.html`);
-                }
-            });
-        });
-    </script>
-
-    <script>
         const searchInput = document.getElementById('searchInput');
-        const itemsParaFiltrar = document.querySelectorAll('.hotel-block'); // Seleciona os blocos nesta página
+        const itemsParaFiltrar = document.querySelectorAll('.hotel-block');
 
         searchInput.addEventListener('input', function() {
             const searchTerm = searchInput.value.toLowerCase();
@@ -213,13 +169,13 @@
                 }
 
                 if (nome.includes(searchTerm) ) {
-                    item.style.display = 'grid'; // Mostra se corresponder
+                    item.style.display = 'grid';
                 } else {
-                    item.style.display = 'none'; // Esconde se não corresponder
+                    item.style.display = 'none';
                 }
             });
         });
     </script>
 
-</body>
+    </body>
 </html>
