@@ -41,6 +41,20 @@
         .info-block-opcional.modo-mensagem .mikrotik-logo-detalhes {
             display: none;
         }
+
+        /* Estilo para ícone do clima */
+        #clima-icone {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            display: none;
+        }
+
+        /* Ajustado tamanho e começa escondido */
+        #detalhe-clima p {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
     </style>
 </head>
 
@@ -53,16 +67,13 @@
                 <h1 id="detalhe-nome">Carregando nome...</h1>
                 <div class="header-buttons">
                     <a id="detalhe-whatsapp-link" href="#" target="_blank" class="button whatsapp-button icon-button"
-                        style="display: none;" title="Grupo WhatsApp">
-                        <img src="assets/arquivos-png/whatsapp.png" alt="WhatsApp" class="button-icon">
-                    </a>
+                        style="display: none;" title="Grupo WhatsApp"> <img src="assets/arquivos-png/whatsapp.png"
+                            alt="WhatsApp" class="button-icon"> </a>
                     <a id="detalhe-backup-link" href="#" target="_blank" class="button backup-button icon-button"
-                        style="display: none;" title="Backup">
-                        <img src="assets/arquivos-png/backup.png" alt="Backup" class="button-icon">
-                    </a>
-                    <a href="index.html" class="button voltar-button icon-button" title="Voltar">
-                        <img src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon">
-                    </a>
+                        style="display: none;" title="Backup"> <img src="assets/arquivos-png/backup.png" alt="Backup"
+                            class="button-icon"> </a>
+                    <a href="index.html" class="button voltar-button icon-button" title="Voltar"> <img
+                            src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon"> </a>
                 </div>
             </div>
 
@@ -85,6 +96,22 @@
 
             <div class="info-blocks-container-static">
 
+
+                <div id="detalhe-clima" class="info-block-detalhes info-block-opcional">
+                    <h3>Clima Atual (<span id="clima-cidade">-</span>)</h3>
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <img id="clima-icone" src="" alt="">
+                        <div class="clima-dados-linha" style="flex: 1;">
+                            <p><strong>Condição:</strong> <span id="clima-desc">-</span></p>
+                            <p><strong>Nuvens:</strong> <span id="clima-nuvens">-</span>%</p>
+                            <p><strong>Chuva (1h):</strong> <span id="clima-chuva">-</span> mm</p>
+                        </div>
+                    </div>
+                    <p id="clima-alerta" style="color: red; font-weight: bold; margin-top: 10px; display: none;"></p>
+                    <p style="font-size: 0.75em; text-align: right; margin-top: 5px; color: #777;">Fonte: OpenWeatherMap
+                    </p>
+                </div>
+
                 <div id="bloco-acesso-rb" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSO RB</h3>
@@ -100,9 +127,8 @@
 
                 <div id="bloco-acesso-flussonic" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
-                        <h3>ACESSO FLUSSONIC</h3>
-                        <a id="detalhe-flussonic-link-web" href="#" target="_blank" class="button acesso-web-button"
-                            style="display: none;">Acesso Web</a>
+                        <h3>ACESSO FLUSSONIC</h3> <a id="detalhe-flussonic-link-web" href="#" target="_blank"
+                            class="button acesso-web-button" style="display: none;">Acesso Web</a>
                     </div>
                     <p><strong>Ovpn HT:</strong> <span id="detalhe-flussonic-ovpn">N/D</span></p>
                     <p><strong>Ip da rede:</strong> <span id="detalhe-flussonic-ip-rede">N/D</span></p>
@@ -111,37 +137,33 @@
                     <p><strong>User SSH:</strong> <span id="detalhe-flussonic-user-ssh">N/D</span></p>
                     <p><strong>Senha SSH:</strong> <span id="detalhe-flussonic-senha-ssh">N/D</span></p>
                     <p><strong>User Web:</strong> <span id="detalhe-flussonic-user-web">N/D</span></p>
-                    <p><strong>Senha Web:</strong> <span id="detalhe-flussonic-senha-web">N/D</span></p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_flussonic.png"
+                    <p><strong>Senha Web:</strong> <span id="detalhe-flussonic-senha-web">N/D</span></p> <img
+                        class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_flussonic.png"
                         alt="Flussonic Logo">
                 </div>
-
                 <div id="bloco-acesso-ird" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
-                        <h3>ACESSOS IRD</h3>
-                        <a id="detalhe-ird-link-web" href="#" target="_blank"
+                        <h3>ACESSOS IRD</h3> <a id="detalhe-ird-link-web" href="#" target="_blank"
                             class="button acesso-web-button campo-padrao" style="display: none;">Acesso Web</a>
                     </div>
                     <p class="campo-padrao"><strong>Ovpn HT:</strong> <span id="detalhe-ird-ovpn">N/D</span></p>
                     <p class="campo-padrao"><strong>Ip rede:</strong> <span id="detalhe-ird-ip-rede">N/D</span></p>
                     <p class="campo-padrao"><strong>User:</strong> <span id="detalhe-ird-user">N/D</span></p>
                     <p class="campo-padrao"><strong>Senha:</strong> <span id="detalhe-ird-senha">N/D</span></p>
-                    <p class="mensagem-customizada" id="detalhe-ird-mensagem"></p>
-                    <img class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servico_Isdb-t.png"
+                    <p class="mensagem-customizada" id="detalhe-ird-mensagem"></p> <img
+                        class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servico_Isdb-t.png"
                         alt="ISDB-T Logo">
                 </div>
-
                 <div id="bloco-acesso-remoto" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSOS REMOTO</h3>
                     </div>
                     <p><strong id="detalhe-remoto-tipo">N/D</strong></p>
                     <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-anydesk">N/D</span></p>
-                    <p><strong>Senha:</strong> <span id="detalhe-remoto-senha">N/D</span></p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
+                    <p><strong>Senha:</strong> <span id="detalhe-remoto-senha">N/D</span></p> <img
+                        class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
                         alt="AnyDesk Logo">
                 </div>
-
                 <div id="bloco-info-adm" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>INFORMAÇÕES ADM</h3>
@@ -152,22 +174,27 @@
             </div>
         </div>
     </div>
+    {/* Mensagem de Erro */}
     <div id="error-message" style="display: none; padding: 40px; text-align: center; color: white;">
         <h1>Hotel Não Encontrado</h1>
         <p>O hotel solicitado não foi encontrado na base de dados.</p>
         <a href="index.html" class="button voltar-button icon-button" title="Voltar"
             style="margin-top: 20px; display: inline-flex;">
             <img src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon">
-            {/* Sem span */}
         </a>
     </div>
-    <script src="database.js"></script>
 
+    <script src="database.js"></script>
     <script>
+        // ==========================================
+        // === Script Página de Detalhes do Hotel ===
+        // ==========================================
+
+        const OPENWEATHER_API_KEY = "ad364797eba81bb1efc12a28d7282829"; // Sua chave API
+
+        // --- Função Principal ---
         function renderHotelDetails(hotelId) {
-            if (typeof hotelDatabase === 'undefined') {
-                console.error("Erro: hotelDatabase não foi carregado."); displayError("Erro ao carregar dados."); return;
-            }
+            if (typeof hotelDatabase === 'undefined') { console.error("Erro: hotelDatabase não foi carregado."); displayError("Erro ao carregar dados."); return; }
             const hotelData = hotelDatabase[hotelId];
             const contentDiv = document.getElementById('hotel-details-content');
             const errorDiv = document.getElementById('error-message');
@@ -181,146 +208,102 @@
                 document.title = `Detalhes - ${hotelData.nome || hotelId}`;
                 setTextContent('detalhe-nome', hotelData.nome || hotelId);
                 setTextContent('detalhe-descricao', hotelData.descricao || 'Descrição não disponível.');
-
-                const imagensContainer = document.getElementById('detalhe-imagens');
-                if (imagensContainer) {
-                    imagensContainer.innerHTML = '';
-                    if (hotelData.imagens && hotelData.imagens.length > 0) {
-                        hotelData.imagens.forEach(imgPath => { /* ... criação das imagens ... */
-                            const img = document.createElement('img'); img.src = imgPath; img.alt = `Logo ${hotelData.nome || hotelId}`;
-                            img.onerror = () => { img.style.display = 'none'; }; imagensContainer.appendChild(img);
-                        });
-                    } else { imagensContainer.innerHTML = '<p>Sem imagem.</p>'; }
-                }
-
-                const contatoContainer = document.getElementById('detalhe-contato');
-                if (contatoContainer) {
-                    contatoContainer.innerHTML = '';
-                    if (hotelData.infoAdicional && hotelData.infoAdicional.length > 0) {
-                        hotelData.infoAdicional.forEach(info => { /* ... criação dos contatos ... */
-                            const p = document.createElement('p'); p.classList.add('contato-item');
-                            p.innerHTML = `<strong>${info.titulo}:</strong> ${info.valor || 'N/D'}`; contatoContainer.appendChild(p);
-                        });
-                    } else { contatoContainer.innerHTML = '<p>Informações de contato não disponíveis.</p>'; }
-                }
-
-                // --- Preenche Botões do Cabeçalho ---
-                setLinkHrefAndVisibility('detalhe-whatsapp-link', hotelData.linkWhatsAppGrupo, "PREENCHER_LINK_WHATSAPP");
+                renderImages('detalhe-imagens', hotelData.imagens, hotelData.nome || hotelId);
+                renderContactInfo('detalhe-contato', hotelData.infoAdicional);
+                setLinkHrefAndVisibility('detalhe-whatsapp-link', hotelData.linkWhatsAppGrupo);
                 setLinkHrefAndVisibility('detalhe-backup-link', hotelData.backupLink);
-                // Botão Voltar é sempre visível e tem link fixo no HTML
+                renderOptionalBlock('bloco-acesso-rb', hotelData.acessoRB, renderRBDetails);
+                renderOptionalBlock('bloco-acesso-flussonic', hotelData.acessoFlussonic, renderFlussonicDetails);
+                renderOptionalBlock('bloco-acesso-ird', hotelData.acessoIRD, renderIRDDetails);
+                renderOptionalBlock('bloco-acesso-remoto', hotelData.acessoRemoto, renderRemotoDetails);
+                renderOptionalBlock('bloco-info-adm', hotelData.infoAdm, renderAdmDetails);
 
-                // --- Preenche Blocos Opcionais ---
-                const blocoRB = document.getElementById('bloco-acesso-rb');
-                if (blocoRB && hotelData.acessoRB) {
-                    if (typeof hotelData.acessoRB === 'object') {
-                        blocoRB.classList.remove('modo-mensagem');
-                        setTextContent('detalhe-rb-ovpn', hotelData.acessoRB.ovpn);
-                        setTextContent('detalhe-rb-ip', hotelData.acessoRB.ipLocal);
-                        setTextContent('detalhe-rb-user', hotelData.acessoRB.user);
-                        setTextContent('detalhe-rb-senha', hotelData.acessoRB.senha);
-                    } else if (typeof hotelData.acessoRB === 'string') {
-                        blocoRB.classList.add('modo-mensagem');
-                        setTextContent('detalhe-rb-mensagem', hotelData.acessoRB);
+                if (OPENWEATHER_API_KEY && OPENWEATHER_API_KEY !== "SUA_CHAVE_API_AQUI" && hotelData.cidade) {
+                    showBlock('detalhe-clima');
+                    setTextContent('clima-cidade', hotelData.cidade);
+                    buscarClima(hotelData.cidade, hotelData.estado, hotelData.pais, OPENWEATHER_API_KEY);
+                } else {
+                    console.warn("Clima não carregado: API Key ou localização ausente.");
+                    const blocoClima = document.getElementById('detalhe-clima');
+                    if (blocoClima) {
+                        blocoClima.innerHTML = '<h3>Clima Atual</h3><p><i>Informação indisponível.</i></p>';
+                        showBlock('detalhe-clima');
                     }
-                    showBlock('bloco-acesso-rb');
                 }
-
-                if (hotelData.acessoFlussonic) { /* ... Lógica Flussonic ... */
-                    setTextContent('detalhe-flussonic-ovpn', hotelData.acessoFlussonic.ovpn);
-                    setTextContent('detalhe-flussonic-ip-rede', hotelData.acessoFlussonic.ipRede);
-                    setTextContent('detalhe-flussonic-porta-ssh', hotelData.acessoFlussonic.portaSSH);
-                    setTextContent('detalhe-flussonic-porta-web', hotelData.acessoFlussonic.portaWeb);
-                    setTextContent('detalhe-flussonic-user-ssh', hotelData.acessoFlussonic.userSSH);
-                    setTextContent('detalhe-flussonic-senha-ssh', hotelData.acessoFlussonic.senhaSSH);
-                    setTextContent('detalhe-flussonic-user-web', hotelData.acessoFlussonic.userWeb);
-                    setTextContent('detalhe-flussonic-senha-web', hotelData.acessoFlussonic.senhaWeb);
-                    setLinkHrefAndVisibility('detalhe-flussonic-link-web', hotelData.acessoFlussonic.linkWeb);
-                    showBlock('bloco-acesso-flussonic');
-                }
-
-                const blocoIRD = document.getElementById('bloco-acesso-ird');
-                if (blocoIRD && hotelData.acessoIRD) {
-                    if (typeof hotelData.acessoIRD === 'object') {
-                        blocoIRD.classList.remove('modo-mensagem');
-                        setTextContent('detalhe-ird-ovpn', hotelData.acessoIRD.ovpn);
-                        setTextContent('detalhe-ird-ip-rede', hotelData.acessoIRD.ipRede);
-                        setTextContent('detalhe-ird-user', hotelData.acessoIRD.user);
-                        setTextContent('detalhe-ird-senha', hotelData.acessoIRD.senha);
-                        setLinkHrefAndVisibility('detalhe-ird-link-web', hotelData.acessoIRD.linkWeb);
-                    } else if (typeof hotelData.acessoIRD === 'string') {
-                        blocoIRD.classList.add('modo-mensagem');
-                        setTextContent('detalhe-ird-mensagem', hotelData.acessoIRD);
-                    }
-                    showBlock('bloco-acesso-ird');
-                }
-
-                if (hotelData.acessoRemoto) { /* ... Lógica Remoto ... */
-                    setTextContent('detalhe-remoto-tipo', hotelData.acessoRemoto.tipo);
-                    setTextContent('detalhe-remoto-anydesk', hotelData.acessoRemoto.anydesk);
-                    setTextContent('detalhe-remoto-senha', hotelData.acessoRemoto.senha);
-                    showBlock('bloco-acesso-remoto');
-                }
-
-                if (hotelData.infoAdm) { /* ... Lógica Adm ... */
-                    setTextContent('detalhe-adm-contato', hotelData.infoAdm.contato);
-                    showBlock('bloco-info-adm');
-                }
-
                 contentDiv.style.display = 'block';
-
             } else {
                 displayError(`Hotel com ID "${hotelId}" não encontrado.`);
             }
         }
 
-        // --- Funções Auxiliares ---
-        function setTextContent(id, text) {
-            const element = document.getElementById(id);
-            if (element) { element.textContent = text || 'N/D'; }
-        }
+        // --- Funções Auxiliares de Renderização de Blocos ---
+        function renderImages(containerId, imagens, nomeHotel) { /* ... */ }
+        function renderContactInfo(containerId, info) { /* ... */ }
+        function renderOptionalBlock(blockId, data, renderFunction) { /* ... */ }
+        function renderRBDetails(blockElement, data) { /* ... */ }
+        function renderFlussonicDetails(blockElement, data) { /* ... */ }
+        function renderIRDDetails(blockElement, data) { /* ... */ }
+        function renderRemotoDetails(blockElement, data) { /* ... */ }
+        function renderAdmDetails(blockElement, data) { /* ... */ }
+        // (Cole as funções auxiliares completas aqui - da resposta anterior)
+        function renderImages(containerId, imagens, nomeHotel) { const container = document.getElementById(containerId); if (container) { container.innerHTML = ''; if (imagens && imagens.length > 0) { imagens.forEach(imgPath => { const img = document.createElement('img'); img.src = imgPath; img.alt = `Logo ${nomeHotel}`; img.onerror = () => { img.style.display = 'none'; }; container.appendChild(img); }); } else { container.innerHTML = '<p>Sem imagem.</p>'; } } }
+        function renderContactInfo(containerId, info) { const container = document.getElementById(containerId); if (container) { container.innerHTML = ''; if (info && info.length > 0) { info.forEach(item => { const p = document.createElement('p'); p.classList.add('contato-item'); p.innerHTML = `<strong>${item.titulo}:</strong> ${item.valor || 'N/D'}`; container.appendChild(p); }); } else { container.innerHTML = '<p>Informações de contato não disponíveis.</p>'; } } }
+        function renderOptionalBlock(blockId, data, renderFunction) { const blockElement = document.getElementById(blockId); if (blockElement && data) { renderFunction(blockElement, data); showBlock(blockId); } }
+        function renderRBDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-rb-ovpn', data.ovpn); setTextContent('detalhe-rb-ip', data.ipLocal); setTextContent('detalhe-rb-user', data.user); setTextContent('detalhe-rb-senha', data.senha); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-rb-mensagem', data); } }
+        function renderFlussonicDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-flussonic-ovpn', data.ovpn); setTextContent('detalhe-flussonic-ip-rede', data.ipRede); setTextContent('detalhe-flussonic-porta-ssh', data.portaSSH); setTextContent('detalhe-flussonic-porta-web', data.portaWeb); setTextContent('detalhe-flussonic-user-ssh', data.userSSH); setTextContent('detalhe-flussonic-senha-ssh', data.senhaSSH); setTextContent('detalhe-flussonic-user-web', data.userWeb); setTextContent('detalhe-flussonic-senha-web', data.senhaWeb); setLinkHrefAndVisibility('detalhe-flussonic-link-web', data.linkWeb); }
+        function renderIRDDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-ird-ovpn', data.ovpn); setTextContent('detalhe-ird-ip-rede', data.ipRede); setTextContent('detalhe-ird-user', data.user); setTextContent('detalhe-ird-senha', data.senha); setLinkHrefAndVisibility('detalhe-ird-link-web', data.linkWeb); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-ird-mensagem', data); } }
+        function renderRemotoDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-remoto-tipo', data.tipo); setTextContent('detalhe-remoto-anydesk', data.anydesk); setTextContent('detalhe-remoto-senha', data.senha); }
+        function renderAdmDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-adm-contato', data.contato); }
 
-        // Atualizada para checar placeholder
-        function setLinkHrefAndVisibility(id, href, placeholder = null) {
-            const element = document.getElementById(id);
-            if (element) {
-                // Mostra o botão apenas se href existir E (não houver placeholder OU href for diferente do placeholder)
-                if (href && (!placeholder || href !== placeholder)) {
-                    element.href = href;
-                    element.style.display = 'inline-flex';
-                } else {
-                    element.style.display = 'none';
-                }
+        // --- Funções de Clima ---
+        async function buscarClima(cidade, estado, pais, apiKey) {
+            if (!cidade) return;
+            const localizacaoQuery = `${cidade}${estado ? ',' + estado : ''}${pais ? ',' + pais : ''}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(localizacaoQuery)}&appid=${apiKey}&units=metric&lang=pt_br`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) { const errorData = await response.json().catch(() => ({ message: response.statusText })); throw new Error(`Erro ${response.status}: ${errorData.message || 'Falha ao buscar clima'}`); }
+                const data = await response.json();
+                atualizarDOMClima(data);
+            } catch (error) {
+                console.error("Erro ao buscar dados de clima:", error);
+                const blocoClima = document.getElementById('detalhe-clima');
+                if (blocoClima) { const cidadeNome = document.getElementById('clima-cidade')?.textContent || cidade; blocoClima.innerHTML = `<h3>Clima Atual (${cidadeNome})</h3><p><i style='color: red;'>Erro ao carregar clima: ${error.message}</i></p>`; showBlock('detalhe-clima'); }
             }
         }
 
-        function showBlock(id) {
-            const element = document.getElementById(id);
-            if (element) { element.style.display = 'block'; }
+        function atualizarDOMClima(data) {
+            if (!data || !data.weather || !data.main) { console.error("Dados de clima inválidos:", data); setTextContent('clima-desc', 'Erro'); return; }
+            const descricao = data.weather[0]?.description || 'N/D'; const iconeCod = data.weather[0]?.icon || null;
+            const temperatura = data.main.temp !== undefined ? Math.round(data.main.temp) : '-'; const nuvens = data.clouds?.all ?? '-';
+            const chuva1h = data.rain?.['1h'] ?? 0; const condicaoPrincipal = data.weather[0]?.main || '';
+
+            setTextContent('clima-desc', descricao.charAt(0).toUpperCase() + descricao.slice(1));
+            // Não temos mais campo de temperatura isolado, mas guardamos valor
+            setTextContent('clima-nuvens', nuvens); setTextContent('clima-chuva', chuva1h);
+
+            const iconeElement = document.getElementById('clima-icone');
+            if (iconeElement && iconeCod) {
+                const localIconPath = `assets/clima-png/${iconeCod}.png`; iconeElement.src = localIconPath;
+                iconeElement.alt = descricao; iconeElement.style.display = 'inline-block';
+                iconeElement.onerror = () => { console.warn(`Ícone local não encontrado: ${localIconPath}`); iconeElement.style.display = 'none'; iconeElement.src = ''; };
+            } else if (iconeElement) { iconeElement.style.display = 'none'; }
+
+            const alertaElement = document.getElementById('clima-alerta'); let alertaMsg = '';
+            if (nuvens > 80) { alertaMsg = "ALERTA: Céu muito nublado!"; }
+            if (['Rain', 'Drizzle', 'Thunderstorm'].includes(condicaoPrincipal)) { alertaMsg += (alertaMsg ? " / " : "ALERTA: ") + "Chuva/Trovoada!"; }
+            if (alertaMsg && alertaElement) { alertaElement.textContent = alertaMsg; alertaElement.style.display = 'block'; }
+            else if (alertaElement) { alertaElement.style.display = 'none'; }
         }
 
-        function displayError(message) {
-            const errorDiv = document.getElementById('error-message');
-            const contentDiv = document.getElementById('hotel-details-content');
-            if (contentDiv) contentDiv.style.display = 'none';
-            if (errorDiv) {
-                const p = errorDiv.querySelector('p');
-                if (p) { p.textContent = message || "Ocorreu um erro."; }
-                errorDiv.style.display = 'block';
-            }
-            document.title = "Erro - Hotel Não Encontrado";
-        }
+        // --- Funções Auxiliares Genéricas ---
+        function setTextContent(id, text) { const element = document.getElementById(id); if (element) { element.textContent = text ?? 'N/D'; } }
+        function setLinkHrefAndVisibility(id, href) { const element = document.getElementById(id); if (element) { if (href) { element.href = href; element.style.display = 'inline-flex'; } else { element.style.display = 'none'; } } }
+        function showBlock(id) { const element = document.getElementById(id); if (element) { element.style.display = 'block'; } }
+        function displayError(message) { const errorDiv = document.getElementById('error-message'); const contentDiv = document.getElementById('hotel-details-content'); if (contentDiv) contentDiv.style.display = 'none'; if (errorDiv) { const p = errorDiv.querySelector('p'); if (p) { p.textContent = message || "Ocorreu um erro."; } errorDiv.style.display = 'block'; } document.title = "Erro - Hotel Não Encontrado"; }
 
-        // --- Lógica Principal ao Carregar a Página ---
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const hotelId = urlParams.get('hotel');
-            if (!hotelId) {
-                displayError("ID do hotel não especificado na URL.");
-                console.error("ID do hotel não encontrado na URL (parâmetro 'hotel').");
-            } else {
-                renderHotelDetails(hotelId);
-            }
-        });
+        // --- Lógica Principal ---
+        window.addEventListener('DOMContentLoaded', () => { const urlParams = new URLSearchParams(window.location.search); const hotelId = urlParams.get('hotel'); if (!hotelId) { displayError("ID do hotel não especificado na URL."); console.error("ID do hotel não encontrado na URL (parâmetro 'hotel')."); } else { renderHotelDetails(hotelId); } });
     </script>
 
 </body>

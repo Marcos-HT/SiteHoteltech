@@ -4,29 +4,17 @@
 
 :root {
     --color-primary: #081924;
-    /* Cor principal (azul escuro) */
     --color-secondary: #081924;
-    /* Cor secundária (atualmente igual primária) */
     --color-text-primary-on-light: #333;
-    /* Texto escuro para fundo claro (blocos E NAV LINKS) */
     --color-text-primary-on-dark: #f0f0f0;
-    /* Texto claro para fundo escuro (body) */
     --color-headings-on-dark: #ffffff;
-    /* Títulos em fundo escuro */
     --color-link: var(--color-border-button);
-    /* Cor padrão para links */
     --color-bg-block: #fff;
-    /* Fundo branco dos blocos (E RODAPÉ PRINCIPAL) */
     --color-border-block: #ddd;
-    /* Borda cinza claro dos blocos */
     --color-shadow: rgba(0, 0, 0, 0.8);
-    /* Sombra PADRÃO para blocos - Intensa */
     --color-shadow-image: rgba(0, 0, 0, 0.8);
-    /* Sombra para imagens - Intensa */
     --color-border-button: #22d4fd;
-    /* Azul claro borda/link (E HOVER NAV LINKS) */
     --color-hover-button: #1f4964;
-    /* Azul acinzentado hover (Botões principais) */
     --font-button: 0.8em;
     --font-family-button: sans-serif;
 }
@@ -201,7 +189,6 @@ body {
 
 .button-icon {
     height: 1em;
-    /* Tamanho padrão do ícone */
     width: auto;
 }
 
@@ -209,7 +196,6 @@ body {
     background-color: var(--color-hover-button);
 }
 
-/* Estilos Específicos para botões nas listas */
 .acesso-ovpn {}
 
 .dados-hotel {
@@ -256,52 +242,34 @@ body {
     gap: 10px;
 }
 
-/* --- Início: Estilos Refatorados para Botões Ícone (Reutilizável) --- */
-/* Aplica-se a qualquer botão que tenha as classes 'button' E 'icon-button' */
-
+/* --- Estilos Botões Ícone (Reutilizável) --- */
 .button.icon-button {
     background-color: transparent;
     border: 3px solid var(--color-primary);
-    /* Borda escura normal */
     padding: 13px;
-    /* Padding conforme último ajuste do user */
     border-radius: 50%;
-    /* Borda redonda */
     gap: 0;
-    /* Sem espaço interno */
     line-height: 0;
-    /* Ajuda a centralizar ícone */
     transition: border-color 0.3s ease;
-    /* Transição só na borda */
     color: inherit;
-    /* Remove cor de texto branca */
-    /* Sobrescreve padding padrão do .button se necessário */
     min-width: auto;
-    /* Garante que não tenha largura mínima */
 }
 
-/* Efeito Hover para botões de ÍCONE */
 .button.icon-button:hover {
     background-color: transparent;
-    /* Garante fundo transparente */
     border-color: var(--color-border-button);
-    /* Borda azul clara */
 }
 
-/* Tamanho do ÍCONE DENTRO desses botões */
 .button.icon-button .button-icon {
     height: 1.8em;
-    /* Tamanho conforme último ajuste do user */
     width: auto;
 }
 
-/* Garante que o texto (<span>) não apareça */
 .button.icon-button span {
     display: none;
 }
 
-/* --- Fim: Estilos Refatorados para Botões Ícone --- */
-
+/* --- Fim Estilos Botões Ícone --- */
 
 .detalhes-corpo-flex {
     display: flex;
@@ -402,7 +370,46 @@ body {
     color: var(--color-text-primary-on-light);
 }
 
-/* Estilos para quando o bloco está em modo mensagem */
+/* --- Início: Estilos Bloco de Clima --- */
+#detalhe-clima {
+    background-color: #fff;
+    /* Fundo branco */
+    /* Herdando padding, border, shadow de .info-block-detalhes */
+}
+
+/* Container interno dos dados de texto do clima */
+#detalhe-clima .clima-dados-linha {
+    display: flex;
+    /* Coloca os <p> em linha */
+    flex-wrap: wrap;
+    /* Permite quebrar se não couber */
+    gap: 5px 15px;
+    /* Espaço vertical(5px) e horizontal(15px) entre itens */
+    margin-top: 5px;
+    /* Espaço acima dos dados */
+}
+
+/* Parágrafos dentro do container de dados do clima */
+#detalhe-clima .clima-dados-linha p {
+    margin: 0;
+    /* Remove margem padrão dos parágrafos */
+    line-height: 1.2;
+    /* Ajusta altura da linha */
+    white-space: nowrap;
+    /* Evita quebrar linha dentro de "Chuva (1h): XX mm" */
+}
+
+/* Ajuste no ícone do clima */
+#clima-icone {
+    width: 40px;
+    height: 40px;
+    /* Tamanho do ícone */
+    /* display é controlado pelo JS */
+}
+
+/* --- Fim: Estilos Bloco de Clima --- */
+
+/* Estilos modo mensagem RB/IRD */
 .info-block-opcional .campo-padrao {
     display: block;
 }
@@ -451,7 +458,6 @@ body {
 }
 
 .info-block-header .button {
-    /* Botões pequenos (Acesso Web) nos info blocks */
     padding: 6px 12px;
     font-size: 0.8em;
     flex-shrink: 0;
@@ -710,13 +716,7 @@ body {
         padding: 10px;
     }
 
-    /* Ajustado padding para icon-button */
     .detalhes-header .icon-button .button-icon {
         height: 1.3em;
     }
-
-    /* Ajustado tamanho para icon-button */
-    /* Se precisar de ajuste específico para o voltar-button em satelite.html nesta tela: */
-    /* .page-header .voltar-button.icon-button { padding: 6px; } */
-    /* .page-header .voltar-button.icon-button .button-icon { height: 1.1em; } */
 }
