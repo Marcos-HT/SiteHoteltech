@@ -86,7 +86,34 @@ const hotelDatabase = {
         acessoRemoto: { tipo: "Canal Institucional", anydesk: "1089743902", senha: "@ht2020*" },
         infoAdm: null
     },
-
+    "fazzenda-park": {
+        nome: "Fazzenda Park Hotel", // Ajustado
+        cidade: "Gaspar",           // Localização adicionada
+        estado: "SC",               // Localização adicionada
+        pais: "BR",                 // Localização adicionada
+        imagens: ["assets/logo-hotel/Fazenda-Park_logo.jpg"],
+        descricao: "Considerado um dos melhores hotéis-fazenda do Brasil, o Fazzenda Park Resort está localizado em Gaspar (SC), no Vale Europeu. Com uma área de 2 milhões de m², oferece ampla estrutura de lazer integrada à natureza, incluindo piscinas, passeios a cavalo, quadras esportivas, lago, SPA e recreação infantil (Clubinho do Gasparinho). Opera frequentemente com regime All Inclusive, destacando-se pela gastronomia.", // Descrição da busca
+        infoAdicional: [], // Preencher se tiver Endereço/Telefone específico aqui
+        linkWhatsAppGrupo: "https://chat.whatsapp.com/JFlvcFt86fl2BeermekOnJ",
+        backupLink: null, // Preencher se houver
+        acessoRB: "Este Hotel não tem RB", // Mensagem personalizada
+        acessoFlussonic: { ovpn: "10.31.0.38", ipRede: "192.168.180.98", portaSSH: 3055, portaWeb: 80, userSSH: "hoteltech", senhaSSH: "@ht2020*", userWeb: "admin", senhaWeb: "@ht2020*", linkWeb: "http://10.31.0.38:80" }, // Nota interna: IP Secundário 192.168.175.187 (VLAN 100) omitido. Senha Root omitida.
+        acessoIRD: "O acesso no IRD e feito atravez do servidor de integração.", // Mensagem personalizada (Detalhes: IP 192.168.63.197 / User/Pass admin)
+        acessoProcentric: {
+            ipRede: "192.168.63.200",
+            portaSSH: 22,
+            portaWeb: 80, // Porta Web inferida, não explicitada
+            userSSH: "admin",
+            senhaSSH: "Password4Partners",
+            userWeb: "procentric", // User principal Web
+            senhaWeb: "H0t3lTF4zz22*", // Senha principal Web
+            linkWeb: "http://192.168.63.200:80", // Construído com IP e Porta Web
+            nota: "Acesso Web/IRD/Procentric via Servidor de Integração. IP Secundário: 192.168.171.20. Outros Users Web: hoteltech (HtT3ch*2022), Ramires (H0t3lTF4zz20*)" // Nota combinada
+        },
+        acessoRemotoCanal: { tipo: "Canal Institucional", anydesk: "1579563512", senha: "@ht2020*" }, // Separado
+        acessoRemotoIntegracao: { tipo: "Servidor Integração", anydesk: "828007415", senha: "@ht2020*" }, // Separado
+        infoAdm: null // Preencher se houver
+    },
     // --- DEMAIS HOTÉIS --- (ADICIONAR cidade, estado, pais) ---
     "viale-tower": { nome: "Viale Tower", cidade: "Foz do Iguaçu", estado: "PR", pais: "BR", imagens: ["assets/logo-hotel/Vialle-Tower_logo.jpg"], descricao: "...", infoAdicional: [], linkWhatsAppGrupo: null, backupLink: null, acessoRB: null, acessoFlussonic: null, acessoIRD: null, acessoRemoto: null, infoAdm: null },
     "doubletree-hilton": { nome: "DoubleTree by Hilton", cidade: "Foz do Iguaçu", estado: "PR", pais: "BR", imagens: ["assets/logo-hotel/By-Hilton_logo.jpg"], descricao: "...", infoAdicional: [], linkWhatsAppGrupo: null, backupLink: null, acessoRB: null, acessoFlussonic: null, acessoIRD: null, acessoRemoto: null, infoAdm: null },

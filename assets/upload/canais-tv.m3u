@@ -1,0 +1,291 @@
+#EXTM3U
+#EXTINF:0, 001 - OFF - HD 264
+http://nodemaster.homelinux.com/OFF-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 002 - SPORTV - HD 264
+http://nodemaster.homelinux.com/SPORTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 003 - SPORTV 2 - HD 264
+http://nodemaster.homelinux.com/SPORTV2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 004 - SPORTV 3 - HD 264
+http://nodemaster.homelinux.com/SPORTV3-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 005 - WOOHOO HD 264
+http://nodemaster.homelinux.com/WOOHOO-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 006 - BANDSPORTS - HD 264
+http://nodemaster.homelinux.com/BANDSPORTS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 007 - ESPN - HD 264
+http://nodemaster.homelinux.com/ESPNBRASIL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 008 - ESPN 2 - HD 264
+http://nodemaster.homelinux.com/ESPN-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 009 - ESPN 3 - HD 264
+http://nodemaster.homelinux.com/ESPN2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 010  - ESPN 4  - HD 264
+http://nodemaster.homelinux.com/FOXSPORTS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 011 - ESPN 5 - HD 264
+http://nodemaster.homelinux.com/FOXSPORTS2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 012 - DISC SCIENCE - HD 264
+http://nodemaster.homelinux.com/DISC.SCIENCE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 013- D. THEATHER - HD 264
+http://nodemaster.homelinux.com/DISCTHEATER-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 014 - DISCOVERY TURBO - HD 264
+http://nodemaster.homelinux.com/DiscTurbo-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 015 - DISC. WORLD - HD 264
+http://nodemaster.homelinux.com/DISC.WORLD-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 016 - AMC - HD 264
+http://nodemaster.homelinux.com/AMC-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 017 - PARAMOUNT - HD 264
+http://nodemaster.homelinux.com/PARAMOUNT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 018 - FILMARTS - HD 264
+http://nodemaster.homelinux.com/FILMARTS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 019 - GOLF CHANNEL - HD 264
+http://nodemaster.homelinux.com/TCM-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 020 - SONY - HD 264
+http://nodemaster.homelinux.com/SONY-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 021 - AXN - HD 264
+http://nodemaster.homelinux.com/AXN-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 022 - FX - HD 264
+http://nodemaster.homelinux.com/FX-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 023 - SYFY - HD 264
+http://nodemaster.homelinux.com/SYFY-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 024 - A&E - HD H264
+http://nodemaster.homelinux.com/A&E-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 025 - CINE CANAL - HD 264
+http://nodemaster.homelinux.com/CINECANAL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 026 - ID - HD H264
+http://nodemaster.homelinux.com/DISCOVERYID-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 027 - COMEDY CENTRAL - HD 264
+http://nodemaster.homelinux.com/COMEDYCENTRAL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 028 - TNTN - HD H264
+http://nodemaster.homelinux.com/TBS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 029 - TNT SERIES - HD 264
+http://nodemaster.homelinux.com/TNTSERIES-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 030 - MTV - HD 264
+http://nodemaster.homelinux.com/MTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 031 - TC ACTION - HD 264
+http://nodemaster.homelinux.com/TCACTION-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 032 - TELECINE TOUCH HD H264
+http://nodemaster.homelinux.com/TELECINETOUCH-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 033 - TC PIPOCA - HD 264
+http://nodemaster.homelinux.com/TCPIPOCA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 034 - TC PREMIUM - HD 264
+http://nodemaster.homelinux.com/TCPREMIUM-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 035 - TC FUN - HD 264
+http://nodemaster.homelinux.com/TCFUN-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 036 - HBO - HD 264
+http://nodemaster.homelinux.com/HBO-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 037 - HBO FAMILY - HD 264
+http://nodemaster.homelinux.com/HBOFAMILY-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 038 - HBO PLUS - HD 264
+http://nodemaster.homelinux.com/HBOPLUS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 039 - HBO2 - HD 264
+http://nodemaster.homelinux.com/HBO2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 040 - MOSAICO SPORTV - HD 264
+http://nodemaster.homelinux.com/MSPORTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 041 - HBO SIGNATURE - HD 264
+http://nodemaster.homelinux.com/HBOSIGNATURE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 042 - HBO XTREME - HD H264
+http://nodemaster.homelinux.com/MAXPRIME-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 043 - HBO POP - HD H264
+http://nodemaster.homelinux.com/MAXUP-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 044 - HBO MUNDI - HD 264
+http://nodemaster.homelinux.com/MAX-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 045 - SBT  - HD H264
+http://nodemaster.homelinux.com/SBT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 046 - HISTORY - HD 264
+http://nodemaster.homelinux.com/HISTORY-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 047 - ARTE1 - HD H264
+http://nodemaster.homelinux.com/ARTE1-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 048 - HOME & HEALTH - HD H264
+http://nodemaster.homelinux.com/homehealth-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 049 - TLC  - HD H264
+http://nodemaster.homelinux.com/TLC-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 050 - LIFETIME- HD H264
+http://nodemaster.homelinux.com/FOXLIFE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 052 - ANIMAL PLANET - HD 264
+http://nodemaster.homelinux.com/ANIMALPLANET-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 053 - E! - HD 264
+http://nodemaster.homelinux.com/E!-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 054 - CINEMAX - HD 264
+http://nodemaster.homelinux.com/CINEMAX-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 055 - SPACE - HD 264
+http://nodemaster.homelinux.com/SPACE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 056 - STUDIO UNIVERSAL - HD H264
+http://nodemaster.homelinux.com/STUDIOUNIVERSAL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 057 - GLOBINHO - HD H264
+http://nodemaster.homelinux.com/GLOBINHO-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 058 - ZOOMOO HD H264
+http://nodemaster.homelinux.com/ZOOMOO-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 059 - NICK - HD 264
+http://nodemaster.homelinux.com/NICK-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 060 - NICK JR - HD H264
+http://nodemaster.homelinux.com/NICKJR-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 061 - S&A- HD H264
+http://nodemaster.homelinux.com/TOONCAST-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 062 - BIS - HD 264
+http://nodemaster.homelinux.com/BIS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 063 - BANDNEWS - HD 264
+http://nodemaster.homelinux.com/BANDNEWS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 064 - CNNI - HD H264
+http://nodemaster.homelinux.com/CNNINTERNACIONAL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 065 - CNN BRASIL  - HD H264
+http://nodemaster.homelinux.com/CNNBRASIL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 066 - CARTOONITO - HD 264
+http://nodemaster.homelinux.com/Boomerang-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 069 - PFC - HD 264
+http://nodemaster.homelinux.com/PREMIERECLUBES-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 070 - PREMIERE 2 - HD 264
+http://nodemaster.homelinux.com/PFC634-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 071 - PREMIERE 3 - HD 264
+http://nodemaster.homelinux.com/PFC635-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 072 - PREMIERE 4 - HD 264
+http://nodemaster.homelinux.com/PFC636-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 073 - PREMIERE 5 - HD 264
+http://nodemaster.homelinux.com/PFC637-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 074 - AGRO+ HD 264
+http://nodemaster.homelinux.com/AGROMAIS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 075 - BBC WORLD HD 264
+http://nodemaster.homelinux.com/BBC-WORLD-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 076 - BLOOMBERG HD 264
+http://nodemaster.homelinux.com/BLOOMBERG-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 077 - JOVEM PAN NEWS - HD 264
+http://nodemaster.homelinux.com/FOXPREMIUM2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 078 - MTV LIVE - HD 264
+http://nodemaster.homelinux.com/VH1MEGAHITS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 079 - H2 - HD 264
+http://nodemaster.homelinux.com/H2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 080 - HGTV - HD 264
+http://nodemaster.homelinux.com/DISC.CIVI.-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 081 - FOOD NETWORK - HD 264
+http://nodemaster.homelinux.com/FoodNetwork-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 082 - FASHION TV - HD 264
+http://nodemaster.homelinux.com/FASHIONTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 083 - MTV LIVE HD 264
+http://nodemaster.homelinux.com/MTV2-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 086 - TNT - HD 264
+http://nodemaster.homelinux.com/TNT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 087 - PRIMEBOX - HD H264
+http://nodemaster.homelinux.com/PRIMEBOXBRASIL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 088 - ADULT SWIM HD - H264
+http://nodemaster.homelinux.com/ADULTSWIM-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 089 - SONY MOVIES - HD H264
+http://nodemaster.homelinux.com/TRUETV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 090 - GNT - HD H264
+http://nodemaster.homelinux.com/GNT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 091 - VIVA - HD 264
+http://nodemaster.homelinux.com/VIVA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 092 - MODO VIAGEM - HD 264
+http://nodemaster.homelinux.com/MAISGLOBOSAT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 093 - GLOBO NEWS - HD 264
+http://nodemaster.homelinux.com/GLOBONEWS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 094 - GLOOB - HD 264
+http://nodemaster.homelinux.com/GLOOB-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 095 - CARTOON - HD 264
+http://nodemaster.homelinux.com/CARTOON-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 096 - DISCOVERY - HD 264
+http://nodemaster.homelinux.com/DISCOVERY-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 097 - MEGA PIX - HD 264
+http://nodemaster.homelinux.com/MEGAPIX-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 098 - DISNEY CHANNEL - HD 264
+http://nodemaster.homelinux.com/DISNEY-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 099 - BAND - HD H264
+http://nodemaster.homelinux.com/BAND-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 101 - WARNER CHANNEL - HD 264
+http://nodemaster.homelinux.com/WARNERCHANNEL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 102 - STAR CHANNEL - HD 264
+http://nodemaster.homelinux.com/FOX-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 103 - PLAYTV - HD H264
+http://nodemaster.homelinux.com/PLAYTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 104 - FISH TV - HD H264
+http://nodemaster.homelinux.com/FISHTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 105 - TRAVELBOX HD H264
+http://nodemaster.homelinux.com/TRAVELBOX-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 106 - MULTISHOW - HD 264
+http://nodemaster.homelinux.com/MULTISHOW-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 107 - DISCOVERY KID
+http://nodemaster.homelinux.com/DOSCOVERYKIDS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 108 - NATGEO - HD 264
+http://nodemaster.homelinux.com/NATGEO-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 109 - CANAL BRASIL - HD H264
+http://nodemaster.homelinux.com/CANALBRASIL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 110 - UNIVERSAL - HD 264
+http://nodemaster.homelinux.com/UNIVERSALTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 111 - PREMIERE 6 - HD 264
+http://nodemaster.homelinux.com/PFC638-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 112 - PREMIERE 7 - HD 264
+http://nodemaster.homelinux.com/PFC241-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 115 - COMBAT - HD 264
+http://nodemaster.homelinux.com/COMBATE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 9 - TC CULT - HD 264
+http://nodemaster.homelinux.com/TCCULT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 12 - SMITHSONIAN - HD 264
+http://nodemaster.homelinux.com/WILD-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 38 - AGRO+ - HD 264
+http://nodemaster.homelinux.com/DISNEYJR-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 69 - ESPN EXTRA - HD 264
+http://nodemaster.homelinux.com/ESPNEXTRA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 85 - ERA NGEO POR CANAL - HD H264
+http://nodemaster.homelinux.com/NATGEOKIDS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 92 - CURTA - HD H264
+http://nodemaster.homelinux.com/CURTA!-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 100 - BABY TV - HD H264
+http://nodemaster.homelinux.com/BABYTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 103 - MUSIC BOX  - HD H264
+http://nodemaster.homelinux.com/MUSICBOXBRASIL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 151 - REDE TV! HD
+http://nodemaster.homelinux.com/REDETV!-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 105 - TRAVEL BOX BRASIL - HD H264
+http://nodemaster.homelinux.com/ISAT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 106 - ERA DISNEY POR CANAL - HD H264
+http://nodemaster.homelinux.com/DISNEYXD-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 107 - SEX PRIVE - HD H264
+http://nodemaster.homelinux.com/SEXPRIVE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 109 - INTER TV G MINAS - HD H264
+http://nodemaster.homelinux.com/INTERTVGRANDEMINAS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 110 - TV DIARIO - HD H264
+http://nodemaster.homelinux.com/TVDIARIO-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 111 - EPTV SUL DE MINAS - HD H264
+http://nodemaster.homelinux.com/EPTVSULDEMINAS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 112 - CNNE - HD H264
+http://nodemaster.homelinux.com/CNNE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 113 - PLAYBOY TV - HD H264
+http://nodemaster.homelinux.com/PLAYBOYTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 114 - SEX HOT - HD H264
+http://nodemaster.homelinux.com/SEXHOT-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 115 - CINE CANAL - HD H264
+http://nodemaster.homelinux.com/FOXPREMIUM1-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 118 - FOX NEWS - HD H264
+http://nodemaster.homelinux.com/FOXNEWS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 120 - RPC CURITIBA - HD H264
+http://nodemaster.homelinux.com/GLOBORCPCURITIBA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 120 - TV BELEM - HD H264
+http://nodemaster.homelinux.com/TVBELEM-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 121 - TV MIRANTE - HD H264
+http://nodemaster.homelinux.com/TVMIRANTE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 122 - NSC TV FLORIANOPOLIS - HD H264
+http://nodemaster.homelinux.com/NSCTVFLORIANOPOLIS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 123 - TV ANHANGUERA - HD H264
+http://nodemaster.homelinux.com/TVANHANGUERA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 124 - RPC TV PARANAENSE - HD H264
+http://nodemaster.homelinux.com/RPCTVPARANAENSE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 125 - EPTV CAMPINAS - HD H264
+http://nodemaster.homelinux.com/EPTVCAMPINAS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 126 - TV MORENA - HD H264
+http://nodemaster.homelinux.com/TVMORENA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 127 - GLOBO NORDESTE - HD H264
+http://nodemaster.homelinux.com/GLOBONORDESTE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 128 - TV VERDES MARES - HD H264
+http://nodemaster.homelinux.com/TVVERDESMARES-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 129 - GLOBO MINAS - HD H264
+http://nodemaster.homelinux.com/GLOBOMINAS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 130 - TV CENTRO AMERICA - HD H264
+http://nodemaster.homelinux.com/TVCENTROAMERICA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 131 - TV BAHIA - HD 264
+http://nodemaster.homelinux.com/TVBAHIA-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 132 - GLOBO SP - HD 264
+http://nodemaster.homelinux.com/GLOBONACIONAL-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 133 - RECORD TV - HD 264
+http://nodemaster.homelinux.com/RECORDTV-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 134 - RECORD NEWS - HD 264
+http://nodemaster.homelinux.com/RECORDNEWS-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 135 - RBS PORTO ALEGRE - HD 264
+http://nodemaster.homelinux.com/RBS-PORTO-ALEGRE-HD/index.m3u8?token=U0OxHgSLI0
+#EXTINF:0, 150 - GLOBO RJ - HD 264
+http://nodemaster.homelinux.com/GLOBORJ-HD/index.m3u8?token=U0OxHgSLI0

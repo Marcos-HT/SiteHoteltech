@@ -7,12 +7,11 @@
     <title>Detalhes do Hotel</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilo adicional para garantir que blocos opcionais fiquem ocultos inicialmente */
+        /* Estilos modo mensagem e clima (mantidos) */
         .info-block-opcional {
             display: none;
         }
 
-        /* Estilos para modo mensagem (RB/IRD) */
         .info-block-opcional .campo-padrao {
             display: block;
         }
@@ -42,7 +41,6 @@
             display: none;
         }
 
-        /* Estilo para ícone do clima */
         #clima-icone {
             width: 40px;
             height: 40px;
@@ -50,10 +48,21 @@
             display: none;
         }
 
-        /* Ajustado tamanho e começa escondido */
         #detalhe-clima p {
             margin-bottom: 5px;
             line-height: 1.4;
+        }
+
+        #detalhe-procentric-nota {
+            font-size: 0.85em;
+            margin-top: 8px;
+            display: block;
+            color: #555;
+        }
+
+        #detalhe-procentric-nota strong {
+            min-width: auto;
+            margin-right: 3px;
         }
     </style>
 </head>
@@ -80,22 +89,21 @@
             <div class="detalhes-corpo-flex">
                 <div class="detalhes-coluna-esquerda">
                     <div id="detalhe-imagens">
-                        <p>Carregando imagem...</p>
+                        <p>Carregando...</p>
                     </div>
                 </div>
                 <div class="detalhes-coluna-direita">
                     <div class="hotel-section-descricao">
                         <h3>Descrição</h3>
-                        <p id="detalhe-descricao">Carregando descrição...</p>
+                        <p id="detalhe-descricao">Carregando...</p>
                     </div>
                     <div class="contato-info" id="detalhe-contato">
-                        <p>Carregando contato...</p>
+                        <p>Carregando...</p>
                     </div>
                 </div>
             </div>
 
             <div class="info-blocks-container-static">
-
 
                 <div id="detalhe-clima" class="info-block-detalhes info-block-opcional">
                     <h3>Clima Atual (<span id="clima-cidade">-</span>)</h3>
@@ -120,11 +128,10 @@
                     <p class="campo-padrao"><strong>IP Local RB:</strong> <span id="detalhe-rb-ip">N/D</span></p>
                     <p class="campo-padrao"><strong>User:</strong> <span id="detalhe-rb-user">N/D</span></p>
                     <p class="campo-padrao"><strong>Senha:</strong> <span id="detalhe-rb-senha">N/D</span></p>
-                    <p class="mensagem-customizada" id="detalhe-rb-mensagem"></p>
-                    <img class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servicos_mikrotik.png"
+                    <p class="mensagem-customizada" id="detalhe-rb-mensagem"></p> <img
+                        class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servicos_mikrotik.png"
                         alt="MikroTik Logo">
                 </div>
-
                 <div id="bloco-acesso-flussonic" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSO FLUSSONIC</h3> <a id="detalhe-flussonic-link-web" href="#" target="_blank"
@@ -141,6 +148,25 @@
                         class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_flussonic.png"
                         alt="Flussonic Logo">
                 </div>
+
+                <div id="bloco-acesso-procentric" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header">
+                        <h3>ACESSO PROCENTRIC</h3>
+                        <a id="detalhe-procentric-link-web" href="#" target="_blank" class="button acesso-web-button"
+                            style="display: none;">Acesso Web</a>
+                    </div>
+                    <p><strong>IP Rede:</strong> <span id="detalhe-procentric-ip-rede">N/D</span></p>
+                    <p><strong>Porta SSH:</strong> <span id="detalhe-procentric-porta-ssh">N/D</span></p>
+                    <p><strong>User SSH:</strong> <span id="detalhe-procentric-user-ssh">N/D</span></p>
+                    <p><strong>Senha SSH:</strong> <span id="detalhe-procentric-senha-ssh">N/D</span></p>
+                    <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                    <p><strong>User Web:</strong> <span id="detalhe-procentric-user-web">N/D</span></p>
+                    <p><strong>Senha Web:</strong> <span id="detalhe-procentric-senha-web">N/D</span></p>
+                    <p id="detalhe-procentric-nota"><i></i></p>
+                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_procentric.png"
+                        alt="Procentric Logo">
+                </div>
+
                 <div id="bloco-acesso-ird" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSOS IRD</h3> <a id="detalhe-ird-link-web" href="#" target="_blank"
@@ -154,34 +180,44 @@
                         class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servico_Isdb-t.png"
                         alt="ISDB-T Logo">
                 </div>
-                <div id="bloco-acesso-remoto" class="info-block-detalhes info-block-opcional">
+
+                <div id="bloco-acesso-remoto-canal" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
-                        <h3>ACESSOS REMOTO</h3>
+                        <h3>ACESSO REMOTO (CANAL)</h3>
                     </div>
-                    <p><strong id="detalhe-remoto-tipo">N/D</strong></p>
-                    <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-anydesk">N/D</span></p>
-                    <p><strong>Senha:</strong> <span id="detalhe-remoto-senha">N/D</span></p> <img
-                        class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
+                    <p><strong id="detalhe-remoto-canal-tipo">N/D</strong></p>
+                    <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-canal-anydesk">N/D</span></p>
+                    <p><strong>Senha:</strong> <span id="detalhe-remoto-canal-senha">N/D</span></p>
+                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
                         alt="AnyDesk Logo">
                 </div>
+
+                <div id="bloco-acesso-remoto-integracao" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header">
+                        <h3>ACESSO REMOTO (INTEGRAÇÃO)</h3>
+                    </div>
+                    <p><strong id="detalhe-remoto-integracao-tipo">N/D</strong></p>
+                    <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-integracao-anydesk">N/D</span></p>
+                    <p><strong>Senha:</strong> <span id="detalhe-remoto-integracao-senha">N/D</span></p>
+                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
+                        alt="AnyDesk Logo">
+                </div>
+
+
                 <div id="bloco-info-adm" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>INFORMAÇÕES ADM</h3>
                     </div>
                     <p><strong>Contato Adm:</strong> <span id="detalhe-adm-contato">N/D</span></p>
                 </div>
-
             </div>
         </div>
     </div>
-    {/* Mensagem de Erro */}
+
     <div id="error-message" style="display: none; padding: 40px; text-align: center; color: white;">
         <h1>Hotel Não Encontrado</h1>
-        <p>O hotel solicitado não foi encontrado na base de dados.</p>
-        <a href="index.html" class="button voltar-button icon-button" title="Voltar"
-            style="margin-top: 20px; display: inline-flex;">
-            <img src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon">
-        </a>
+        <p>...</p> <a href="index.html" class="button voltar-button icon-button" title="Voltar"> <img
+                src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon"> </a>
     </div>
 
     <script src="database.js"></script>
@@ -189,20 +225,17 @@
         // ==========================================
         // === Script Página de Detalhes do Hotel ===
         // ==========================================
-
-        const OPENWEATHER_API_KEY = "ad364797eba81bb1efc12a28d7282829"; // Sua chave API
+        const OPENWEATHER_API_KEY = "ad364797eba81bb1efc12a28d7282829"; // Chave API do usuário
 
         // --- Função Principal ---
         function renderHotelDetails(hotelId) {
+            // ... (código inicial da função) ...
             if (typeof hotelDatabase === 'undefined') { console.error("Erro: hotelDatabase não foi carregado."); displayError("Erro ao carregar dados."); return; }
             const hotelData = hotelDatabase[hotelId];
             const contentDiv = document.getElementById('hotel-details-content');
             const errorDiv = document.getElementById('error-message');
-
             contentDiv.style.display = 'none'; errorDiv.style.display = 'none';
-            document.querySelectorAll('.info-block-opcional').forEach(block => {
-                block.style.display = 'none'; block.classList.remove('modo-mensagem');
-            });
+            document.querySelectorAll('.info-block-opcional').forEach(block => { block.style.display = 'none'; block.classList.remove('modo-mensagem'); });
 
             if (hotelData) {
                 document.title = `Detalhes - ${hotelData.nome || hotelId}`;
@@ -212,89 +245,69 @@
                 renderContactInfo('detalhe-contato', hotelData.infoAdicional);
                 setLinkHrefAndVisibility('detalhe-whatsapp-link', hotelData.linkWhatsAppGrupo);
                 setLinkHrefAndVisibility('detalhe-backup-link', hotelData.backupLink);
+
+                // Renderiza blocos opcionais
                 renderOptionalBlock('bloco-acesso-rb', hotelData.acessoRB, renderRBDetails);
                 renderOptionalBlock('bloco-acesso-flussonic', hotelData.acessoFlussonic, renderFlussonicDetails);
+                renderOptionalBlock('bloco-acesso-procentric', hotelData.acessoProcentric, renderProcentricDetails); // <-- NOVO Bloco
                 renderOptionalBlock('bloco-acesso-ird', hotelData.acessoIRD, renderIRDDetails);
-                renderOptionalBlock('bloco-acesso-remoto', hotelData.acessoRemoto, renderRemotoDetails);
+                renderOptionalBlock('bloco-acesso-remoto-canal', hotelData.acessoRemotoCanal, renderRemotoCanalDetails); // <-- Bloco RENOMEADO/NOVO
+                renderOptionalBlock('bloco-acesso-remoto-integracao', hotelData.acessoRemotoIntegracao, renderRemotoIntegracaoDetails); // <-- NOVO Bloco
                 renderOptionalBlock('bloco-info-adm', hotelData.infoAdm, renderAdmDetails);
 
+                // Clima
                 if (OPENWEATHER_API_KEY && OPENWEATHER_API_KEY !== "SUA_CHAVE_API_AQUI" && hotelData.cidade) {
-                    showBlock('detalhe-clima');
-                    setTextContent('clima-cidade', hotelData.cidade);
+                    showBlock('detalhe-clima'); setTextContent('clima-cidade', hotelData.cidade);
                     buscarClima(hotelData.cidade, hotelData.estado, hotelData.pais, OPENWEATHER_API_KEY);
                 } else {
                     console.warn("Clima não carregado: API Key ou localização ausente.");
                     const blocoClima = document.getElementById('detalhe-clima');
-                    if (blocoClima) {
-                        blocoClima.innerHTML = '<h3>Clima Atual</h3><p><i>Informação indisponível.</i></p>';
-                        showBlock('detalhe-clima');
-                    }
+                    if (blocoClima) { blocoClima.innerHTML = '<h3>Clima Atual</h3><p><i>Informação indisponível.</i></p>'; showBlock('detalhe-clima'); }
                 }
                 contentDiv.style.display = 'block';
-            } else {
-                displayError(`Hotel com ID "${hotelId}" não encontrado.`);
-            }
+            } else { displayError(`Hotel com ID "${hotelId}" não encontrado.`); }
         }
 
         // --- Funções Auxiliares de Renderização de Blocos ---
-        function renderImages(containerId, imagens, nomeHotel) { /* ... */ }
-        function renderContactInfo(containerId, info) { /* ... */ }
-        function renderOptionalBlock(blockId, data, renderFunction) { /* ... */ }
-        function renderRBDetails(blockElement, data) { /* ... */ }
-        function renderFlussonicDetails(blockElement, data) { /* ... */ }
-        function renderIRDDetails(blockElement, data) { /* ... */ }
-        function renderRemotoDetails(blockElement, data) { /* ... */ }
-        function renderAdmDetails(blockElement, data) { /* ... */ }
-        // (Cole as funções auxiliares completas aqui - da resposta anterior)
+        function renderOptionalBlock(blockId, data, renderFunction) { const blockElement = document.getElementById(blockId); if (blockElement && data) { renderFunction(blockElement, data); showBlock(blockId); } }
         function renderImages(containerId, imagens, nomeHotel) { const container = document.getElementById(containerId); if (container) { container.innerHTML = ''; if (imagens && imagens.length > 0) { imagens.forEach(imgPath => { const img = document.createElement('img'); img.src = imgPath; img.alt = `Logo ${nomeHotel}`; img.onerror = () => { img.style.display = 'none'; }; container.appendChild(img); }); } else { container.innerHTML = '<p>Sem imagem.</p>'; } } }
         function renderContactInfo(containerId, info) { const container = document.getElementById(containerId); if (container) { container.innerHTML = ''; if (info && info.length > 0) { info.forEach(item => { const p = document.createElement('p'); p.classList.add('contato-item'); p.innerHTML = `<strong>${item.titulo}:</strong> ${item.valor || 'N/D'}`; container.appendChild(p); }); } else { container.innerHTML = '<p>Informações de contato não disponíveis.</p>'; } } }
-        function renderOptionalBlock(blockId, data, renderFunction) { const blockElement = document.getElementById(blockId); if (blockElement && data) { renderFunction(blockElement, data); showBlock(blockId); } }
         function renderRBDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-rb-ovpn', data.ovpn); setTextContent('detalhe-rb-ip', data.ipLocal); setTextContent('detalhe-rb-user', data.user); setTextContent('detalhe-rb-senha', data.senha); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-rb-mensagem', data); } }
         function renderFlussonicDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-flussonic-ovpn', data.ovpn); setTextContent('detalhe-flussonic-ip-rede', data.ipRede); setTextContent('detalhe-flussonic-porta-ssh', data.portaSSH); setTextContent('detalhe-flussonic-porta-web', data.portaWeb); setTextContent('detalhe-flussonic-user-ssh', data.userSSH); setTextContent('detalhe-flussonic-senha-ssh', data.senhaSSH); setTextContent('detalhe-flussonic-user-web', data.userWeb); setTextContent('detalhe-flussonic-senha-web', data.senhaWeb); setLinkHrefAndVisibility('detalhe-flussonic-link-web', data.linkWeb); }
         function renderIRDDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-ird-ovpn', data.ovpn); setTextContent('detalhe-ird-ip-rede', data.ipRede); setTextContent('detalhe-ird-user', data.user); setTextContent('detalhe-ird-senha', data.senha); setLinkHrefAndVisibility('detalhe-ird-link-web', data.linkWeb); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-ird-mensagem', data); } }
-        function renderRemotoDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-remoto-tipo', data.tipo); setTextContent('detalhe-remoto-anydesk', data.anydesk); setTextContent('detalhe-remoto-senha', data.senha); }
         function renderAdmDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-adm-contato', data.contato); }
 
+        // --- NOVAS Funções ---
+        function renderProcentricDetails(blockElement, data) {
+            blockElement.classList.remove('modo-mensagem'); // Assume Procentric sempre tem campos padrão
+            setTextContent('detalhe-procentric-ip-rede', data.ipRede);
+            setTextContent('detalhe-procentric-porta-ssh', data.portaSSH);
+            setTextContent('detalhe-procentric-user-ssh', data.userSSH);
+            setTextContent('detalhe-procentric-senha-ssh', data.senhaSSH);
+            setTextContent('detalhe-procentric-user-web', data.userWeb);
+            setTextContent('detalhe-procentric-senha-web', data.senhaWeb);
+            setTextContent('detalhe-procentric-nota', data.nota);
+            setLinkHrefAndVisibility('detalhe-procentric-link-web', data.linkWeb);
+        }
+
+        function renderRemotoCanalDetails(blockElement, data) { // Renomeada de renderRemotoDetails
+            blockElement.classList.remove('modo-mensagem');
+            setTextContent('detalhe-remoto-canal-tipo', data.tipo); // ID Alterado
+            setTextContent('detalhe-remoto-canal-anydesk', data.anydesk); // ID Alterado
+            setTextContent('detalhe-remoto-canal-senha', data.senha); // ID Alterado
+        }
+
+        function renderRemotoIntegracaoDetails(blockElement, data) { // Nova função
+            blockElement.classList.remove('modo-mensagem');
+            setTextContent('detalhe-remoto-integracao-tipo', data.tipo); // ID Novo
+            setTextContent('detalhe-remoto-integracao-anydesk', data.anydesk); // ID Novo
+            setTextContent('detalhe-remoto-integracao-senha', data.senha); // ID Novo
+        }
+        // --- Fim Novas Funções ---
+
         // --- Funções de Clima ---
-        async function buscarClima(cidade, estado, pais, apiKey) {
-            if (!cidade) return;
-            const localizacaoQuery = `${cidade}${estado ? ',' + estado : ''}${pais ? ',' + pais : ''}`;
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(localizacaoQuery)}&appid=${apiKey}&units=metric&lang=pt_br`;
-            try {
-                const response = await fetch(url);
-                if (!response.ok) { const errorData = await response.json().catch(() => ({ message: response.statusText })); throw new Error(`Erro ${response.status}: ${errorData.message || 'Falha ao buscar clima'}`); }
-                const data = await response.json();
-                atualizarDOMClima(data);
-            } catch (error) {
-                console.error("Erro ao buscar dados de clima:", error);
-                const blocoClima = document.getElementById('detalhe-clima');
-                if (blocoClima) { const cidadeNome = document.getElementById('clima-cidade')?.textContent || cidade; blocoClima.innerHTML = `<h3>Clima Atual (${cidadeNome})</h3><p><i style='color: red;'>Erro ao carregar clima: ${error.message}</i></p>`; showBlock('detalhe-clima'); }
-            }
-        }
-
-        function atualizarDOMClima(data) {
-            if (!data || !data.weather || !data.main) { console.error("Dados de clima inválidos:", data); setTextContent('clima-desc', 'Erro'); return; }
-            const descricao = data.weather[0]?.description || 'N/D'; const iconeCod = data.weather[0]?.icon || null;
-            const temperatura = data.main.temp !== undefined ? Math.round(data.main.temp) : '-'; const nuvens = data.clouds?.all ?? '-';
-            const chuva1h = data.rain?.['1h'] ?? 0; const condicaoPrincipal = data.weather[0]?.main || '';
-
-            setTextContent('clima-desc', descricao.charAt(0).toUpperCase() + descricao.slice(1));
-            // Não temos mais campo de temperatura isolado, mas guardamos valor
-            setTextContent('clima-nuvens', nuvens); setTextContent('clima-chuva', chuva1h);
-
-            const iconeElement = document.getElementById('clima-icone');
-            if (iconeElement && iconeCod) {
-                const localIconPath = `assets/clima-png/${iconeCod}.png`; iconeElement.src = localIconPath;
-                iconeElement.alt = descricao; iconeElement.style.display = 'inline-block';
-                iconeElement.onerror = () => { console.warn(`Ícone local não encontrado: ${localIconPath}`); iconeElement.style.display = 'none'; iconeElement.src = ''; };
-            } else if (iconeElement) { iconeElement.style.display = 'none'; }
-
-            const alertaElement = document.getElementById('clima-alerta'); let alertaMsg = '';
-            if (nuvens > 80) { alertaMsg = "ALERTA: Céu muito nublado!"; }
-            if (['Rain', 'Drizzle', 'Thunderstorm'].includes(condicaoPrincipal)) { alertaMsg += (alertaMsg ? " / " : "ALERTA: ") + "Chuva/Trovoada!"; }
-            if (alertaMsg && alertaElement) { alertaElement.textContent = alertaMsg; alertaElement.style.display = 'block'; }
-            else if (alertaElement) { alertaElement.style.display = 'none'; }
-        }
+        async function buscarClima(cidade, estado, pais, apiKey) { if (!cidade) return; const localizacaoQuery = `${cidade}${estado ? ',' + estado : ''}${pais ? ',' + pais : ''}`; const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(localizacaoQuery)}&appid=${apiKey}&units=metric&lang=pt_br`; try { const response = await fetch(url); if (!response.ok) { const errorData = await response.json().catch(() => ({ message: response.statusText })); throw new Error(`Erro ${response.status}: ${errorData.message || 'Falha ao buscar clima'}`); } const data = await response.json(); atualizarDOMClima(data); } catch (error) { console.error("Erro ao buscar dados de clima:", error); const blocoClima = document.getElementById('detalhe-clima'); if (blocoClima) { const cidadeNome = document.getElementById('clima-cidade')?.textContent || cidade; blocoClima.innerHTML = `<h3>Clima Atual (${cidadeNome})</h3><p><i style='color: red;'>Erro ao carregar clima: ${error.message}</i></p>`; showBlock('detalhe-clima'); } } }
+        function atualizarDOMClima(data) { if (!data || !data.weather || !data.main) { console.error("Dados de clima inválidos:", data); setTextContent('clima-desc', 'Erro'); return; } const descricao = data.weather[0]?.description || 'N/D'; const iconeCod = data.weather[0]?.icon || null; const temperatura = data.main.temp !== undefined ? Math.round(data.main.temp) : '-'; const nuvens = data.clouds?.all ?? '-'; const chuva1h = data.rain?.['1h'] ?? 0; const condicaoPrincipal = data.weather[0]?.main || ''; setTextContent('clima-desc', descricao.charAt(0).toUpperCase() + descricao.slice(1)); setTextContent('clima-nuvens', nuvens); setTextContent('clima-chuva', chuva1h); const iconeElement = document.getElementById('clima-icone'); if (iconeElement && iconeCod) { const localIconPath = `assets/clima-png/${iconeCod}.png`; iconeElement.src = localIconPath; iconeElement.alt = descricao; iconeElement.style.display = 'inline-block'; iconeElement.onerror = () => { console.warn(`Ícone local não encontrado: ${localIconPath}`); iconeElement.style.display = 'none'; iconeElement.src = ''; }; } else if (iconeElement) { iconeElement.style.display = 'none'; } const alertaElement = document.getElementById('clima-alerta'); let alertaMsg = ''; if (nuvens > 80) { alertaMsg = "ALERTA: Céu muito nublado!"; } if (['Rain', 'Drizzle', 'Thunderstorm'].includes(condicaoPrincipal)) { alertaMsg += (alertaMsg ? " / " : "ALERTA: ") + "Chuva/Trovoada!"; } if (alertaMsg && alertaElement) { alertaElement.textContent = alertaMsg; alertaElement.style.display = 'block'; } else if (alertaElement) { alertaElement.style.display = 'none'; } }
 
         // --- Funções Auxiliares Genéricas ---
         function setTextContent(id, text) { const element = document.getElementById(id); if (element) { element.textContent = text ?? 'N/D'; } }
@@ -304,6 +317,7 @@
 
         // --- Lógica Principal ---
         window.addEventListener('DOMContentLoaded', () => { const urlParams = new URLSearchParams(window.location.search); const hotelId = urlParams.get('hotel'); if (!hotelId) { displayError("ID do hotel não especificado na URL."); console.error("ID do hotel não encontrado na URL (parâmetro 'hotel')."); } else { renderHotelDetails(hotelId); } });
+
     </script>
 
 </body>
