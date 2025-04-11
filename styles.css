@@ -50,7 +50,7 @@ body {
     box-shadow: 0 2px 5px var(--color-shadow);
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Logo à esquerda */
+    justify-content: space-between;; /* Logo à esquerda */
     margin: 15px 20px 20px 20px; /* Margens externas */
     padding: 10px 20px; /* Espaçamento interno */
     border-radius: 5px; /* Cantos arredondados */
