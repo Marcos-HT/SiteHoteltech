@@ -1,0 +1,435 @@
+/* ================================= */
+/* == ESTILOS PLAYER M3U CUSTOM ===== */
+/* ================================= */
+
+/* Layout Geral da Página do Player (Player + Sidebar) */
+.player-page-layout {
+    display: flex;
+    flex-direction: row;
+    /* Player à esquerda, Sidebar à direita por padrão */
+    gap: 30px;
+    /* Espaço entre player e sidebar */
+    padding: 0 20px 20px 20px;
+    /* Padding da página, igual ao main-page-content */
+    max-width: 1600px;
+    /* Largura máxima geral */
+    margin: 0 auto;
+    /* Centraliza */
+}
+
+/* Container Principal do Player (Vídeo + Controles) */
+.custom-player-container {
+    flex: 1;
+    /* Ocupa o espaço disponível */
+    min-width: 0;
+    /* Importante para flexbox */
+    position: relative;
+    /* Base para posicionamento absoluto da barra de controles */
+    background-color: #000;
+    /* Fundo preto caso o vídeo não carregue */
+    overflow: hidden;
+    /* Garante que nada saia dos limites */
+    aspect-ratio: 16/9;
+    /* Mantém proporção */
+    max-height: calc(100vh - 150px);
+    /* Limita altura máxima (ajustar conforme header/footer) */
+}
+
+/* Elemento de Vídeo */
+#videoPlayer {
+    display: block;
+    /* Remove espaço extra abaixo */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Garante que o vídeo inteiro caiba, pode usar 'cover' */
+}
+
+/* Barra de Controles */
+.controls-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    /* Gradiente suave */
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    /* Espaça os grupos */
+    align-items: center;
+    opacity: 0;
+    /* Começa escondido */
+    visibility: hidden;
+    /* Começa escondido */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 2147483647;
+    /* Garante que fique sobre o vídeo */
+    box-sizing: border-box;
+}
+
+/* Mostra a barra quando o mouse está sobre o container OU quando tem a classe .controls-visible (JS pode adicionar/remover) */
+.custom-player-container:hover .controls-bar,
+.custom-player-container.controls-visible .controls-bar {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Grupos de Controle */
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espaço entre itens dentro de um grupo */
+}
+
+.control-group.left {
+    flex-shrink: 0;
+    /* Não encolhe */
+}
+
+.control-group.center {
+    flex-grow: 1;
+    /* Ocupa o espaço central */
+    justify-content: center;
+    max-width: 50%;
+    /* Limita largura para não espremer os outros */
+}
+
+.control-group.right {
+    flex-shrink: 0;
+    /* Não encolhe */
+}
+
+/* Botões de Controle */
+.control-button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 0;
+    /* Para alinhar a imagem verticalmente */
+}
+
+.control-button img {
+    height: 20px;
+    /* Tamanho padrão dos ícones dos controles */
+    width: 20px;
+    display: block;
+    /* Transforma ícones em branco (se forem pretos no fundo transparente) */
+    filter: brightness(0) invert(1);
+    transition: transform 0.1s ease, filter 0.2s ease;
+    /* Adiciona transição filtro */
+}
+
+.control-button:hover img {
+    filter: brightness(0) invert(1) opacity(0.8);
+    /* Leve transparência no hover */
+    transform: scale(1.1);
+    /* Aumenta um pouco no hover */
+}
+
+/* Barras de Range (Progresso e Volume) */
+input[type="range"] {
+    -webkit-appearance: none;
+    /* Remove aparência padrão WebKit */
+    appearance: none;
+    background: transparent;
+    /* Fundo transparente */
+    cursor: pointer;
+    height: 16px;
+    /* Altura total clicável */
+}
+
+input[type="range"]:focus {
+    outline: none;
+    /* Remove outline no foco */
+}
+
+/* --- Estilo da Trilha (Track) --- */
+/* WebKit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.3);
+    /* Cor da trilha */
+    height: 4px;
+    /* Altura da trilha visual */
+    border-radius: 2px;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+    background: rgba(255, 255, 255, 0.3);
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* --- Estilo do "Dedo" (Thumb) --- */
+/* WebKit */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Remove aparência padrão */
+    appearance: none;
+    margin-top: -6px;
+    /* Alinha verticalmente com a trilha ( (16px - 4px) / 2 negativo ) */
+    background: #FFFFFF;
+    /* Cor do dedo */
+    height: 16px;
+    /* Tamanho do dedo */
+    width: 16px;
+    border-radius: 50%;
+    /* Dedo redondo */
+    border: none;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    background: #FFFFFF;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: none;
+}
+
+/* Barra de Progresso Específica */
+.progress-bar {
+    width: 100%;
+    /* Ocupa o espaço disponível no grupo central */
+    margin: 0 10px;
+    /* Espaçamento dos textos de tempo */
+}
+
+/* Barra de Volume Específica */
+.volume-bar {
+    width: 80px;
+    /* Largura fixa */
+}
+
+/* Display de Tempo */
+.time-display {
+    color: #FFF;
+    font-size: 0.85em;
+    white-space: nowrap;
+    /* Impede quebra de linha */
+}
+
+
+/* --- Estilos Sidebar --- */
+.player-sidebar {
+    flex: 0 0 300px;
+    /* Largura fixa da sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Título da Sidebar */
+.player-sidebar h2 {
+    color: #081924;
+    margin-bottom: 5px;
+    margin-top: 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Corrige o container da busca DENTRO da sidebar para ocupar largura total */
+.player-sidebar .search-container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Campo de Busca */
+#channelSearchInput {
+    padding: 8px 8px 8px 30px;
+    font-size: 0.9em;
+    background-position: left 8px center;
+    background-size: 14px 14px;
+    background-image: url('assets/arquivos-png/Lupa.png');
+    background-color: #f0f0f0;
+    color: #081924;
+    border: 2px solid #22d4fd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#channelSearchInput::placeholder {
+    color: #555;
+}
+
+/* Container da Lista de Canais */
+.channel-list-container {
+    width: 100%;
+    max-height: calc(100vh - 300px);
+    /* Altura máxima desktop */
+    overflow-y: auto;
+    background-color: #ffffff;
+    border: 2px solid #22d4fd;
+    border-radius: 5px;
+    padding: 5px;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+/* Itens da Lista de Canais */
+.channel-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #081924;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #081924;
+}
+
+.channel-item:last-child {
+    border-bottom: none;
+}
+
+.channel-item:hover,
+.channel-item.active {
+    background-color: rgba(8, 25, 36, 0.15);
+}
+
+.channel-item.active {
+    border-bottom-color: #081924;
+}
+
+.channel-item:hover {
+    border-bottom-color: #081924;
+}
+
+/* Estilos para o Logo do Canal (AJUSTADO para diminuir tamanho) */
+.channel-logo {
+    height: 20px;
+    /* <<< ALTURA FIXA (AJUSTE SE NECESSÁRIO) */
+    width: auto;
+    /* Largura ajustará para manter a proporção */
+    max-width: 40px;
+    /* Opcional: Limita a largura de logos muito largos */
+    object-fit: contain;
+    /* Garante que a imagem caiba sem distorcer */
+    flex-shrink: 0;
+    /* Impede que o logo encolha */
+    vertical-align: middle;
+    /* Ajuda no alinhamento vertical */
+}
+
+/* Estilos para o Placeholder (caso não haja logo) */
+.channel-logo-placeholder {
+    display: inline-block;
+    width: 32px;
+    /* Tenta manter o mesmo espaço horizontal do logo */
+    height: 20px;
+    /* Mesma altura do logo */
+    flex-shrink: 0;
+}
+
+/* Estilos para o Texto do Nome do Canal */
+.channel-name-text {
+    flex-grow: 1;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+/* Cor específica do texto no hover/active */
+.channel-item:hover .channel-name-text,
+.channel-item.active .channel-name-text {
+    color: #22d4fd;
+}
+
+.channel-item.active .channel-name-text {
+    font-weight: bold;
+}
+
+
+/* --- Media Queries Específicas do Player --- */
+@media (max-width: 992px) {
+
+    /* Tablet */
+    .player-page-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .player-sidebar {
+        flex-basis: auto;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        max-height: 300px;
+        /* Altura máxima da sidebar em tablet */
+        order: 2;
+    }
+
+    .custom-player-container {
+        max-height: 60vh;
+        order: 1;
+    }
+
+    .control-button img {
+        height: 18px;
+        width: 18px;
+    }
+
+    .volume-bar {
+        width: 60px;
+    }
+
+    .time-display {
+        font-size: 0.8em;
+    }
+
+    .controls-bar {
+        padding: 5px 10px;
+    }
+
+    .control-group {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Mobile */
+    .player-page-layout {
+        padding: 0 10px 10px 10px;
+    }
+
+    .custom-player-container {
+        max-height: 50vh;
+        min-height: 200px;
+    }
+
+    .control-group.center {
+        display: none;
+    }
+
+    .controls-bar {
+        justify-content: space-around;
+    }
+
+    .control-button img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .control-group {
+        gap: 5px;
+    }
+
+    .player-sidebar {
+        max-height: 250px;
+    }
+
+    /* Altura máxima da sidebar em mobile */
+}

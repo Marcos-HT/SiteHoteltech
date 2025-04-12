@@ -5,173 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player M3U - Central de Hotéis</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilos básicos para o player */
-        body {
-            background-color: var(--color-primary, #081924);
-            color: var(--color-text-primary-on-dark, #f0f0f0);
-        }
-
-        .player-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            gap: 20px;
-        }
-
-        .player-layout {
-            display: flex;
-            flex-direction: row;
-            gap: 50px;
-            width: 100%;
-            max-width: 1400px;
-            margin: 20px auto;
-        }
-
-        .player-sidebar {
-            flex: 0 0 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .player-main {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .search-container {
-            margin-bottom: 0;
-            width: 100%;
-        }
-
-        #channelSearchInput {
-            padding: 10px 10px 10px 35px;
-            border: 2px solid #22d4fd;
-            border-radius: 5px;
-            width: 100%;
-            font-size: 1em;
-            box-sizing: border-box;
-            background-color: #1a2b38;
-            color: var(--color-text-primary-on-dark);
-            background-image: url('assets/arquivos-png/Lupa.png');
-            background-repeat: no-repeat;
-            background-position: left 10px center;
-            background-size: 16px 16px;
-        }
-
-        #channelSearchInput::placeholder {
-            color: #aaa;
-        }
-
-        .player-sidebar h2 {
-            color: var(--color-headings-on-dark);
-            margin-bottom: 0px;
-            margin-top: 0;
-            font-size: 1.2em;
-        }
-
-        .channel-list-container {
-            width: 100%;
-            max-height: 400px;
-            overflow-y: auto;
-            background-color: #1a2b38;
-            border: 1px solid var(--color-border-button, #22d4fd);
-            border-radius: 5px;
-            padding: 10px;
-            color: var(--color-text-primary-on-dark);
-            flex: 1;
-        }
-
-        #channelList {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .channel-item {
-            padding: 8px 10px;
-            cursor: pointer;
-            border-bottom: 1px solid #334;
-            transition: background-color 0.2s ease;
-            display: list-item;
-        }
-
-        .channel-item:last-child {
-            border-bottom: none;
-        }
-
-        .channel-item:hover {
-            background-color: var(--color-hover-button, #1f4964);
-        }
-
-        .channel-item.active {
-            background-color: #0a2840;
-            font-weight: bold;
-        }
-
-        #videoPlayer {
-            width: 100%;
-            min-height: 500px;
-            height: auto;
-            aspect-ratio: 16/9;
-            background-color: #000;
-            border: 1px solid #333;
-        }
-
-        .player-header {
-            width: 100%;
-            max-width: 1400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px auto;
-            text-align: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .player-header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            color: var(--color-headings-on-dark);
-        }
-
-        .player-container h2 {
-            color: var(--color-headings-on-dark);
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
-
-        @media (max-width: 768px) {
-            .player-layout {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .player-sidebar {
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 600px;
-                margin: 0 auto;
-            }
-
-            #videoPlayer {
-                min-height: 300px;
-            }
-
-            .player-header h1 {
-                font-size: 1.3em;
-            }
-
-            .player-sidebar h2 {
-                font-size: 1.2em;
-            }
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="styles.css"> <link rel="stylesheet" href="player-styles.css"> <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 
 <body>
@@ -182,35 +16,59 @@
         </a>
     </header>
 
-    <div class="player-container">
-        <div class="player-header">
+    <div class="player-page-layout">
 
-        </div>
+        <div id="customPlayerContainer" class="custom-player-container">
 
-        <div class="player-layout">
+            <video id="videoPlayer" autoplay> Seu navegador não suporta a tag de vídeo.
+            </video>
 
-            <div class="player-sidebar">
-                <h2>Lista de Canais</h2>
-                <div class="search-container">
-                    <input type="text" id="channelSearchInput" placeholder="Pesquisar canais na lista...">
+            <div id="controlsBar" class="controls-bar">
+
+                <div class="control-group left">
+                    <button id="prevChannelBtn" class="control-button" title="Canal Anterior (PageUp / ←)">
+                        <img src="assets/player/previous.png" alt="Anterior">
+                    </button>
+                    <button id="playPauseBtn" class="control-button" title="Play/Pause">
+                        <img id="playPauseIcon" src="assets/player/play.png" alt="Play">
+                    </button>
+                    <button id="nextChannelBtn" class="control-button" title="Próximo Canal (PageDown / →)">
+                        <img src="assets/player/next.png" alt="Próximo">
+                    </button>
                 </div>
-                <div class="channel-list-container">
-                    <ul id="channelList">
-                        <li>Carregando lista de canais...</li>
-                    </ul>
+
+                <div class="control-group center">
+                     <span id="currentTime" class="time-display">0:00</span>
+                     <input id="progressBar" type="range" class="progress-bar" value="0" min="0" max="100" step="0.1" title="Progresso">
+                     <span id="duration" class="time-display">0:00</span>
                 </div>
-            </div>
 
-            <div class="player-main">
-                <video id="videoPlayer" controls autoplay style="background-color: black;">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
-            </div>
+                 <div class="control-group right">
+                     <button id="volumeBtn" class="control-button" title="Volume/Mudo">
+                         <img id="volumeIcon" src="assets/player/volume-high.png" alt="Volume">
+                     </button>
+                     <input id="volumeBar" type="range" class="volume-bar" value="1" min="0" max="1" step="0.05" title="Volume">
+                     <button id="settingsBtn" class="control-button" title="Configurações">
+                         <img src="assets/player/settings.png" alt="Configurações">
+                     </button>
+                     <button id="fullscreenBtn" class="control-button" title="Tela Cheia">
+                         <img id="fullscreenIcon" src="assets/player/fullscreen-enter.png" alt="Tela Cheia">
+                     </button>
+                 </div>
 
-        </div>
-    </div>
+            </div> </div> <div class="player-sidebar">
+             <h2>Lista de Canais</h2>
+             <div class="search-container">
+                 <input type="text" id="channelSearchInput" placeholder="Pesquisar canais na lista...">
+             </div>
+             <div class="channel-list-container">
+                 <ul id="channelList">
+                     <li>Carregando lista de canais...</li>
+                 </ul>
+             </div>
+         </div>
 
-    <footer class="main-footer">
+    </div> <footer class="main-footer">
         <img src="assets/arquivos-png/hoteltech-azul.png" alt="Logo Hoteltech Rodapé" class="footer-logo-main">
         <div class="footer-links">
             <a href="https://hoteltechbr.com/" target="_blank" class="footer-link"> <img
@@ -226,29 +84,540 @@
 
     <script src="database.js"></script>
     <script>
-        // Script completo do player M3U
-        const channelListElement = document.getElementById('channelList');
+        // ==================================================
+        // ==     SCRIPT DO PLAYER COM CONTROLES CUSTOM   ==
+        // ==================================================
+
+        // --- Referências aos Elementos DOM ---
+        const playerContainer = document.getElementById('customPlayerContainer');
         const videoPlayer = document.getElementById('videoPlayer');
+        const controlsBar = document.getElementById('controlsBar');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const prevChannelBtn = document.getElementById('prevChannelBtn');
+        const nextChannelBtn = document.getElementById('nextChannelBtn');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        const volumeBar = document.getElementById('volumeBar');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeElement = document.getElementById('currentTime');
+        const durationElement = document.getElementById('duration');
+        const settingsBtn = document.getElementById('settingsBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const fullscreenIcon = document.getElementById('fullscreenIcon');
+        const channelListElement = document.getElementById('channelList');
         const searchInput = document.getElementById('channelSearchInput');
+
+        // --- Mapeamento Manual de Logos ---
+        // Caminhos atualizados para usar assets/logo-canais/ e os nomes sugeridos.
+        // Certifique-se que seus arquivos PNG estão nessa pasta com esses nomes exatos!
+        const channelLogoMap = {
+            "001 - OFF - HD 264": "assets/logo-canais/off.png",
+            "002 - SPORTV - HD 264": "assets/logo-canais/sportv.png",
+            "003 - SPORTV 2 - HD 264": "assets/logo-canais/sportv-2.png",
+            "004 - SPORTV 3 - HD 264": "assets/logo-canais/sportv-3.png",
+            "005 - WOOHOO HD 264": "assets/logo-canais/woohoo.png",
+            "006 - BANDSPORTS - HD 264": "assets/logo-canais/bandsports.png",
+            "007 - ESPN - HD 264": "assets/logo-canais/espn.png",
+            "008 - ESPN 2 - HD 264": "assets/logo-canais/espn-2.png",
+            "009 - ESPN 3 - HD 264": "assets/logo-canais/espn-3.png",
+            "010  - ESPN 4  - HD 264": "assets/logo-canais/espn-4.png",
+            "011 - ESPN 5 - HD 264": "assets/logo-canais/espn-5.png",
+            "012 - DISC SCIENCE - HD 264": "assets/logo-canais/disc-science.png",
+            "013- D. THEATHER - HD 264": "assets/logo-canais/d-theather.png",
+            "014 - DISCOVERY TURBO - HD 264": "assets/logo-canais/discovery-turbo.png",
+            "015 - DISC. WORLD - HD 264": "assets/logo-canais/disc-world.png",
+            "016 - AMC - HD 264": "assets/logo-canais/amc.png",
+            "017 - PARAMOUNT - HD 264": "assets/logo-canais/paramount.png",
+            "018 - FILMARTS - HD 264": "assets/logo-canais/filmarts.png",
+            "019 - GOLF CHANNEL - HD 264": "assets/logo-canais/golf-channel.png",
+            "020 - SONY - HD 264": "assets/logo-canais/sony.png",
+            "021 - AXN - HD 264": "assets/logo-canais/axn.png",
+            "022 - FX - HD 264": "assets/logo-canais/fx.png",
+            "023 - SYFY - HD 264": "assets/logo-canais/syfy.png",
+            "024 - A&E - HD H264": "assets/logo-canais/a-e.png",
+            "025 - CINE CANAL - HD 264": "assets/logo-canais/cine-canal.png",
+            "026 - ID - HD H264": "assets/logo-canais/id.png",
+            "027 - COMEDY CENTRAL - HD 264": "assets/logo-canais/comedy-central.png",
+            "028 - TNTN - HD H264": "assets/logo-canais/tntn.png",
+            "029 - TNT SERIES - HD 264": "assets/logo-canais/tnt-series.png",
+            "030 - MTV - HD 264": "assets/logo-canais/mtv.png",
+            "031 - TC ACTION - HD 264": "assets/logo-canais/tc-action.png",
+            "032 - TELECINE TOUCH HD H264": "assets/logo-canais/telecine-touch.png",
+            "033 - TC PIPOCA - HD 264": "assets/logo-canais/tc-pipoca.png",
+            "034 - TC PREMIUM - HD 264": "assets/logo-canais/tc-premium.png",
+            "035 - TC FUN - HD 264": "assets/logo-canais/tc-fun.png",
+            "036 - HBO - HD 264": "assets/logo-canais/hbo.png",
+            "037 - HBO FAMILY - HD 264": "assets/logo-canais/hbo-family.png",
+            "038 - HBO PLUS - HD 264": "assets/logo-canais/hbo-plus.png",
+            "039 - HBO2 - HD 264": "assets/logo-canais/hbo2.png",
+            "040 - MOSAICO SPORTV - HD 264": "assets/logo-canais/mosaico-sportv.png",
+            "041 - HBO SIGNATURE - HD 264": "assets/logo-canais/hbo-signature.png",
+            "042 - HBO XTREME - HD H264": "assets/logo-canais/hbo-xtreme.png",
+            "043 - HBO POP - HD H264": "assets/logo-canais/hbo-pop.png",
+            "044 - HBO MUNDI - HD 264": "assets/logo-canais/hbo-mundi.png",
+            "045 - SBT  - HD H264": "assets/logo-canais/sbt.png",
+            "046 - HISTORY - HD 264": "assets/logo-canais/history.png",
+            "047 - ARTE1 - HD H264": "assets/logo-canais/arte1.png",
+            "048 - HOME & HEALTH - HD H264": "assets/logo-canais/home-health.png",
+            "049 - TLC  - HD H264": "assets/logo-canais/tlc.png",
+            "050 - LIFETIME- HD H264": "assets/logo-canais/lifetime.png",
+            "052 - ANIMAL PLANET - HD 264": "assets/logo-canais/animal-planet.png",
+            "053 - E! - HD 264": "assets/logo-canais/e.png",
+            "054 - CINEMAX - HD 264": "assets/logo-canais/cinemax.png",
+            "055 - SPACE - HD 264": "assets/logo-canais/space.png",
+            "056 - STUDIO UNIVERSAL - HD H264": "assets/logo-canais/studio-universal.png",
+            "057 - GLOBINHO - HD H264": "assets/logo-canais/globinho.png",
+            "058 - ZOOMOO HD H264": "assets/logo-canais/zoomoo.png",
+            "059 - NICK - HD 264": "assets/logo-canais/nick.png",
+            "060 - NICK JR - HD H264": "assets/logo-canais/nick-jr.png",
+            "061 - S&A- HD H264": "assets/logo-canais/s-a.png",
+            "062 - BIS - HD 264": "assets/logo-canais/bis.png",
+            "063 - BANDNEWS - HD 264": "assets/logo-canais/bandnews.png",
+            "064 - CNNI - HD H264": "assets/logo-canais/cnni.png",
+            "065 - CNN BRASIL  - HD H264": "assets/logo-canais/cnn-brasil.png",
+            "066 - CARTOONITO - HD 264": "assets/logo-canais/cartoonito.png",
+            "069 - PFC - HD 264": "assets/logo-canais/pfc.png",
+            "070 - PREMIERE 2 - HD 264": "assets/logo-canais/premiere-2.png",
+            "071 - PREMIERE 3 - HD 264": "assets/logo-canais/premiere-3.png",
+            "072 - PREMIERE 4 - HD 264": "assets/logo-canais/premiere-4.png",
+            "073 - PREMIERE 5 - HD 264": "assets/logo-canais/premiere-5.png",
+            "074 - AGRO+ HD 264": "assets/logo-canais/agro-plus.png",
+            "075 - BBC WORLD HD 264": "assets/logo-canais/bbc-world.png",
+            "076 - BLOOMBERG HD 264": "assets/logo-canais/bloomberg.png",
+            "077 - JOVEM PAN NEWS - HD 264": "assets/logo-canais/jovem-pan-news.png",
+            "078 - MTV LIVE - HD 264": "assets/logo-canais/mtv-live.png",
+            "079 - H2 - HD 264": "assets/logo-canais/h2.png",
+            "080 - HGTV - HD 264": "assets/logo-canais/hgtv.png",
+            "081 - FOOD NETWORK - HD 264": "assets/logo-canais/food-network.png",
+            "082 - FASHION TV - HD 264": "assets/logo-canais/fashion-tv.png",
+            "083 - MTV LIVE HD 264": "assets/logo-canais/mtv-live-hd.png",
+            "086 - TNT - HD 264": "assets/logo-canais/tnt.png",
+            "087 - PRIMEBOX - HD H264": "assets/logo-canais/primebox.png",
+            "088 - ADULT SWIM HD - H264": "assets/logo-canais/adult-swim.png",
+            "089 - SONY MOVIES - HD H264": "assets/logo-canais/sony-movies.png",
+            "090 - GNT - HD H264": "assets/logo-canais/gnt.png",
+            "091 - VIVA - HD 264": "assets/logo-canais/viva.png",
+            "092 - MODO VIAGEM - HD 264": "assets/logo-canais/modo-viagem.png",
+            "093 - GLOBO NEWS - HD 264": "assets/logo-canais/globo-news.png",
+            "094 - GLOOB - HD 264": "assets/logo-canais/gloob.png",
+            "095 - CARTOON - HD 264": "assets/logo-canais/cartoon.png",
+            "096 - DISCOVERY - HD 264": "assets/logo-canais/discovery.png",
+            "097 - MEGA PIX - HD 264": "assets/logo-canais/megapix.png",
+            "098 - DISNEY CHANNEL - HD 264": "assets/logo-canais/disney-channel.png",
+            "099 - BAND - HD H264": "assets/logo-canais/band.png",
+            "101 - WARNER CHANNEL - HD 264": "assets/logo-canais/warner-channel.png",
+            "102 - STAR CHANNEL - HD 264": "assets/logo-canais/star-channel.png",
+            "103 - PLAYTV - HD H264": "assets/logo-canais/playtv.png",
+            "104 - FISH TV - HD H264": "assets/logo-canais/fish-tv.png",
+            "105 - TRAVELBOX HD H264": "assets/logo-canais/travelbox.png",
+            "106 - MULTISHOW - HD 264": "assets/logo-canais/multishow.png",
+            "107 - DISCOVERY KID": "assets/logo-canais/discovery-kid.png",
+            "108 - NATGEO - HD 264": "assets/logo-canais/natgeo.png",
+            "109 - CANAL BRASIL - HD H264": "assets/logo-canais/canal-brasil.png",
+            "110 - UNIVERSAL - HD 264": "assets/logo-canais/universal.png",
+            "111 - PREMIERE 6 - HD 264": "assets/logo-canais/premiere-6.png",
+            "112 - PREMIERE 7 - HD 264": "assets/logo-canais/premiere-7.png",
+            "115 - COMBAT - HD 264": "assets/logo-canais/combat.png",
+            "9 - TC CULT - HD 264": "assets/logo-canais/tc-cult.png",
+            "12 - SMITHSONIAN - HD 264": "assets/logo-canais/smithsonian.png",
+            "38 - AGRO+ - HD 264": "assets/logo-canais/agro-plus-2.png", // Usei 2 para diferenciar
+            "69 - ESPN EXTRA - HD 264": "assets/logo-canais/espn-extra.png",
+            "85 - ERA NGEO POR CANAL - HD H264": "assets/logo-canais/era-ngeo-por-canal.png",
+            "92 - CURTA - HD H264": "assets/logo-canais/curta.png",
+            "100 - BABY TV - HD H264": "assets/logo-canais/baby-tv.png",
+            "103 - MUSIC BOX  - HD H264": "assets/logo-canais/music-box.png", // Nome igual ao 103 PLAYTV
+            "151 - REDE TV! HD": "assets/logo-canais/rede-tv.png",
+            "105 - TRAVEL BOX BRASIL - HD H264": "assets/logo-canais/travel-box-brasil.png", // Nome igual ao 105 TRAVELBOX
+            "106 - ERA DISNEY POR CANAL - HD H264": "assets/logo-canais/era-disney-por-canal.png",
+            "107 - SEX PRIVE - HD H264": "assets/logo-canais/sex-prive.png", // Nome igual ao 107 DISCOVERY KID
+            "109 - INTER TV G MINAS - HD H264": "assets/logo-canais/inter-tv-g-minas.png", // Nome igual ao 109 CANAL BRASIL
+            "110 - TV DIARIO - HD H264": "assets/logo-canais/tv-diario.png", // Nome igual ao 110 UNIVERSAL
+            "111 - EPTV SUL DE MINAS - HD H264": "assets/logo-canais/eptv-sul-de-minas.png", // Nome igual ao 111 PREMIERE 6
+            "112 - CNNE - HD H264": "assets/logo-canais/cnne.png", // Nome igual ao 112 PREMIERE 7
+            "113 - PLAYBOY TV - HD H264": "assets/logo-canais/playboy-tv.png",
+            "114 - SEX HOT - HD H264": "assets/logo-canais/sex-hot.png",
+            "115 - CINE CANAL - HD H264": "assets/logo-canais/cine-canal-2.png", // Nome igual ao 115 COMBAT, usei -2
+            "118 - FOX NEWS - HD H264": "assets/logo-canais/fox-news.png",
+            "120 - RPC CURITIBA - HD H264": "assets/logo-canais/rpc-curitiba.png",
+            "120 - TV BELEM - HD H264": "assets/logo-canais/tv-belem.png", // Nome igual ao 120 RPC CURITIBA
+            "121 - TV MIRANTE - HD H264": "assets/logo-canais/tv-mirante.png",
+            "122 - NSC TV FLORIANOPOLIS - HD H264": "assets/logo-canais/nsc-tv-florianopolis.png",
+            "123 - TV ANHANGUERA - HD H264": "assets/logo-canais/tv-anhanguera.png",
+            "124 - RPC TV PARANAENSE - HD H264": "assets/logo-canais/rpc-tv-paranaense.png",
+            "125 - EPTV CAMPINAS - HD H264": "assets/logo-canais/eptv-campinas.png",
+            "126 - TV MORENA - HD H264": "assets/logo-canais/tv-morena.png",
+            "127 - GLOBO NORDESTE - HD H264": "assets/logo-canais/globo-nordeste.png",
+            "128 - TV VERDES MARES - HD H264": "assets/logo-canais/tv-verdes-mares.png",
+            "129 - GLOBO MINAS - HD H264": "assets/logo-canais/globo-minas.png",
+            "130 - TV CENTRO AMERICA - HD H264": "assets/logo-canais/tv-centro-america.png",
+            "131 - TV BAHIA - HD 264": "assets/logo-canais/tv-bahia.png",
+            "134 - RECORD NEWS - HD 264": "assets/logo-canais/record-news.png",
+            "135 - RBS PORTO ALEGRE - HD 264": "assets/logo-canais/rbs-porto-alegre.png",
+            "150 - GLOBO RJ - HD 264": "assets/logo-canais/globo-rj.png"
+        }; // Fim do channelLogoMap
+
+
         let hlsInstance = null;
         const m3uFilePath = 'assets/upload/canais-tv.m3u';
+        let controlsTimeout;
+        let allChannels = [];
 
-        // Funções loadM3UFromFile, parseM3U, displayChannelList, playChannel, filterChannelList
-        // (Código das funções JS permanece o mesmo, sem comentários HTML)
-        async function loadM3UFromFile(filePath) { channelListElement.innerHTML = '<li>Carregando lista...</li>'; try { const response = await fetch(filePath); if (!response.ok) { throw new Error(`Erro HTTP ${response.status}: Arquivo M3U não encontrado em "${filePath}".`); } const content = await response.text(); const channels = parseM3U(content); displayChannelList(channels); } catch (error) { console.error("Erro ao carregar M3U:", error); channelListElement.innerHTML = `<li>Erro ao carregar lista: ${error.message}</li>`; } }
-        function parseM3U(content) { const lines = content.split('\n'); const channels = []; let currentChannel = {}; if (!lines[0].toUpperCase().startsWith("#EXTM3U")) { console.error("M3U inválido: Falta #EXTM3U"); channelListElement.innerHTML = '<li>Arquivo M3U inválido (cabeçalho ausente).</li>'; return []; } for (let i = 0; i < lines.length; i++) { const line = lines[i].trim(); if (line.startsWith('#EXTINF:')) { currentChannel = { name: '', logo: null, group: null, url: null }; let name = line.substring(line.lastIndexOf(',') + 1); currentChannel.name = name.trim(); const attributesMatch = line.match(/([a-zA-Z0-9\-]+)="([^"]*)"/g); if (attributesMatch) { attributesMatch.forEach(attr => { const parts = attr.match(/([a-zA-Z0-9\-]+)="([^"]*)"/); if (parts && parts.length >= 3) { const key = parts[1].toLowerCase(); const value = parts[2]; if (key === 'tvg-logo') { currentChannel.logo = value; } else if (key === 'group-title') { currentChannel.group = value; } } }); } } else if (currentChannel.name && !line.startsWith('#') && (line.startsWith('http://') || line.startsWith('https://'))) { currentChannel.url = line; channels.push(currentChannel); currentChannel = {}; } } console.log("Canais parseados:", channels.length); return channels; }
-        function displayChannelList(channels) { channelListElement.innerHTML = ''; if (!channels || channels.length === 0) { if (document.querySelector('#channelList li')?.textContent !== 'Arquivo M3U inválido (cabeçalho ausente).') { channelListElement.innerHTML = '<li>Nenhum canal encontrado ou formato não reconhecido.</li>'; } return; } channels.forEach(channel => { const li = document.createElement('li'); li.classList.add('channel-item'); let displayText = channel.name || 'Canal sem nome'; li.textContent = displayText; li.dataset.url = channel.url; li.addEventListener('click', () => { playChannel(channel.url); document.querySelectorAll('.channel-item.active').forEach(el => el.classList.remove('active')); li.classList.add('active'); }); channelListElement.appendChild(li); }); }
-        function playChannel(url) { if (!url) { console.error("URL inválida."); return; } console.log("Tentando tocar:", url); if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; console.log("Instância HLS anterior destruída."); } if (url.toLowerCase().includes('.m3u8') && typeof Hls !== 'undefined' && Hls.isSupported()) { console.log("Stream HLS -> Usando hls.js"); hlsInstance = new Hls(); hlsInstance.loadSource(url); hlsInstance.attachMedia(videoPlayer); hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () { videoPlayer.play().catch(e => console.error("Erro play() HLS:", e)); }); hlsInstance.on(Hls.Events.ERROR, function (event, data) { console.error('HLS.js Error:', data); if (data.fatal) { switch (data.type) { case Hls.ErrorTypes.NETWORK_ERROR: hlsInstance.startLoad(); break; case Hls.ErrorTypes.MEDIA_ERROR: hlsInstance.recoverMediaError(); break; default: hlsInstance.destroy(); break; } } }); } else { console.log("Stream não-HLS ou Hls.js indisponível/não suportado -> Tentando player nativo."); try { if (url.toLowerCase().includes('.m3u8') && !videoPlayer.canPlayType('application/vnd.apple.mpegurl') && !videoPlayer.canPlayType('application/x-mpegURL')) { console.warn("Navegador pode não suportar HLS nativamente."); } videoPlayer.src = url; videoPlayer.load(); videoPlayer.play().catch(e => console.error("Erro play() nativo:", e)); } catch (err) { console.error("Erro ao definir src ou tocar vídeo:", err); } } videoPlayer.onerror = (e) => { console.error("Erro geral no elemento <video>:", videoPlayer.error, e); }; }
-        function filterChannelList() { const searchTerm = searchInput.value.toLowerCase(); const channelItems = channelListElement.querySelectorAll('.channel-item'); channelItems.forEach(item => { const channelName = item.textContent.toLowerCase(); item.style.display = channelName.includes(searchTerm) ? '' : 'none'; }); }
+        const icons = {
+            play: 'assets/player/play.png',
+            pause: 'assets/player/pause.png',
+            volumeHigh: 'assets/player/volume-high.png',
+            volumeMute: 'assets/player/volume-mute.png',
+            fullscreenEnter: 'assets/player/fullscreen-enter.png',
+            fullscreenExit: 'assets/player/fullscreen-exit.png'
+        };
 
-        // Lógica Principal ao Carregar a Página
-        window.addEventListener('DOMContentLoaded', (event) => {
-            console.log('Player DOM carregado.');
-            searchInput.addEventListener('input', filterChannelList);
-            loadM3UFromFile(m3uFilePath);
+        // --- Funções de Carregamento e Parsing M3U ---
+        async function loadM3UFromFile(filePath) {
+            channelListElement.innerHTML = '<li>Carregando lista...</li>';
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) { throw new Error(`Erro HTTP ${response.status}: Arquivo M3U não encontrado em "${filePath}".`); }
+                const content = await response.text();
+                allChannels = parseM3U(content);
+                displayChannelList(allChannels);
+                 if (allChannels.length > 0) {
+                    playChannel(allChannels[0].url, 0);
+                    updateActiveClass(0);
+                 }
+            } catch (error) {
+                console.error("Erro ao carregar M3U:", error);
+                channelListElement.innerHTML = `<li>Erro ao carregar lista: ${error.message}</li>`;
+                allChannels = [];
+            }
+        }
+
+        function parseM3U(content) {
+            const lines = content.split('\n');
+            const channels = [];
+            let currentChannel = {};
+            if (!lines[0].toUpperCase().startsWith("#EXTM3U")) {
+                console.error("M3U inválido: Falta #EXTM3U");
+                channelListElement.innerHTML = '<li>Arquivo M3U inválido.</li>';
+                return [];
+            }
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line.startsWith('#EXTINF:')) {
+                    currentChannel = { name: '', logo: null, group: null, url: null };
+                    let name = line.substring(line.lastIndexOf(',') + 1);
+                    currentChannel.name = name.trim();
+
+                    // <<< Busca o logo no mapeamento manual >>>
+                    currentChannel.logo = channelLogoMap[currentChannel.name] || null;
+
+                    const attributesMatch = line.match(/([a-zA-Z0-9\-]+)="([^"]*)"/g);
+                    if (attributesMatch) {
+                        attributesMatch.forEach(attr => {
+                            const parts = attr.match(/([a-zA-Z0-9\-]+)="([^"]*)"/);
+                            if (parts && parts.length >= 3) {
+                                const key = parts[1].toLowerCase();
+                                const value = parts[2];
+                                if (key === 'group-title') { currentChannel.group = value; }
+                            }
+                        });
+                    }
+                } else if (currentChannel.name && !line.startsWith('#') && (line.startsWith('http://') || line.startsWith('https://') || line.includes('.m3u8'))) {
+                    currentChannel.url = line;
+                    currentChannel.originalIndex = channels.length;
+                    channels.push(currentChannel);
+                    currentChannel = {};
+                }
+            }
+            console.log("Canais parseados:", channels.length);
+            return channels;
+        }
+
+        function displayChannelList(channels) {
+            channelListElement.innerHTML = '';
+            if (!channels || channels.length === 0) {
+                 if (!channelListElement.innerHTML.includes('inválido')) {
+                    channelListElement.innerHTML = '<li>Nenhum canal encontrado.</li>';
+                 }
+                return;
+            }
+            channels.forEach((channel, index) => {
+                const li = document.createElement('li');
+                li.classList.add('channel-item');
+                li.dataset.url = channel.url;
+                li.dataset.index = index;
+                li.innerHTML = '';
+
+                if (channel.logo) { // Logo vem do map agora
+                    const img = document.createElement('img');
+                    img.src = channel.logo;
+                    img.alt = "";
+                    img.classList.add('channel-logo');
+                    // Esconde imagem se der erro, não quebra o layout
+                    img.onerror = function() {
+                        console.warn(`Logo não encontrado ou erro ao carregar: ${this.src}`);
+                        this.style.display = 'none';
+                        // Garante que o placeholder (se existir) não fique escondido
+                        const placeholder = li.querySelector('.channel-logo-placeholder');
+                        if(placeholder) placeholder.style.display = 'inline-block';
+                    };
+                    // Esconde placeholder se a imagem carregar
+                     const placeholder = li.querySelector('.channel-logo-placeholder');
+                     if(placeholder) placeholder.style.display = 'none';
+
+                    li.appendChild(img);
+                } else {
+                     const placeholder = document.createElement('span');
+                     placeholder.classList.add('channel-logo-placeholder');
+                     li.appendChild(placeholder);
+                }
+
+                const nameSpan = document.createElement('span');
+                nameSpan.classList.add('channel-name-text');
+                nameSpan.textContent = channel.name || 'Canal sem nome';
+                li.appendChild(nameSpan);
+
+                li.addEventListener('click', () => {
+                    playChannel(channel.url, index);
+                    updateActiveClass(index);
+                });
+                channelListElement.appendChild(li);
+            });
+        }
+
+        function filterChannelList() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const channelItems = channelListElement.querySelectorAll('.channel-item');
+            channelItems.forEach(item => {
+                const nameElement = item.querySelector('.channel-name-text');
+                const channelName = nameElement ? nameElement.textContent.toLowerCase() : '';
+                item.style.display = channelName.includes(searchTerm) ? 'flex' : 'none';
+            });
+        }
+
+        // --- Função de Playback Principal ---
+        function playChannel(url, index) {
+            if (!url) { console.error("URL inválida."); return; }
+            console.log(`Tentando tocar canal índice ${index}: ${url}`);
+            videoPlayer.dataset.currentIndex = index;
+
+            if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+
+            if (url.toLowerCase().includes('.m3u8') && typeof Hls !== 'undefined' && Hls.isSupported()) {
+                hlsInstance = new Hls({});
+                hlsInstance.loadSource(url);
+                hlsInstance.attachMedia(videoPlayer);
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () { videoPlayer.play().catch(e => console.error("Erro play() HLS:", e)); });
+                hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+                     console.error('HLS.js Error:', data);
+                     if (data.fatal) {
+                         switch(data.type) {
+                             case Hls.ErrorTypes.NETWORK_ERROR: hlsInstance.startLoad(); break;
+                             case Hls.ErrorTypes.MEDIA_ERROR: hlsInstance.recoverMediaError(); break;
+                             default: hlsInstance.destroy(); break;
+                         }
+                     }
+                 });
+            } else {
+                try {
+                    videoPlayer.src = url;
+                    videoPlayer.load();
+                    videoPlayer.play().catch(e => console.error("Erro play() nativo:", e));
+                } catch (err) { console.error("Erro ao definir src ou tocar vídeo:", err); }
+            }
+            videoPlayer.onerror = (e) => { console.error("Erro geral no elemento <video>:", videoPlayer.error, e); };
+        }
+
+        function updateActiveClass(activeIndex) {
+            const channelItems = channelListElement.querySelectorAll('.channel-item');
+            channelItems.forEach((item, index) => {
+                if (index === activeIndex) {
+                    item.classList.add('active');
+                     if(document.contains(item)) {
+                        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // --- Funções de Controle Próximo/Anterior ---
+        function handleNextChannel() {
+            if (allChannels.length === 0) return;
+            let currentIndex = parseInt(videoPlayer.dataset.currentIndex ?? '-1');
+            let nextIndex = (currentIndex === -1 || currentIndex >= allChannels.length - 1) ? 0 : currentIndex + 1;
+            playChannel(allChannels[nextIndex].url, nextIndex);
+            updateActiveClass(nextIndex);
+        }
+
+        function handlePreviousChannel() {
+            if (allChannels.length === 0) return;
+            let currentIndex = parseInt(videoPlayer.dataset.currentIndex ?? '-1');
+            let prevIndex = (currentIndex <= 0) ? allChannels.length - 1 : currentIndex - 1;
+            playChannel(allChannels[prevIndex].url, prevIndex);
+            updateActiveClass(prevIndex);
+        }
+
+        // --- Funções de Controle Customizadas ---
+        function togglePlayPause() {
+            if (videoPlayer.paused || videoPlayer.ended) { videoPlayer.play().catch(e => console.error("Erro ao dar play:", e)); }
+            else { videoPlayer.pause(); }
+        }
+
+        function updatePlayPauseIcon() {
+            playPauseIcon.src = videoPlayer.paused ? icons.play : icons.pause;
+            playPauseBtn.title = videoPlayer.paused ? 'Play' : 'Pause';
+        }
+
+        function toggleMute() {
+            videoPlayer.muted = !videoPlayer.muted;
+            volumeBar.value = videoPlayer.muted ? 0 : videoPlayer.volume;
+        }
+
+        function updateVolumeIcon() {
+             volumeIcon.src = videoPlayer.muted || videoPlayer.volume === 0 ? icons.volumeMute : icons.volumeHigh;
+             volumeBtn.title = videoPlayer.muted ? 'Ativar Som' : 'Mudo';
+        }
+
+         function handleVolumeChange() {
+             videoPlayer.volume = volumeBar.value;
+             videoPlayer.muted = parseFloat(volumeBar.value) === 0;
+         }
+
+        function formatTime(timeInSeconds) {
+             if (isNaN(timeInSeconds) || timeInSeconds < 0) { return "0:00"; }
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = Math.floor(timeInSeconds % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        function updateTimeDisplay() {
+            currentTimeElement.textContent = formatTime(videoPlayer.currentTime);
+            if (!isNaN(videoPlayer.duration) && isFinite(videoPlayer.duration)) {
+                durationElement.textContent = formatTime(videoPlayer.duration);
+                durationElement.style.display = '';
+                progressBar.disabled = false;
+            } else {
+                 durationElement.style.display = 'none';
+                 progressBar.disabled = true;
+                 progressBar.value = 100;
+            }
+        }
+
+        function updateProgressBar() {
+            if (!isNaN(videoPlayer.duration) && videoPlayer.duration > 0 && isFinite(videoPlayer.duration)) {
+                 progressBar.value = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+            } else if (!isFinite(videoPlayer.duration)) {
+                 progressBar.value = 100;
+            } else {
+                 progressBar.value = 0;
+            }
+        }
+
+        function handleProgressChange() {
+            if (!isNaN(videoPlayer.duration) && videoPlayer.duration > 0 && isFinite(videoPlayer.duration)) {
+                 const seekTime = (progressBar.value / 100) * videoPlayer.duration;
+                 videoPlayer.currentTime = seekTime;
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                playerContainer.requestFullscreen().catch(err => { console.error(`Erro tela cheia: ${err.message}`); });
+            } else {
+                if (document.exitFullscreen) { document.exitFullscreen(); }
+            }
+        }
+
+        function updateFullscreenIcon() {
+            fullscreenIcon.src = document.fullscreenElement === playerContainer ? icons.fullscreenExit : icons.fullscreenEnter;
+            fullscreenBtn.title = document.fullscreenElement === playerContainer ? 'Sair Tela Cheia' : 'Tela Cheia';
+        }
+
+        // --- Auto-Hide Controles ---
+        function showControls() {
+            controlsBar.style.opacity = '1';
+            controlsBar.style.visibility = 'visible';
+            playerContainer.style.cursor = 'default';
+            clearTimeout(controlsTimeout);
+            if (!videoPlayer.paused) { hideControlsTimeout(); }
+        }
+
+        function hideControls() {
+             if(document.activeElement === volumeBar || document.activeElement === progressBar || document.activeElement.closest('.controls-bar')) return;
+            controlsBar.style.opacity = '0';
+            controlsBar.style.visibility = 'hidden';
+            playerContainer.style.cursor = 'none';
+        }
+
+        function hideControlsTimeout() {
+            clearTimeout(controlsTimeout);
+            controlsTimeout = setTimeout(hideControls, 3000);
+        }
+
+        // --- Event Listeners ---
+        videoPlayer.addEventListener('play', updatePlayPauseIcon);
+        videoPlayer.addEventListener('pause', updatePlayPauseIcon);
+        videoPlayer.addEventListener('volumechange', () => {
+             updateVolumeIcon();
+             volumeBar.value = videoPlayer.muted ? 0 : videoPlayer.volume;
+         });
+        videoPlayer.addEventListener('loadedmetadata', () => {
+            updateTimeDisplay();
+            updateProgressBar();
         });
+        videoPlayer.addEventListener('timeupdate', () => {
+            updateTimeDisplay();
+            updateProgressBar();
+        });
+        videoPlayer.addEventListener('ended', updatePlayPauseIcon);
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        volumeBtn.addEventListener('click', toggleMute);
+        volumeBar.addEventListener('input', handleVolumeChange);
+        progressBar.addEventListener('input', handleProgressChange);
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+        settingsBtn.addEventListener('click', () => { alert('Funcionalidade de Configurações ainda não implementada!'); });
+
+        playerContainer.addEventListener('mousemove', showControls);
+        playerContainer.addEventListener('mouseleave', () => { if (!videoPlayer.paused) { hideControlsTimeout(); } });
+        controlsBar.addEventListener('mouseenter', () => clearTimeout(controlsTimeout));
+        controlsBar.addEventListener('mouseleave', () => { if (!videoPlayer.paused) { hideControlsTimeout(); } });
+
+        document.addEventListener('fullscreenchange', updateFullscreenIcon);
+
+        document.addEventListener('keydown', (event) => {
+            if (document.activeElement === searchInput) { return; }
+            const tagName = document.activeElement.tagName.toLowerCase();
+            if (tagName === 'input' || tagName === 'textarea') return;
+            let handled = false;
+            switch (event.key) {
+                case 'ArrowRight': case 'PageDown': handleNextChannel(); handled = true; break;
+                case 'ArrowLeft': case 'PageUp': handlePreviousChannel(); handled = true; break;
+                case ' ': togglePlayPause(); handled = true; break;
+                case 'f': case 'F': toggleFullscreen(); handled = true; break;
+                 case 'm': case 'M': toggleMute(); handled = true; break;
+            }
+            if (handled) { event.preventDefault(); showControls(); }
+        });
+
+        // --- Inicialização ---
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('Player Custom DOM carregado.');
+            if (searchInput) searchInput.addEventListener('input', filterChannelList);
+            prevChannelBtn.addEventListener('click', handlePreviousChannel);
+            nextChannelBtn.addEventListener('click', handleNextChannel);
+            loadM3UFromFile(m3uFilePath);
+            updatePlayPauseIcon();
+            updateVolumeIcon();
+            updateTimeDisplay();
+            updateFullscreenIcon();
+            volumeBar.value = videoPlayer.volume;
+            hideControlsTimeout();
+        });
+
     </script>
 
 </body>
-
 </html>
