@@ -4,17 +4,29 @@
 
 :root {
     --color-primary: #081924;
+    /* Cor principal (azul escuro) */
     --color-secondary: #081924;
+    /* Cor secundária (atualmente igual primária) */
     --color-text-primary-on-light: #333;
+    /* Texto escuro para fundo claro (blocos E NAV LINKS) */
     --color-text-primary-on-dark: #f0f0f0;
+    /* Texto claro para fundo escuro (body) */
     --color-headings-on-dark: #ffffff;
+    /* Títulos em fundo escuro */
     --color-link: var(--color-border-button);
+    /* Cor padrão para links */
     --color-bg-block: #fff;
+    /* Fundo branco dos blocos (E RODAPÉ PRINCIPAL) */
     --color-border-block: #ddd;
+    /* Borda cinza claro dos blocos */
     --color-shadow: rgba(0, 0, 0, 0.8);
+    /* Sombra PADRÃO para blocos - Intensa */
     --color-shadow-image: rgba(0, 0, 0, 0.8);
+    /* Sombra para imagens - Intensa */
     --color-border-button: #22d4fd;
+    /* Azul claro borda/link (E HOVER NAV LINKS) */
     --color-hover-button: #1f4964;
+    /* Azul acinzentado hover (Botões principais) */
     --font-button: 0.8em;
     --font-family-button: sans-serif;
 }
@@ -66,10 +78,16 @@ body {
     padding: 5px 0;
     transition: color 0.3s ease;
     white-space: nowrap;
+    /* Adicionado para alinhamento com ícone */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    /* Espaço padrão ícone/texto */
 }
 
 .nav-link:hover {
     color: var(--color-border-button);
+    /* Efeito hover padrão no texto */
 }
 
 /* ================================= */
@@ -370,44 +388,31 @@ body {
     color: var(--color-text-primary-on-light);
 }
 
-/* --- Início: Estilos Bloco de Clima --- */
+/* --- Estilos Bloco de Clima --- */
 #detalhe-clima {
     background-color: #fff;
-    /* Fundo branco */
-    /* Herdando padding, border, shadow de .info-block-detalhes */
 }
 
-/* Container interno dos dados de texto do clima */
 #detalhe-clima .clima-dados-linha {
     display: flex;
-    /* Coloca os <p> em linha */
     flex-wrap: wrap;
-    /* Permite quebrar se não couber */
     gap: 5px 15px;
-    /* Espaço vertical(5px) e horizontal(15px) entre itens */
     margin-top: 5px;
-    /* Espaço acima dos dados */
 }
 
-/* Parágrafos dentro do container de dados do clima */
 #detalhe-clima .clima-dados-linha p {
     margin: 0;
-    /* Remove margem padrão dos parágrafos */
     line-height: 1.2;
-    /* Ajusta altura da linha */
     white-space: nowrap;
-    /* Evita quebrar linha dentro de "Chuva (1h): XX mm" */
 }
 
-/* Ajuste no ícone do clima */
 #clima-icone {
     width: 40px;
     height: 40px;
-    /* Tamanho do ícone */
     /* display é controlado pelo JS */
 }
 
-/* --- Fim: Estilos Bloco de Clima --- */
+/* --- Fim Estilos Bloco de Clima --- */
 
 /* Estilos modo mensagem RB/IRD */
 .info-block-opcional .campo-padrao {
@@ -601,6 +606,30 @@ body {
     .nav-link {
         font-size: 0.9em;
     }
+
+    .player-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .player-sidebar {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    #videoPlayer {
+        min-height: 300px;
+    }
+
+    .player-header h1 {
+        font-size: 1.3em;
+    }
+
+    .player-sidebar h2 {
+        font-size: 1.2em;
+    }
 }
 
 @media (max-width: 600px) {
@@ -712,11 +741,112 @@ body {
         font-size: 0.85em;
     }
 
-    .detalhes-header .icon-button {
+    .button.icon-button {
         padding: 10px;
     }
 
-    .detalhes-header .icon-button .button-icon {
+    .button.icon-button .button-icon {
         height: 1.3em;
     }
 }
+
+/* =========================== */
+/* == ESTILOS MENU DROPDOWN === */
+/* =========================== */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    cursor: default;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    background-color: var(--color-bg-block);
+    min-width: 200px;
+    border: 1px solid var(--color-border-block);
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    padding: 5px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    color: var(--color-text-primary-on-light);
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-size: 0.9em;
+    font-weight: normal;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #fff;
+    color: var(--color-border-button);
+}
+
+/* ================================= */
+/* == ESTILOS ÍCONES NAV HEADER ===== */
+/* Adicionado no final */
+/* ================================= */
+
+/* Ajusta o link para alinhar ícone e texto */
+.header-nav .nav-link-with-icon {
+    /* display: inline-flex; */
+    /* Herdado de .nav-link se ele usar flex */
+    align-items: center;
+    /* Alinha verticalmente (se flex) */
+    gap: 6px;
+    /* Espaço entre ícone e texto (ajuste se necessário) */
+}
+
+/* Estilo base para os ícones da navegação */
+.header-nav .nav-icon {
+    height: 2.5em;
+    /* Tamanho relativo à fonte do link (pode ajustar) */
+    width: auto;
+    vertical-align: middle;
+    /* Ajuda no alinhamento se não usar flex */
+    /* Adiciona margem se não usar gap com flex */
+    /* margin-right: 6px; */
+}
+
+/* Esconde o ícone de hover por padrão */
+.header-nav .nav-link-with-icon .nav-icon-hover {
+    display: none;
+}
+
+/* Mostra o ícone normal por padrão */
+.header-nav .nav-link-with-icon .nav-icon-normal {
+    display: inline-block;
+    /* Ou 'block' se preferir */
+}
+
+/* Ao passar o mouse sobre o LINK (a), esconde o normal e mostra o hover */
+.header-nav .nav-link-with-icon:hover .nav-icon-normal {
+    display: none;
+}
+
+.header-nav .nav-link-with-icon:hover .nav-icon-hover {
+    display: inline-block;
+    /* Ou 'block' */
+}
+
+/* Mantém o efeito hover no texto também (já coberto por .nav-link:hover) */
+/* .header-nav .nav-link-with-icon:hover span {
+   color: var(--color-border-button);
+} */
