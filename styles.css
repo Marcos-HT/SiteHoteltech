@@ -78,16 +78,16 @@ body {
     padding: 5px 0;
     transition: color 0.3s ease;
     white-space: nowrap;
-    /* Adicionado para alinhamento com ícone */
     display: inline-flex;
+    /* Garante flex para todos os links da nav */
     align-items: center;
+    /* Alinhamento vertical padrão para todos */
     gap: 6px;
     /* Espaço padrão ícone/texto */
 }
 
 .nav-link:hover {
     color: var(--color-border-button);
-    /* Efeito hover padrão no texto */
 }
 
 /* ================================= */
@@ -283,6 +283,7 @@ body {
     width: auto;
 }
 
+/* Tamanho para botões de ícone no header de detalhes E satelite */
 .button.icon-button span {
     display: none;
 }
@@ -748,6 +749,12 @@ body {
     .button.icon-button .button-icon {
         height: 1.3em;
     }
+
+    /* Media query para tamanho do ícone dropdown */
+    .header-nav .dropdown-toggle .nav-icon {
+        height: 1em;
+        /* Ainda menor em telas pequenas? */
+    }
 }
 
 /* =========================== */
@@ -767,9 +774,9 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: -50px;
+    left: -150px;
     background-color: var(--color-bg-block);
-    min-width: 200px;
+    min-width: 120px;
     border: 1px solid var(--color-border-block);
     border-radius: 0 0 5px 5px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -801,52 +808,40 @@ body {
 
 /* ================================= */
 /* == ESTILOS ÍCONES NAV HEADER ===== */
-/* Adicionado no final */
 /* ================================= */
 
-/* Ajusta o link para alinhar ícone e texto */
 .header-nav .nav-link-with-icon {
-    /* display: inline-flex; */
-    /* Herdado de .nav-link se ele usar flex */
     align-items: center;
-    /* Alinha verticalmente (se flex) */
-    gap: 6px;
-    /* Espaço entre ícone e texto (ajuste se necessário) */
+    gap: 8px;
 }
 
-/* Estilo base para os ícones da navegação */
 .header-nav .nav-icon {
     height: 2.5em;
-    /* Tamanho relativo à fonte do link (pode ajustar) */
     width: auto;
     vertical-align: middle;
-    /* Ajuda no alinhamento se não usar flex */
-    /* Adiciona margem se não usar gap com flex */
-    /* margin-right: 6px; */
+    /* Mantido para tentar alinhar */
 }
 
-/* Esconde o ícone de hover por padrão */
+/* Tamanho específico para o ícone DENTRO do link dropdown "Conhecimento" */
+.header-nav .dropdown-toggle .nav-icon {
+    height: 2.0em;
+    /* Valor menor para o dropdown toggle */
+    vertical-align: middle;
+    /* Garantir alinhamento aqui também */
+}
+
 .header-nav .nav-link-with-icon .nav-icon-hover {
     display: none;
 }
 
-/* Mostra o ícone normal por padrão */
 .header-nav .nav-link-with-icon .nav-icon-normal {
     display: inline-block;
-    /* Ou 'block' se preferir */
 }
 
-/* Ao passar o mouse sobre o LINK (a), esconde o normal e mostra o hover */
 .header-nav .nav-link-with-icon:hover .nav-icon-normal {
     display: none;
 }
 
 .header-nav .nav-link-with-icon:hover .nav-icon-hover {
     display: inline-block;
-    /* Ou 'block' */
 }
-
-/* Mantém o efeito hover no texto também (já coberto por .nav-link:hover) */
-/* .header-nav .nav-link-with-icon:hover span {
-   color: var(--color-border-button);
-} */
