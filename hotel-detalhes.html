@@ -8,62 +8,32 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilos modo mensagem e clima (mantidos) */
-        .info-block-opcional {
-            display: none;
-        }
+        .info-block-opcional { display: none; }
+        .info-block-opcional .campo-padrao { display: block; }
+        .info-block-opcional .mensagem-customizada { display: none; font-style: italic; }
+        .info-block-opcional.modo-mensagem .campo-padrao { display: none; }
+        .info-block-opcional.modo-mensagem .mensagem-customizada { display: block; }
+        .info-block-opcional.modo-mensagem .info-block-header { border-bottom: none; }
+        .info-block-opcional.modo-mensagem .info-block-header h3 { margin-bottom: 0; }
+        .info-block-opcional.modo-mensagem .info-block-logo { display: none; } /* Classe genérica para logo do bloco */
 
-        .info-block-opcional .campo-padrao {
-            display: block;
-        }
+        #clima-icone { width: 40px; height: 40px; vertical-align: middle; display: none; }
+        #detalhe-clima p { margin-bottom: 5px; line-height: 1.4; }
+        #detalhe-procentric-nota { font-size: 0.85em; margin-top: 8px; display: block; color: #555; }
+        #detalhe-procentric-nota strong { min-width: auto; margin-right: 3px; }
 
-        .info-block-opcional .mensagem-customizada {
-            display: none;
-            font-style: italic;
+        /* Estilo genérico para logos dentro dos blocos de detalhes */
+        .info-block-logo {
+             display: block;
+             margin: 15px auto 0 auto; /* Espaçamento acima, centralizado */
+             max-width: 100px; /* Largura máxima padrão */
+             max-height: 35px; /* Altura máxima padrão */
+             height: auto;
+             object-fit: contain; /* Garante que o logo caiba sem distorcer */
         }
+         /* Ajuste específico se necessário, ex: Mikrotik */
+         .mikrotik-logo-detalhes { max-width: 120px; }
 
-        .info-block-opcional.modo-mensagem .campo-padrao {
-            display: none;
-        }
-
-        .info-block-opcional.modo-mensagem .mensagem-customizada {
-            display: block;
-        }
-
-        .info-block-opcional.modo-mensagem .info-block-header {
-            border-bottom: none;
-        }
-
-        .info-block-opcional.modo-mensagem .info-block-header h3 {
-            margin-bottom: 0;
-        }
-
-        .info-block-opcional.modo-mensagem .mikrotik-logo-detalhes {
-            display: none;
-        }
-
-        #clima-icone {
-            width: 40px;
-            height: 40px;
-            vertical-align: middle;
-            display: none;
-        }
-
-        #detalhe-clima p {
-            margin-bottom: 5px;
-            line-height: 1.4;
-        }
-
-        #detalhe-procentric-nota {
-            font-size: 0.85em;
-            margin-top: 8px;
-            display: block;
-            color: #555;
-        }
-
-        #detalhe-procentric-nota strong {
-            min-width: auto;
-            margin-right: 3px;
-        }
     </style>
 </head>
 
@@ -75,14 +45,15 @@
             <div class="detalhes-header">
                 <h1 id="detalhe-nome">Carregando nome...</h1>
                 <div class="header-buttons">
-                    <a id="detalhe-whatsapp-link" href="#" target="_blank" class="button whatsapp-button icon-button"
-                        style="display: none;" title="Grupo WhatsApp"> <img src="assets/arquivos-png/whatsapp.png"
-                            alt="WhatsApp" class="button-icon"> </a>
-                    <a id="detalhe-backup-link" href="#" target="_blank" class="button backup-button icon-button"
-                        style="display: none;" title="Backup"> <img src="assets/arquivos-png/backup.png" alt="Backup"
-                            class="button-icon"> </a>
-                    <a href="index.html" class="button voltar-button icon-button" title="Voltar"> <img
-                            src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon"> </a>
+                    <a id="detalhe-whatsapp-link" href="#" target="_blank" class="button whatsapp-button icon-button" style="display: none;" title="Grupo WhatsApp">
+                        <img src="assets/arquivos-png/whatsapp.png" alt="WhatsApp" class="button-icon">
+                    </a>
+                    <a id="detalhe-backup-link" href="#" target="_blank" class="button backup-button icon-button" style="display: none;" title="Backup">
+                        <img src="assets/arquivos-png/backup.png" alt="Backup" class="button-icon">
+                    </a>
+                    <a href="index.html" class="button voltar-button icon-button" title="Voltar">
+                        <img src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon">
+                    </a>
                 </div>
             </div>
 
@@ -116,8 +87,7 @@
                         </div>
                     </div>
                     <p id="clima-alerta" style="color: red; font-weight: bold; margin-top: 10px; display: none;"></p>
-                    <p style="font-size: 0.75em; text-align: right; margin-top: 5px; color: #777;">Fonte: OpenWeatherMap
-                    </p>
+                    <p style="font-size: 0.75em; text-align: right; margin-top: 5px; color: #777;">Fonte: OpenWeatherMap</p>
                 </div>
 
                 <div id="bloco-acesso-rb" class="info-block-detalhes info-block-opcional">
@@ -128,14 +98,14 @@
                     <p class="campo-padrao"><strong>IP Local RB:</strong> <span id="detalhe-rb-ip">N/D</span></p>
                     <p class="campo-padrao"><strong>User:</strong> <span id="detalhe-rb-user">N/D</span></p>
                     <p class="campo-padrao"><strong>Senha:</strong> <span id="detalhe-rb-senha">N/D</span></p>
-                    <p class="mensagem-customizada" id="detalhe-rb-mensagem"></p> <img
-                        class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servicos_mikrotik.png"
-                        alt="MikroTik Logo">
+                    <p class="campo-padrao" style="font-size: 0.85em; color: #555;"><i><span id="detalhe-rb-nota"></span></i></p> <p class="mensagem-customizada" id="detalhe-rb-mensagem"></p>
+                    <img class="info-block-logo mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servicos_mikrotik.png" alt="MikroTik Logo">
                 </div>
+
                 <div id="bloco-acesso-flussonic" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
-                        <h3>ACESSO FLUSSONIC</h3> <a id="detalhe-flussonic-link-web" href="#" target="_blank"
-                            class="button acesso-web-button" style="display: none;">Acesso Web</a>
+                        <h3>ACESSO FLUSSONIC</h3>
+                        <a id="detalhe-flussonic-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
                     </div>
                     <p><strong>Ovpn HT:</strong> <span id="detalhe-flussonic-ovpn">N/D</span></p>
                     <p><strong>Ip da rede:</strong> <span id="detalhe-flussonic-ip-rede">N/D</span></p>
@@ -143,17 +113,16 @@
                     <p><strong>Porta Web:</strong> <span id="detalhe-flussonic-porta-web">N/D</span></p>
                     <p><strong>User SSH:</strong> <span id="detalhe-flussonic-user-ssh">N/D</span></p>
                     <p><strong>Senha SSH:</strong> <span id="detalhe-flussonic-senha-ssh">N/D</span></p>
+                    <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
                     <p><strong>User Web:</strong> <span id="detalhe-flussonic-user-web">N/D</span></p>
-                    <p><strong>Senha Web:</strong> <span id="detalhe-flussonic-senha-web">N/D</span></p> <img
-                        class="mikrotik-logo-detalhes" src="assets/logo-servicos/servicos_flussonic.png"
-                        alt="Flussonic Logo">
+                    <p><strong>Senha Web:</strong> <span id="detalhe-flussonic-senha-web">N/D</span></p>
+                     <p style="font-size: 0.85em; color: #555;"><i><span id="detalhe-flussonic-nota"></span></i></p> <img class="info-block-logo" src="assets/logo-servicos/servicos_flussonic.png" alt="Flussonic Logo">
                 </div>
 
                 <div id="bloco-acesso-procentric" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>ACESSO PROCENTRIC</h3>
-                        <a id="detalhe-procentric-link-web" href="#" target="_blank" class="button acesso-web-button"
-                            style="display: none;">Acesso Web</a>
+                        <a id="detalhe-procentric-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
                     </div>
                     <p><strong>IP Rede:</strong> <span id="detalhe-procentric-ip-rede">N/D</span></p>
                     <p><strong>Porta SSH:</strong> <span id="detalhe-procentric-porta-ssh">N/D</span></p>
@@ -163,23 +132,69 @@
                     <p><strong>User Web:</strong> <span id="detalhe-procentric-user-web">N/D</span></p>
                     <p><strong>Senha Web:</strong> <span id="detalhe-procentric-senha-web">N/D</span></p>
                     <p id="detalhe-procentric-nota"><i></i></p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_procentric.png"
-                        alt="Procentric Logo">
+                    <img class="info-block-logo" src="assets/logo-servicos/servico_procentric.png" alt="Procentric Logo">
                 </div>
 
                 <div id="bloco-acesso-ird" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
-                        <h3>ACESSOS IRD</h3> <a id="detalhe-ird-link-web" href="#" target="_blank"
-                            class="button acesso-web-button campo-padrao" style="display: none;">Acesso Web</a>
+                        <h3>ACESSOS IRD</h3>
+                        <a id="detalhe-ird-link-web" href="#" target="_blank" class="button acesso-web-button campo-padrao" style="display: none;">Acesso Web</a>
                     </div>
                     <p class="campo-padrao"><strong>Ovpn HT:</strong> <span id="detalhe-ird-ovpn">N/D</span></p>
                     <p class="campo-padrao"><strong>Ip rede:</strong> <span id="detalhe-ird-ip-rede">N/D</span></p>
                     <p class="campo-padrao"><strong>User:</strong> <span id="detalhe-ird-user">N/D</span></p>
                     <p class="campo-padrao"><strong>Senha:</strong> <span id="detalhe-ird-senha">N/D</span></p>
-                    <p class="mensagem-customizada" id="detalhe-ird-mensagem"></p> <img
-                        class="mikrotik-logo-detalhes campo-padrao" src="assets/logo-servicos/servico_Isdb-t.png"
-                        alt="ISDB-T Logo">
+                    <p class="mensagem-customizada" id="detalhe-ird-mensagem"></p>
+                    <img class="info-block-logo campo-padrao" src="assets/logo-servicos/servico_Isdb-t.png" alt="ISDB-T Logo">
                 </div>
+
+                <div id="bloco-acesso-proxmox" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header">
+                        <h3>ACESSO PROXMOX</h3>
+                        <a id="detalhe-proxmox-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
+                    </div>
+                    <p><strong>Ovpn HT:</strong> <span id="detalhe-proxmox-ovpn">N/D</span></p>
+                    <p><strong>Ip da rede:</strong> <span id="detalhe-proxmox-ip-rede">N/D</span></p>
+                    <p><strong>Porta SSH:</strong> <span id="detalhe-proxmox-porta-ssh">N/D</span></p>
+                    <p><strong>Porta Web:</strong> <span id="detalhe-proxmox-porta-web">N/D</span></p>
+                    <p><strong>User SSH:</strong> <span id="detalhe-proxmox-user-ssh">N/D</span></p>
+                    <p><strong>Senha SSH:</strong> <span id="detalhe-proxmox-senha-ssh">N/D</span></p>
+                    <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                    <p><strong>User Web:</strong> <span id="detalhe-proxmox-user-web">N/D</span></p>
+                    <p><strong>Senha Web:</strong> <span id="detalhe-proxmox-senha-web">N/D</span></p>
+                    </div>
+
+                 <div id="bloco-acesso-xtream" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header">
+                        <h3>ACESSO XTREAM CODES</h3>
+                         <a id="detalhe-xtream-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
+                    </div>
+                    <p><strong>Ovpn HT:</strong> <span id="detalhe-xtream-ovpn">N/D</span></p>
+                    <p><strong>Ip da rede:</strong> <span id="detalhe-xtream-ip-rede">N/D</span></p>
+                    <p><strong>Porta SSH:</strong> <span id="detalhe-xtream-porta-ssh">N/D</span></p>
+                    <p><strong>Porta Web:</strong> <span id="detalhe-xtream-porta-web">N/D</span></p>
+                    <p><strong>User SSH:</strong> <span id="detalhe-xtream-user-ssh">N/D</span></p>
+                    <p><strong>Senha SSH:</strong> <span id="detalhe-xtream-senha-ssh">N/D</span></p>
+                    <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                    <p><strong>User Web:</strong> <span id="detalhe-xtream-user-web">N/D</span></p>
+                    <p><strong>Senha Web:</strong> <span id="detalhe-xtream-senha-web">N/D</span></p>
+                     </div>
+
+                 <div id="bloco-acesso-apk" class="info-block-detalhes info-block-opcional">
+                    <div class="info-block-header">
+                        <h3>ACESSO SERVIDOR APK</h3>
+                         <a id="detalhe-apk-link-web" href="#" target="_blank" class="button acesso-web-button" style="display: none;">Acesso Web</a>
+                    </div>
+                    <p><strong>Ovpn HT:</strong> <span id="detalhe-apk-ovpn">N/D</span></p>
+                    <p><strong>Ip da rede:</strong> <span id="detalhe-apk-ip-rede">N/D</span></p>
+                    <p><strong>Porta SSH:</strong> <span id="detalhe-apk-porta-ssh">N/D</span></p>
+                     <p><strong>Porta Web:</strong> <span id="detalhe-apk-porta-web">N/D</span></p>
+                     <p><strong>User SSH:</strong> <span id="detalhe-apk-user-ssh">N/D</span></p>
+                    <p><strong>Senha SSH:</strong> <span id="detalhe-apk-senha-ssh">N/D</span></p>
+                    <hr style="border: 0; border-top: 1px dashed #ccc; margin: 10px 0;">
+                     <p><strong>User Web:</strong> <span id="detalhe-apk-user-web">N/D</span></p>
+                     <p><strong>Senha Web:</strong> <span id="detalhe-apk-senha-web">N/D</span></p>
+                     </div>
 
                 <div id="bloco-acesso-remoto-canal" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
@@ -188,8 +203,7 @@
                     <p><strong id="detalhe-remoto-canal-tipo">N/D</strong></p>
                     <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-canal-anydesk">N/D</span></p>
                     <p><strong>Senha:</strong> <span id="detalhe-remoto-canal-senha">N/D</span></p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
-                        alt="AnyDesk Logo">
+                    <p style="font-size: 0.85em; color: #555;"><i><span id="detalhe-remoto-canal-nota"></span></i></p> <img class="info-block-logo" src="assets/logo-servicos/servico_anydesk.png" alt="AnyDesk Logo">
                 </div>
 
                 <div id="bloco-acesso-remoto-integracao" class="info-block-detalhes info-block-opcional">
@@ -199,25 +213,22 @@
                     <p><strong id="detalhe-remoto-integracao-tipo">N/D</strong></p>
                     <p><strong>AnyDesk:</strong> <span id="detalhe-remoto-integracao-anydesk">N/D</span></p>
                     <p><strong>Senha:</strong> <span id="detalhe-remoto-integracao-senha">N/D</span></p>
-                    <img class="mikrotik-logo-detalhes" src="assets/logo-servicos/servico_anydesk.png"
-                        alt="AnyDesk Logo">
+                     <p style="font-size: 0.85em; color: #555;"><i><span id="detalhe-remoto-integracao-nota"></span></i></p> <img class="info-block-logo" src="assets/logo-servicos/servico_anydesk.png" alt="AnyDesk Logo">
                 </div>
-
 
                 <div id="bloco-info-adm" class="info-block-detalhes info-block-opcional">
                     <div class="info-block-header">
                         <h3>INFORMAÇÕES ADM</h3>
                     </div>
                     <p><strong>Contato Adm:</strong> <span id="detalhe-adm-contato">N/D</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
+                     <p style="font-size: 0.85em; color: #555;"><i><span id="detalhe-adm-nota"></span></i></p> </div>
 
-    <div id="error-message" style="display: none; padding: 40px; text-align: center; color: white;">
+            </div> </div> </div> <div id="error-message" style="display: none; padding: 40px; text-align: center; color: white;">
         <h1>Hotel Não Encontrado</h1>
-        <p>...</p> <a href="index.html" class="button voltar-button icon-button" title="Voltar"> <img
-                src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon"> </a>
+        <p>...</p>
+        <a href="index.html" class="button voltar-button icon-button" title="Voltar">
+             <img src="assets/arquivos-png/voltar.png" alt="Voltar" class="button-icon">
+        </a>
     </div>
 
     <script src="database.js"></script>
@@ -225,17 +236,25 @@
         // ==========================================
         // === Script Página de Detalhes do Hotel ===
         // ==========================================
-        const OPENWEATHER_API_KEY = "ad364797eba81bb1efc12a28d7282829"; // Chave API do usuário
+        const OPENWEATHER_API_KEY = "ad364797eba81bb1efc12a28d7282829"; // Chave API
 
         // --- Função Principal ---
         function renderHotelDetails(hotelId) {
-            // ... (código inicial da função) ...
+            // Exemplo de comentário JS de linha única
             if (typeof hotelDatabase === 'undefined') { console.error("Erro: hotelDatabase não foi carregado."); displayError("Erro ao carregar dados."); return; }
+
             const hotelData = hotelDatabase[hotelId];
             const contentDiv = document.getElementById('hotel-details-content');
             const errorDiv = document.getElementById('error-message');
-            contentDiv.style.display = 'none'; errorDiv.style.display = 'none';
-            document.querySelectorAll('.info-block-opcional').forEach(block => { block.style.display = 'none'; block.classList.remove('modo-mensagem'); });
+
+            contentDiv.style.display = 'none'; // Esconde conteúdo principal inicialmente
+            errorDiv.style.display = 'none';   // Esconde mensagem de erro
+
+            // Garante que todos os blocos opcionais comecem escondidos
+            document.querySelectorAll('.info-block-opcional').forEach(block => {
+                 block.style.display = 'none';
+                 block.classList.remove('modo-mensagem'); // Reseta modo mensagem
+            });
 
             if (hotelData) {
                 document.title = `Detalhes - ${hotelData.nome || hotelId}`;
@@ -246,64 +265,115 @@
                 setLinkHrefAndVisibility('detalhe-whatsapp-link', hotelData.linkWhatsAppGrupo);
                 setLinkHrefAndVisibility('detalhe-backup-link', hotelData.backupLink);
 
-                // Renderiza blocos opcionais
+                /*
+                   Exemplo de comentário JS de múltiplas linhas:
+                   A função renderOptionalBlock verifica se o bloco de dados existe
+                   no database e se o elemento HTML correspondente existe na página.
+                   Se ambos existirem, chama a função de renderização específica.
+                */
                 renderOptionalBlock('bloco-acesso-rb', hotelData.acessoRB, renderRBDetails);
                 renderOptionalBlock('bloco-acesso-flussonic', hotelData.acessoFlussonic, renderFlussonicDetails);
-                renderOptionalBlock('bloco-acesso-procentric', hotelData.acessoProcentric, renderProcentricDetails); // <-- NOVO Bloco
+                renderOptionalBlock('bloco-acesso-procentric', hotelData.acessoProcentric, renderProcentricDetails);
                 renderOptionalBlock('bloco-acesso-ird', hotelData.acessoIRD, renderIRDDetails);
-                renderOptionalBlock('bloco-acesso-remoto-canal', hotelData.acessoRemotoCanal, renderRemotoCanalDetails); // <-- Bloco RENOMEADO/NOVO
-                renderOptionalBlock('bloco-acesso-remoto-integracao', hotelData.acessoRemotoIntegracao, renderRemotoIntegracaoDetails); // <-- NOVO Bloco
+
+                // --- NOVAS CHAMADAS PARA NOVOS BLOCOS ---
+                renderOptionalBlock('bloco-acesso-proxmox', hotelData.acessoProxmox, renderProxmoxDetails);
+                renderOptionalBlock('bloco-acesso-xtream', hotelData.acessoXtreamCodes, renderXtreamDetails);
+                renderOptionalBlock('bloco-acesso-apk', hotelData.acessoServidorApk, renderApkDetails);
+                // --- FIM NOVAS CHAMADAS ---
+
+                renderOptionalBlock('bloco-acesso-remoto-canal', hotelData.acessoRemotoCanal, renderRemotoCanalDetails);
+                renderOptionalBlock('bloco-acesso-remoto-integracao', hotelData.acessoRemotoIntegracao, renderRemotoIntegracaoDetails);
                 renderOptionalBlock('bloco-info-adm', hotelData.infoAdm, renderAdmDetails);
 
                 // Clima
                 if (OPENWEATHER_API_KEY && OPENWEATHER_API_KEY !== "SUA_CHAVE_API_AQUI" && hotelData.cidade) {
-                    showBlock('detalhe-clima'); setTextContent('clima-cidade', hotelData.cidade);
+                    showBlock('detalhe-clima');
+                    setTextContent('clima-cidade', hotelData.cidade);
                     buscarClima(hotelData.cidade, hotelData.estado, hotelData.pais, OPENWEATHER_API_KEY);
                 } else {
                     console.warn("Clima não carregado: API Key ou localização ausente.");
                     const blocoClima = document.getElementById('detalhe-clima');
-                    if (blocoClima) { blocoClima.innerHTML = '<h3>Clima Atual</h3><p><i>Informação indisponível.</i></p>'; showBlock('detalhe-clima'); }
+                    if (blocoClima) {
+                        blocoClima.innerHTML = '<h3>Clima Atual</h3><p><i>Informação indisponível.</i></p>';
+                        showBlock('detalhe-clima'); // Mostra o bloco mesmo com erro
+                    }
                 }
-                contentDiv.style.display = 'block';
-            } else { displayError(`Hotel com ID "${hotelId}" não encontrado.`); }
+
+                contentDiv.style.display = 'block'; // Mostra o conteúdo após preencher
+            } else {
+                displayError(`Hotel com ID "${hotelId}" não encontrado.`);
+            }
         }
 
         // --- Funções Auxiliares de Renderização de Blocos ---
-        function renderOptionalBlock(blockId, data, renderFunction) { const blockElement = document.getElementById(blockId); if (blockElement && data) { renderFunction(blockElement, data); showBlock(blockId); } }
+        function renderOptionalBlock(blockId, data, renderFunction) {
+             const blockElement = document.getElementById(blockId);
+             // Verifica se o elemento HTML existe E se os dados existem no database
+             if (blockElement && data) {
+                 renderFunction(blockElement, data); // Chama a função específica para preencher
+                 showBlock(blockId); // Mostra o bloco
+             } else if (blockElement) {
+                 blockElement.style.display = 'none'; // Garante que fique escondido se não houver dados
+             }
+        }
+
         function renderImages(containerId, imagens, nomeHotel) { const container = document.getElementById(containerId); if (container) { container.innerHTML = ''; if (imagens && imagens.length > 0) { imagens.forEach(imgPath => { const img = document.createElement('img'); img.src = imgPath; img.alt = `Logo ${nomeHotel}`; img.onerror = () => { img.style.display = 'none'; }; container.appendChild(img); }); } else { container.innerHTML = '<p>Sem imagem.</p>'; } } }
         function renderContactInfo(containerId, info) { const container = document.getElementById(containerId); if (container) { container.innerHTML = ''; if (info && info.length > 0) { info.forEach(item => { const p = document.createElement('p'); p.classList.add('contato-item'); p.innerHTML = `<strong>${item.titulo}:</strong> ${item.valor || 'N/D'}`; container.appendChild(p); }); } else { container.innerHTML = '<p>Informações de contato não disponíveis.</p>'; } } }
-        function renderRBDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-rb-ovpn', data.ovpn); setTextContent('detalhe-rb-ip', data.ipLocal); setTextContent('detalhe-rb-user', data.user); setTextContent('detalhe-rb-senha', data.senha); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-rb-mensagem', data); } }
-        function renderFlussonicDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-flussonic-ovpn', data.ovpn); setTextContent('detalhe-flussonic-ip-rede', data.ipRede); setTextContent('detalhe-flussonic-porta-ssh', data.portaSSH); setTextContent('detalhe-flussonic-porta-web', data.portaWeb); setTextContent('detalhe-flussonic-user-ssh', data.userSSH); setTextContent('detalhe-flussonic-senha-ssh', data.senhaSSH); setTextContent('detalhe-flussonic-user-web', data.userWeb); setTextContent('detalhe-flussonic-senha-web', data.senhaWeb); setLinkHrefAndVisibility('detalhe-flussonic-link-web', data.linkWeb); }
+
+        function renderRBDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-rb-ovpn', data.ovpn); setTextContent('detalhe-rb-ip', data.ipLocal); setTextContent('detalhe-rb-user', data.user); setTextContent('detalhe-rb-senha', data.senha); setTextContent('detalhe-rb-nota', data.nota); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-rb-mensagem', data); } }
+        function renderFlussonicDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-flussonic-ovpn', data.ovpn); setTextContent('detalhe-flussonic-ip-rede', data.ipRede); setTextContent('detalhe-flussonic-porta-ssh', data.portaSSH); setTextContent('detalhe-flussonic-porta-web', data.portaWeb); setTextContent('detalhe-flussonic-user-ssh', data.userSSH); setTextContent('detalhe-flussonic-senha-ssh', data.senhaSSH); setTextContent('detalhe-flussonic-user-web', data.userWeb); setTextContent('detalhe-flussonic-senha-web', data.senhaWeb); setTextContent('detalhe-flussonic-nota', data.nota); setLinkHrefAndVisibility('detalhe-flussonic-link-web', data.linkWeb); }
+        function renderProcentricDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-procentric-ip-rede', data.ipRede); setTextContent('detalhe-procentric-porta-ssh', data.portaSSH); setTextContent('detalhe-procentric-user-ssh', data.userSSH); setTextContent('detalhe-procentric-senha-ssh', data.senhaSSH); setTextContent('detalhe-procentric-user-web', data.userWeb); setTextContent('detalhe-procentric-senha-web', data.senhaWeb); setTextContent('detalhe-procentric-nota', data.nota); setLinkHrefAndVisibility('detalhe-procentric-link-web', data.linkWeb); }
         function renderIRDDetails(blockElement, data) { if (typeof data === 'object') { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-ird-ovpn', data.ovpn); setTextContent('detalhe-ird-ip-rede', data.ipRede); setTextContent('detalhe-ird-user', data.user); setTextContent('detalhe-ird-senha', data.senha); setLinkHrefAndVisibility('detalhe-ird-link-web', data.linkWeb); } else if (typeof data === 'string') { blockElement.classList.add('modo-mensagem'); setTextContent('detalhe-ird-mensagem', data); } }
-        function renderAdmDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-adm-contato', data.contato); }
+        function renderRemotoCanalDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-remoto-canal-tipo', data.tipo); setTextContent('detalhe-remoto-canal-anydesk', data.anydesk); setTextContent('detalhe-remoto-canal-senha', data.senha); setTextContent('detalhe-remoto-canal-nota', data.nota); }
+        function renderRemotoIntegracaoDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-remoto-integracao-tipo', data.tipo); setTextContent('detalhe-remoto-integracao-anydesk', data.anydesk); setTextContent('detalhe-remoto-integracao-senha', data.senha); setTextContent('detalhe-remoto-integracao-nota', data.nota); }
+        function renderAdmDetails(blockElement, data) { blockElement.classList.remove('modo-mensagem'); setTextContent('detalhe-adm-contato', data.contato); setTextContent('detalhe-adm-nota', data.nota); }
 
-        // --- NOVAS Funções ---
-        function renderProcentricDetails(blockElement, data) {
-            blockElement.classList.remove('modo-mensagem'); // Assume Procentric sempre tem campos padrão
-            setTextContent('detalhe-procentric-ip-rede', data.ipRede);
-            setTextContent('detalhe-procentric-porta-ssh', data.portaSSH);
-            setTextContent('detalhe-procentric-user-ssh', data.userSSH);
-            setTextContent('detalhe-procentric-senha-ssh', data.senhaSSH);
-            setTextContent('detalhe-procentric-user-web', data.userWeb);
-            setTextContent('detalhe-procentric-senha-web', data.senhaWeb);
-            setTextContent('detalhe-procentric-nota', data.nota);
-            setLinkHrefAndVisibility('detalhe-procentric-link-web', data.linkWeb);
+        // --- NOVAS FUNÇÕES DE RENDERIZAÇÃO ---
+        function renderProxmoxDetails(blockElement, data) {
+             blockElement.classList.remove('modo-mensagem'); // Assume Proxmox não usa modo mensagem
+             setTextContent('detalhe-proxmox-ovpn', data.ovpn);
+             setTextContent('detalhe-proxmox-ip-rede', data.ipRede);
+             setTextContent('detalhe-proxmox-porta-ssh', data.portaSSH);
+             setTextContent('detalhe-proxmox-porta-web', data.portaWeb);
+             setTextContent('detalhe-proxmox-user-ssh', data.userSSH);
+             setTextContent('detalhe-proxmox-senha-ssh', data.senhaSSH);
+             setTextContent('detalhe-proxmox-user-web', data.userWeb);
+             setTextContent('detalhe-proxmox-senha-web', data.senhaWeb);
+             setLinkHrefAndVisibility('detalhe-proxmox-link-web', data.linkWeb);
+             // Adicionar lógica para exibir logo se data.logoPath for preenchido
+             // const logoElement = document.getElementById('proxmox-logo');
+             // if (logoElement && data.logoPath) { logoElement.src = data.logoPath; logoElement.style.display = 'block'; }
         }
 
-        function renderRemotoCanalDetails(blockElement, data) { // Renomeada de renderRemotoDetails
-            blockElement.classList.remove('modo-mensagem');
-            setTextContent('detalhe-remoto-canal-tipo', data.tipo); // ID Alterado
-            setTextContent('detalhe-remoto-canal-anydesk', data.anydesk); // ID Alterado
-            setTextContent('detalhe-remoto-canal-senha', data.senha); // ID Alterado
+        function renderXtreamDetails(blockElement, data) {
+             blockElement.classList.remove('modo-mensagem');
+             setTextContent('detalhe-xtream-ovpn', data.ovpn);
+             setTextContent('detalhe-xtream-ip-rede', data.ipRede);
+             setTextContent('detalhe-xtream-porta-ssh', data.portaSSH);
+             setTextContent('detalhe-xtream-porta-web', data.portaWeb);
+             setTextContent('detalhe-xtream-user-ssh', data.userSSH);
+             setTextContent('detalhe-xtream-senha-ssh', data.senhaSSH);
+             setTextContent('detalhe-xtream-user-web', data.userWeb);
+             setTextContent('detalhe-xtream-senha-web', data.senhaWeb);
+             setLinkHrefAndVisibility('detalhe-xtream-link-web', data.linkWeb);
+             // Adicionar lógica para exibir logo se data.logoPath for preenchido
         }
 
-        function renderRemotoIntegracaoDetails(blockElement, data) { // Nova função
-            blockElement.classList.remove('modo-mensagem');
-            setTextContent('detalhe-remoto-integracao-tipo', data.tipo); // ID Novo
-            setTextContent('detalhe-remoto-integracao-anydesk', data.anydesk); // ID Novo
-            setTextContent('detalhe-remoto-integracao-senha', data.senha); // ID Novo
+        function renderApkDetails(blockElement, data) {
+             blockElement.classList.remove('modo-mensagem');
+             setTextContent('detalhe-apk-ovpn', data.ovpn);
+             setTextContent('detalhe-apk-ip-rede', data.ipRede);
+             setTextContent('detalhe-apk-porta-ssh', data.portaSSH);
+             setTextContent('detalhe-apk-porta-web', data.portaWeb);
+             setTextContent('detalhe-apk-user-ssh', data.userSSH);
+             setTextContent('detalhe-apk-senha-ssh', data.senhaSSH);
+             setTextContent('detalhe-apk-user-web', data.userWeb);
+             setTextContent('detalhe-apk-senha-web', data.senhaWeb);
+             setLinkHrefAndVisibility('detalhe-apk-link-web', data.linkWeb);
+             // Adicionar lógica para exibir logo se data.logoPath for preenchido
         }
-        // --- Fim Novas Funções ---
+        // --- FIM NOVAS FUNÇÕES ---
 
         // --- Funções de Clima ---
         async function buscarClima(cidade, estado, pais, apiKey) { if (!cidade) return; const localizacaoQuery = `${cidade}${estado ? ',' + estado : ''}${pais ? ',' + pais : ''}`; const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(localizacaoQuery)}&appid=${apiKey}&units=metric&lang=pt_br`; try { const response = await fetch(url); if (!response.ok) { const errorData = await response.json().catch(() => ({ message: response.statusText })); throw new Error(`Erro ${response.status}: ${errorData.message || 'Falha ao buscar clima'}`); } const data = await response.json(); atualizarDOMClima(data); } catch (error) { console.error("Erro ao buscar dados de clima:", error); const blocoClima = document.getElementById('detalhe-clima'); if (blocoClima) { const cidadeNome = document.getElementById('clima-cidade')?.textContent || cidade; blocoClima.innerHTML = `<h3>Clima Atual (${cidadeNome})</h3><p><i style='color: red;'>Erro ao carregar clima: ${error.message}</i></p>`; showBlock('detalhe-clima'); } } }
@@ -316,10 +386,18 @@
         function displayError(message) { const errorDiv = document.getElementById('error-message'); const contentDiv = document.getElementById('hotel-details-content'); if (contentDiv) contentDiv.style.display = 'none'; if (errorDiv) { const p = errorDiv.querySelector('p'); if (p) { p.textContent = message || "Ocorreu um erro."; } errorDiv.style.display = 'block'; } document.title = "Erro - Hotel Não Encontrado"; }
 
         // --- Lógica Principal ---
-        window.addEventListener('DOMContentLoaded', () => { const urlParams = new URLSearchParams(window.location.search); const hotelId = urlParams.get('hotel'); if (!hotelId) { displayError("ID do hotel não especificado na URL."); console.error("ID do hotel não encontrado na URL (parâmetro 'hotel')."); } else { renderHotelDetails(hotelId); } });
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hotelId = urlParams.get('hotel');
+            if (!hotelId) {
+                displayError("ID do hotel não especificado na URL.");
+                console.error("ID do hotel não encontrado na URL (parâmetro 'hotel').");
+            } else {
+                renderHotelDetails(hotelId);
+            }
+        });
 
     </script>
 
 </body>
-
 </html>

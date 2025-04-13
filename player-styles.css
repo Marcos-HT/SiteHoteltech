@@ -280,6 +280,7 @@ input[type="range"]::-moz-range-thumb {
     display: flex;
     align-items: center;
     gap: 8px;
+    /* Espaço entre logo e texto */
     padding: 6px 8px;
     cursor: pointer;
     border-bottom: 1px solid #081924;
@@ -304,40 +305,40 @@ input[type="range"]::-moz-range-thumb {
     border-bottom-color: #081924;
 }
 
-/* Estilos para o Logo do Canal (AJUSTADO para diminuir tamanho) */
+/* Estilos para o Logo do Canal (AJUSTADO para largura fixa) */
 .channel-logo {
+    width: 40px;
+    /* <<< LARGURA FIXA (Ajuste conforme necessário) */
     height: 20px;
-    /* <<< ALTURA FIXA (AJUSTE SE NECESSÁRIO) */
-    width: auto;
-    /* Largura ajustará para manter a proporção */
-    max-width: 40px;
-    /* Opcional: Limita a largura de logos muito largos */
+    /* Altura fixa (ou max-height) */
     object-fit: contain;
     /* Garante que a imagem caiba sem distorcer */
     flex-shrink: 0;
     /* Impede que o logo encolha */
-    vertical-align: middle;
-    /* Ajuda no alinhamento vertical */
 }
 
-/* Estilos para o Placeholder (caso não haja logo) */
+/* Estilos para o Placeholder (caso não haja logo) (AJUSTADO) */
 .channel-logo-placeholder {
     display: inline-block;
-    width: 32px;
-    /* Tenta manter o mesmo espaço horizontal do logo */
+    /* Garante que ocupe espaço */
+    width: 40px;
+    /* <<< MESMA LARGURA FIXA do .channel-logo */
     height: 20px;
-    /* Mesma altura do logo */
+    /* Mesma altura */
     flex-shrink: 0;
+    /* Impede que encolha */
 }
 
 /* Estilos para o Texto do Nome do Canal */
 .channel-name-text {
     flex-grow: 1;
+    /* Ocupa espaço restante */
     font-size: 0.9em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: inherit;
+    /* Herda cor do pai (.channel-item) */
     transition: color 0.2s ease;
 }
 
@@ -345,10 +346,12 @@ input[type="range"]::-moz-range-thumb {
 .channel-item:hover .channel-name-text,
 .channel-item.active .channel-name-text {
     color: #22d4fd;
+    /* Cor azul clara no hover/ativo */
 }
 
 .channel-item.active .channel-name-text {
     font-weight: bold;
+    /* Negrito no ativo */
 }
 
 

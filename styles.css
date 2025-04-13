@@ -111,8 +111,7 @@ body {
 
 /* Estilo unificado para search inputs (hotel e canal) */
 #searchInput,
-#channelSearchInput {
-    /* Adicionado #channelSearchInput aqui para consistência se precisar */
+#channelSearchInput { /* Adicionado #channelSearchInput aqui para consistência se precisar */
     padding: 10px 10px 10px 35px;
     border: 2px solid #22d4fd;
     border-radius: 5px;
@@ -612,13 +611,12 @@ body {
     .nav-link {
         font-size: 0.9em;
     }
-
     /* Estilos do player foram movidos para player-styles.css */
 }
 
 @media (max-width: 600px) {
     /* body { */
-    /* Removido padding: 10px; para evitar duplo padding se aplicado em outro lugar */
+         /* Removido padding: 10px; para evitar duplo padding se aplicado em outro lugar */
     /* } */
 
     .main-page-content {
@@ -686,8 +684,8 @@ body {
         gap: 15px;
         padding: 15px;
         margin-top: 30px;
-        margin-left: 10px;
-        margin-right: 10px;
+         margin-left: 10px;
+         margin-right: 10px;
     }
 
     .footer-logo-main {
@@ -704,8 +702,7 @@ body {
         width: 100%;
         gap: 15px 20px;
     }
-
-    /* Estilos do player foram movidos para player-styles.css */
+     /* Estilos do player foram movidos para player-styles.css */
 }
 
 @media (max-width: 480px) {
@@ -742,7 +739,6 @@ body {
         height: 1em;
         /* Ainda menor em telas pequenas? */
     }
-
     /* Estilos do player foram movidos para player-styles.css */
 }
 
@@ -764,16 +760,12 @@ body {
     position: absolute;
     top: 100%;
     /* Ajustado para posicionar corretamente abaixo do toggle */
-    right: 0;
-    /* Alinha à direita do item pai */
-    left: auto;
-    /* Sobrescreve o left anterior */
+    right: 0; /* Alinha à direita do item pai */
+    left: auto; /* Sobrescreve o left anterior */
     background-color: var(--color-bg-block);
-    min-width: 160px;
-    /* Aumentado um pouco */
+    min-width: 160px; /* Aumentado um pouco */
     border: 1px solid var(--color-border-block);
-    border-radius: 5px;
-    /* Bordas arredondadas em todos os cantos */
+    border-radius: 5px; /* Bordas arredondadas em todos os cantos */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 10;
     padding: 5px 0;
@@ -795,15 +787,12 @@ body {
     /* border: 1px solid transparent; Removido */
     /* box-sizing: border-box; */
     transition: background-color 0.2s ease, color 0.2s ease;
-    cursor: pointer;
-    /* Adicionado cursor pointer */
+    cursor: pointer; /* Adicionado cursor pointer */
 }
 
 .dropdown-item:hover {
-    background-color: #eee;
-    /* Fundo cinza claro no hover */
-    color: var(--color-primary);
-    /* Texto primário no hover */
+    background-color: #eee; /* Fundo cinza claro no hover */
+    color: var(--color-primary); /* Texto primário no hover */
 }
 
 /* ================================= */
