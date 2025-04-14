@@ -625,8 +625,8 @@
                 if (ovpnButton) {
                     // Lógica para definir o link: Prioriza Flussonic, depois IRD
                     let targetLink = null;
-                    if (hotelData.acessoFlussonic && hotelData.acessoFlussonic.linkWeb) {
-                        targetLink = hotelData.acessoFlussonic.linkWeb;
+                    if (Array.isArray(hotelData.acessoFlussonic) && hotelData.acessoFlussonic.length > 0 && hotelData.acessoFlussonic[0]?.linkWeb) {
+                        targetLink = hotelData.acessoFlussonic[0].linkWeb;
                     } else if (hotelData.acessoIRD && hotelData.acessoIRD.linkWeb) {
                         targetLink = hotelData.acessoIRD.linkWeb;
                     }
